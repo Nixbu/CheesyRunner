@@ -6,3 +6,8 @@ GameObject::GameObject(sf::Vector2f position,
 	m_sprite.setPosition(position);
 	m_sprite.setTexture(*texture);
 }
+
+const sf::Sprite* GameObject::getSprite() const
+{
+	return &m_sprite;
+}
