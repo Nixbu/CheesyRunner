@@ -7,6 +7,6 @@ public:
 	using StaticObject::StaticObject;
 	~Cheese() = default;
 
-	void draw(sf::RenderWindow * window);
+	void draw(sf::RenderWindow * window) override;
 private:
 };
