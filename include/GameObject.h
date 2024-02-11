@@ -9,6 +9,6 @@ public:
 	virtual ~GameObject() = default;
 
 	virtual void draw() = 0;
-private:
+public:
 	sf::Sprite m_sprite;
 };
