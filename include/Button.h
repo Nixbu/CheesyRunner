@@ -4,7 +4,7 @@
 
 
 
-const int BUTTON_SCALE = 2; 
+const float BUTTON_SCALE = 2.0; 
 
 
 class Button: public GameObject {
