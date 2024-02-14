@@ -1,3 +1,3 @@
 #pragma once
 
-enum Gift_t = { freeze , killCat , addTime  };
+enum Gift_t  { freeze , killCat , addTime  };
