@@ -9,6 +9,7 @@ public:
 	virtual ~Gift() = default;
 
 	virtual void draw(sf::RenderWindow* window) override;
+	virtual void action() = 0;
 	
 private:
 	enum Gift_t m_type;
