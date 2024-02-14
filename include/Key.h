@@ -9,4 +9,5 @@ public:
 
 	virtual void draw(sf::RenderWindow* window) override;
 private:
+
 };
