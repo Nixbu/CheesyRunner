@@ -10,7 +10,9 @@ public:
 	
 	const sf::Sprite* getSprite() const;
 
-	virtual void draw() = 0;	
+	virtual void draw(sf::RenderWindow * window) = 0;
+
+	
 private:
 	sf::Sprite m_sprite;
 };
