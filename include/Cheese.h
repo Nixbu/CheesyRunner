@@ -5,8 +5,8 @@
 class Cheese : public StaticObject {
 public:
 	using StaticObject::StaticObject;
-	~Cheese() = default;
+	virtual ~Cheese() = default;
 
-	void draw(sf::RenderWindow * window) override;
+	virtual void draw(sf::RenderWindow * window) override;
 private:
 };

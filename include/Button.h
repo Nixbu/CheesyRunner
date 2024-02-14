@@ -14,6 +14,4 @@ public:
 	bool isClicked(sf::Vector2f mousePosition) const;
 	virtual ~Button() = default;
 private:
-
-
 };
