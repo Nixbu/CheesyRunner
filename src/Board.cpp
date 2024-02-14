@@ -66,3 +66,8 @@ Board::Board(std::ifstream levelFile , Mouse * mouse ,
 
 	levelFile.clear();
 }
+
+void Board::removeObject(int index)
+{
+	m_gameObjects.erase(m_gameObjects.begin() + index);
+}
