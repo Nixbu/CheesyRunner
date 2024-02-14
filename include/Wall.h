@@ -7,6 +7,6 @@ public:
 	using StaticObject::StaticObject;
 	~Wall() = default;
 
-	void draw(sf::RenderWindow* window) override;
+	void draw(sf::RenderWindow* window) const  override;
 private:
 };

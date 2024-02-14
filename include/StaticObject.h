@@ -8,6 +8,5 @@ public:
 	using GameObject::GameObject;
 	virtual ~StaticObject() = default;
 
-	virtual void draw(sf::RenderWindow* window) = 0;
 private:
 };

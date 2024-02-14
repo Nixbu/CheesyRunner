@@ -5,7 +5,7 @@ Gift::Gift(sf::Vector2f position, sf::Texture* texture, Gift_t giftType) :
 {
 }
 
-void Gift::draw(sf::RenderWindow* window)
+void Gift::draw(sf::RenderWindow* window) const
 {
 	window->draw(*this->getSprite());
 }

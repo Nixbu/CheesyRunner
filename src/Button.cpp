@@ -3,10 +3,16 @@
 Button::Button(sf::Vector2f position, sf::Texture* texture) :
 	GameObject( position , texture)
 {
-	/*this->getSprite()-> */
+	// optional
+	this->scale(BUTTON_SCALE);
 }
-
+//===================================================================
 bool Button::isClicked(sf::Vector2f mousePosition) const
 {
-	return false; // TODO
+	return this->getSprite()->getGlobalBounds().contains(mousePosition);
+}
+//===================================================================
+void Button::draw(sf::RenderWindow* window) const
+{
+	window->draw(*this->getSprite());
 }

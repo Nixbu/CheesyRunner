@@ -9,8 +9,10 @@ public:
 	virtual ~GameObject() = default;
 	
 	const sf::Sprite* getSprite() const;
+	void scale(const sf::Vector2f &values);
+	void setPos(const sf::Vector2f &newPos);
 
-	virtual void draw(sf::RenderWindow * window) = 0;
+	virtual void draw(sf::RenderWindow * window) const = 0;
 
 	
 private:

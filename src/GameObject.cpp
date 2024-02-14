@@ -11,3 +11,13 @@ const sf::Sprite* GameObject::getSprite() const
 {
 	return &m_sprite;
 }
+
+void GameObject::scale(const sf::Vector2f &values)
+{
+	this->m_sprite.setScale(values);
+}
+
+void GameObject::setPos(const sf::Vector2f &newPos)
+{
+	this->m_sprite.setPosition(newPos);
+}

@@ -7,8 +7,9 @@ public:
 	using StaticObject::StaticObject;
 	virtual ~Key() = default;
 
-	virtual void draw(sf::RenderWindow* window) override;
+	virtual void draw(sf::RenderWindow* window) const override;
 private:
 
 };
+
 
