@@ -27,13 +27,13 @@ TextureManager::TextureManager()
     load(currentTexture, "door.png");
     m_textures.push_back(currentTexture);
 
-    load(currentTexture, "playButton.png");
+    load(currentTexture, "playbutton.png");
     m_textures.push_back(currentTexture);
 
-    load(currentTexture, "exitButton.png");
+    load(currentTexture, "quitbutton.png");
     m_textures.push_back(currentTexture);
 
-    load(currentTexture, "helpButton.png");
+    load(currentTexture, "helpbutton.png");
     m_textures.push_back(currentTexture);
 
 }
