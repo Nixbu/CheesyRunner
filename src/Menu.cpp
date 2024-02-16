@@ -24,3 +24,35 @@ Button * Menu::getButton(Button_t btn) const
 	return m_buttons[btn];
 }
 
+void Menu::draw(sf::RenderWindow* window) const
+{
+	for (int btn = 0; btn < m_buttons.size(); btn++)
+	{
+		m_buttons[btn]->draw(window);
+	}
+
+}
+
+// Polymorphism
+void Menu::handleClicks(sf::Vector2f mousePos, sf::RenderWindow * window)
+{
+	for (int btn = 0; btn < this->m_buttons.size(); btn++)
+	{
+		if (this->m_buttons[btn]->isClicked(mousePos))
+		{
+			this->m_buttons[btn]->action(window);
+		}
+	}
+}
+
+void Menu::handleFloating(sf::Vector2f mousePos)
+{
+	for (int btn = 0; btn < this->m_buttons.size(); btn++)
+	{
+		if (this->m_buttons[btn]->getSprite()->getGlobalBounds().contains(mousePos))
+		{
+			this->m_buttons[btn].resize();
+		}
+	}
+}
+

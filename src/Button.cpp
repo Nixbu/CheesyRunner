@@ -25,6 +25,12 @@ void Button::draw(sf::RenderWindow* window) const
 	window->draw(*this->getSprite());
 }
 
+void Button::resize(sf::Vector2f wanted_size)
+{
+	this->scale(wanted_size.x / (*this->getSprite()).getGlobalBounds().width,
+		wanted_size.y / this->getSprite()->getGlobalBounds().height);
+}
+
 //===================================================================
 void Button::scale(const sf::Vector2f& values)
 {

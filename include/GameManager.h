@@ -9,6 +9,7 @@ class GameManager {
 public:
 	GameManager();
 	virtual ~GameManager() = default;
+	void run();
 
 private:
 	TextureManager m_textures;

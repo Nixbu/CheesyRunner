@@ -1,8 +1,7 @@
 #pragma once
 
-#include "GameObject.h"
 #include "Settings.h"
-#include "Game.h"
+#include <SFML/Graphics.hpp>
 
 class Button {
 
@@ -15,7 +14,8 @@ public:
 	void setPos(const sf::Vector2f& newPos);
 	bool isClicked(sf::Vector2f mousePosition) const;
 	virtual void draw(sf::RenderWindow* window) const;
-	virtual void action() = 0;
+	virtual void action(sf::RenderWindow* window) = 0;
+	void resize();
 
 private:
 	sf::Sprite m_sprite;
