@@ -6,6 +6,11 @@ Button::Button(sf::Vector2f position, sf::Texture* texture)
 {
 	m_sprite.setPosition(position);
 	m_sprite.setTexture(*texture);
+	m_sprite.setOrigin(sf::Vector2f(m_sprite.getLocalBounds().width / 2,
+		m_sprite.getLocalBounds().height / 2));
+	this->resize(BUTTON_DEFA_SIZE);
+	
+
 }
 
 //===================================================================

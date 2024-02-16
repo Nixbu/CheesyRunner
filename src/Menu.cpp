@@ -49,7 +49,7 @@ void Menu::handleFloating(sf::Vector2f mousePos)
 {
 	for (int btn = 0; btn < this->m_buttons.size(); btn++)
 	{
-		if (this->m_buttons[btn]->getSprite()->getGlobalBounds().contains(mousePos))
+		if ((this->m_buttons[btn]->getSprite()->getGlobalBounds()).contains(mousePos))
 		{
 			this->m_buttons[btn]->resize(BUTTON_FLOATED_SIZE);
 		}
