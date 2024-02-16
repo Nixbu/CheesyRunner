@@ -36,8 +36,8 @@ Board::Board(std::ifstream levelFile , Mouse * mouse ,
 							textures.getTexture(cheeseTexture)));
 				break;
 			case 'D':
-				m_gameObjects.push_back(std::make_unique<Door>(currLocation,
-					textures.getTexture(doorTexture)));;
+				m_obstacles.push_back(std::make_unique<Door>(currLocation,
+					textures.getTexture(doorTexture)));
 				break;
 			case 'F':
 				m_gameObjects.push_back(std::make_unique<Key>(currLocation,
@@ -48,7 +48,7 @@ Board::Board(std::ifstream levelFile , Mouse * mouse ,
 					textures.getTexture(giftTexture)));
 				break;
 			case '#':
-				m_gameObjects.push_back(std::make_unique<Wall>(currLocation,
+				m_obstacles.push_back(std::make_unique<Wall>(currLocation,
 					textures.getTexture(wallTexture)));
 				break;
 			default:

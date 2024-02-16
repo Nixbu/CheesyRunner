@@ -15,7 +15,7 @@ public:
 	void setPos(const sf::Vector2f& newPos);
 	bool isClicked(sf::Vector2f mousePosition) const;
 	virtual void draw(sf::RenderWindow* window) const;
-	virtual void action(Game& game);
+	virtual void action() = 0;
 
 private:
 	sf::Sprite m_sprite;

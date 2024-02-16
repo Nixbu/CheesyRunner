@@ -12,9 +12,15 @@ enum Texture_t {
 	keyTexture,
 	doorTexture,
 	bgTileTexture,
-	exitBtnTexture,
 	playBtnTexture,
+	exitBtnTexture,
 	helpBtnTexture
+};
+
+enum Button_t {
+	playBtn,
+	helpBtn,
+	exitBtn
 };
 
 const sf::Vector2f BUTTON_SCALE = { 1 ,1 } ;

@@ -28,6 +28,7 @@ public:
 	void removeObject(int index);
 private:
 	std::vector<std::unique_ptr<GameObject>> m_gameObjects;
+	std::vector<std::unique_ptr<GameObject>> m_obstacles;
 	std::vector<std::unique_ptr<BackgroundTile>> m_bgTiles;
 	float m_width,
 		m_length;

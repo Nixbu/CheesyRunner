@@ -4,14 +4,15 @@
 #include "Settings.h"
 #include <vector>
 #include <memory>
+#include "TextureManager.h"
 
 class Menu {
 public:
 	Menu(const TextureManager & textures);
-	~Menu() = default;
+	virtual ~Menu();
 
-	std::unique_ptr<Button> getButton() const;
+	Button * getButton(Button_t btn) const;
 
 private:
-	std::vector<std::unique_ptr<Button>> m_buttons;
+	std::vector<Button *> m_buttons;
 };
