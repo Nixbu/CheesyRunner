@@ -5,6 +5,9 @@
 #include <vector>
 #include <memory>
 #include "TextureManager.h"
+#include "PlayButton.h"
+#include "HelpButton.h"
+#include "ExitButton.h"
 
 class Menu {
 public:

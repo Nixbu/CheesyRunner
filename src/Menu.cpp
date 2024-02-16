@@ -4,7 +4,7 @@ Menu::Menu(const TextureManager& textures)
 {
 	
 	m_buttons.push_back(new PlayButton(PLAY_BTN_POS,
-		textures.getTexture(playBtnTexture));
+		textures.getTexture(playBtnTexture)));
 	m_buttons.push_back(new HelpButton(HELP_BTN_POS,
 		textures.getTexture(helpBtnTexture)));
 	m_buttons.push_back(new ExitButton(EXIT_BTN_POS,
@@ -51,7 +51,11 @@ void Menu::handleFloating(sf::Vector2f mousePos)
 	{
 		if (this->m_buttons[btn]->getSprite()->getGlobalBounds().contains(mousePos))
 		{
-			this->m_buttons[btn].resize();
+			this->m_buttons[btn]->resize(BUTTON_FLOATED_SIZE);
+		}
+		else
+		{
+			this->m_buttons[btn]->resize(BUTTON_DEFA_SIZE);
 		}
 	}
 }

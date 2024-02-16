@@ -3,5 +3,6 @@
 int main()
 {
 	GameManager manager;
+	manager.run();
 
 }

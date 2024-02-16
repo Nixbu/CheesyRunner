@@ -6,7 +6,7 @@ class ExitButton : public Button {
 public:
 	using Button::Button;
 
-	virtual void action() override;
+	virtual void action(sf::RenderWindow* window) override;
 
 private:
 };

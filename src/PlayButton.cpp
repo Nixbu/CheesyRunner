@@ -4,12 +4,10 @@
 // Play the game
 void PlayButton::action(sf::RenderWindow* window)
 {
-	*window.close();
-
 	Game game;
 	game.run();
 
-	*window.create(sf::VideoMode(WINDOW_MANAGER_WIDTH,
+	window->create(sf::VideoMode(WINDOW_MANAGER_WIDTH,
 		WINDOW_MANAGER_HEIGHT),
 		"Mouse And Cat");
 

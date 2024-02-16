@@ -7,6 +7,5 @@ public:
 	using StaticObject::StaticObject;
 	virtual ~Door() = default;
 
-	virtual void draw(sf::RenderWindow* window) const override;
 private:
 };

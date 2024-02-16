@@ -2,6 +2,7 @@
 
 //===================================================================
 Button::Button(sf::Vector2f position, sf::Texture* texture)
+	: m_sprite()
 {
 	m_sprite.setPosition(position);
 	m_sprite.setTexture(*texture);
@@ -10,7 +11,7 @@ Button::Button(sf::Vector2f position, sf::Texture* texture)
 //===================================================================
 const sf::Sprite* Button::getSprite() const
 {
-	return nullptr;
+	return &m_sprite;
 }
 
 //===================================================================
@@ -22,13 +23,14 @@ bool Button::isClicked(sf::Vector2f mousePosition) const
 //===================================================================
 void Button::draw(sf::RenderWindow* window) const
 {
-	window->draw(*this->getSprite());
+	window->draw(*getSprite());
 }
 
-void Button::resize(sf::Vector2f wanted_size)
+//===================================================================
+void Button::resize(sf::Vector2f wantedSize)
 {
-	this->scale(wanted_size.x / (*this->getSprite()).getGlobalBounds().width,
-		wanted_size.y / this->getSprite()->getGlobalBounds().height);
+	this->scale(sf::Vector2f(wantedSize.x / this->getSprite()->getGlobalBounds().width,
+		wantedSize.y / this->getSprite()->getGlobalBounds().height));
 }
 
 //===================================================================

@@ -15,7 +15,7 @@ public:
 	bool isClicked(sf::Vector2f mousePosition) const;
 	virtual void draw(sf::RenderWindow* window) const;
 	virtual void action(sf::RenderWindow* window) = 0;
-	void resize();
+	void resize(sf::Vector2f wantedSize);
 
 private:
 	sf::Sprite m_sprite;

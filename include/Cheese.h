@@ -6,7 +6,5 @@ class Cheese : public StaticObject {
 public:
 	using StaticObject::StaticObject;
 	virtual ~Cheese() = default;
-
-	virtual void draw(sf::RenderWindow * window) const override;
 private:
 };

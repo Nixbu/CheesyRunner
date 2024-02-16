@@ -43,10 +43,10 @@ Board::Board(std::ifstream levelFile , Mouse * mouse ,
 				m_gameObjects.push_back(std::make_unique<Key>(currLocation,
 					textures.getTexture(keyTexture)));
 				break;
-			case '$':
+			/*case '$':
 				m_gameObjects.push_back(std::make_unique<Gift>(currLocation,
 					textures.getTexture(giftTexture)));
-				break;
+				break;*/
 			case '#':
 				m_obstacles.push_back(std::make_unique<Wall>(currLocation,
 					textures.getTexture(wallTexture)));

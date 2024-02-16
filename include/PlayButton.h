@@ -7,6 +7,7 @@
 class PlayButton : public Button{
 public:
 	using Button::Button;
+	~PlayButton() = default;
 	
 	virtual void action(sf::RenderWindow* window) override;
 

@@ -4,7 +4,7 @@
 
 class Cat : public MovingObject {
 public:
-	Cat(sf::Vector2f pos, sf::Texture* texture);
+	using MovingObject::MovingObject;
 	~Cat() = default;
 	void move() override;
 	void draw(sf::RenderWindow* window) const override;
