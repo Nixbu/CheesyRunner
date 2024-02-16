@@ -3,6 +3,7 @@
 #include "TextureManager.h"
 #include <vector>
 #include "Button.h"
+#include "Menu.h"
 
 class GameManager {
 public:
@@ -10,6 +11,6 @@ public:
 	virtual ~GameManager() = default;
 
 private:
-	TextureMangager m_texturs;
-	Menu m_menu(const TextureManager & textures)
+	TextureManager m_textures;
+	Menu m_menu;
 };
