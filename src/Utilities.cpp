@@ -1,4 +1,4 @@
-#include "utilities.h"
+#include "Utilities.h"
 
 //====================================================================
 void checkFile(std::ifstream& file)

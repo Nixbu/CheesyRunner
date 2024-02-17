@@ -5,11 +5,13 @@ GameObject::GameObject(sf::Vector2f position,
 {
 	m_sprite.setPosition(position);
 	m_sprite.setTexture(*texture);
+	m_sprite.setOrigin(sf::Vector2f(m_sprite.getLocalBounds().width / 2,
+		m_sprite.getLocalBounds().height / 2));
 }
 
-const sf::Sprite* GameObject::getSprite() const
+sf::Sprite* GameObject::getSprite() const
 {
-	return &m_sprite;
+	return (sf::Sprite *) & m_sprite;
 }
 
 void GameObject::scale(const sf::Vector2f &values)

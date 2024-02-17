@@ -27,12 +27,25 @@ int Mouse::getKeys() const
 	return this->m_keys;
 }
 
-void Mouse::move()
+void Mouse::move(sf::Vector2f direction, sf::Time delta_time)
 {
-	
+	this->setDirection(direction);
+
+	this->getSprite()->move();
 }
 
 void Mouse::draw(sf::RenderWindow* window) const
 {
 	window->draw(*this->getSprite());
 }
+
+void Mouse::setDirection(sf::Vector2f direction)
+{
+	sf::Vector2f def = UP;
+
+	if (direction == UP && this->getDirection() != UP)
+	{
+		
+	}
+}
+

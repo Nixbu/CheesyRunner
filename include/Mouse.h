@@ -1,17 +1,17 @@
 #pragma once
 
 #include "MovingObject.h"
+#include "Settings.h"
 
 class Mouse :public MovingObject {
 public:
-	Mouse();
 	Mouse(sf::Vector2f pos, sf::Texture* texture);
 	~Mouse() = default;
 	void setKeys(int keys);
 	void setCheese(int cheese);
 	int getCheese() const;
 	int getKeys() const;
-	void move() override;
+	void move(sf::Vector2f direction, sf::Time delta_time);
 	void draw(sf::RenderWindow * window) const override;
 
 private:
@@ -19,5 +19,7 @@ private:
 		m_keys,
 		m_score,
 		m_numOfCheese;
+
+	void setDirection(sf::Vector2f direction)
 
 };

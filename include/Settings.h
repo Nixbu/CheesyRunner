@@ -36,3 +36,11 @@ HELP_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - BUTTON_DEFA_SIZE.x / 2,
 				WINDOW_MANAGER_HEIGHT / 2 },
 EXIT_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - BUTTON_DEFA_SIZE.x / 2,
 				WINDOW_MANAGER_HEIGHT / 2 + 200 };
+
+//Directions
+const sf::Vector2f 
+UP = { 0, -1 },
+DOWN = { 0, 1 },
+LEFT = { -1, 0 },
+RIGHT = { 1, 0 },
+STAND = { 0, 0 };

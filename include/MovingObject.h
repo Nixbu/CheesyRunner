@@ -9,7 +9,9 @@ public:
 
 	bool isCollided(GameObject& obj) const;
 	virtual void move() = 0;
+	sf::Vector2f getDirection() const;
 
 private:
-	sf::Vector2f m_initPos;
+	sf::Vector2f m_initPos,
+		m_direction;
 };

@@ -19,16 +19,45 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 
 		window->display();
 
-		for (auto event = sf::Event{}; window->pollEvent(event); )
-		{
-			switch (event.type)
-			{
-			case sf::Event::Closed:
+		this->handleEvents(window);
+		
 
-				window->close();
-				break;
-			}
+		this->handleKeys();
+		
+	}
+}
+
+void Level::handleEvents(sf::RenderWindow * window)
+{
+	for (auto event = sf::Event{}; window->pollEvent(event); )
+	{
+		switch (event.type)
+		{
+		case sf::Event::Closed:
+
+			window->close();
+			break;
 		}
+	}
+}
+
+void Level::handleKeys()
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		m_player->move(LEFT, delta_time);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) 
+	{
+		m_player->move(RIGHT, delta_time);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		m_player->move(UP, delta_time);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		m_player->move(DOWN, delta_time);
 	}
 }
 
