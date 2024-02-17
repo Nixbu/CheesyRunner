@@ -19,7 +19,7 @@ public:
 	void levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile);
 	void draw(sf::RenderWindow* window);
 	void handleEvents(sf::RenderWindow* window);
-	void handleKeys();
+	void handleKeys(sf::Time deltaTime);
 
 
 private:
@@ -27,7 +27,7 @@ private:
 	sf::Clock m_clock;
 	sf::Clock * m_timer;
 	/*int m_level_time*/
-	std::vector<std::unique_ptr<Cat>>  m_cats;
+	std::vector<std::unique_ptr<Cat>> m_cats;
 	TextureManager* m_textures;
 	Mouse* m_player;
 

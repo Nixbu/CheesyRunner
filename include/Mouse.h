@@ -11,7 +11,7 @@ public:
 	void setCheese(int cheese);
 	int getCheese() const;
 	int getKeys() const;
-	void move(sf::Vector2f direction, sf::Time delta_time);
+	void move(sf::Vector2f direction, sf::Time deltaTime);
 	void draw(sf::RenderWindow * window) const override;
 
 private:
@@ -20,6 +20,6 @@ private:
 		m_score,
 		m_numOfCheese;
 
-	void setDirection(sf::Vector2f direction)
+	void setDirection(sf::Vector2f direction);
 
 };

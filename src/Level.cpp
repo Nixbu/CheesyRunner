@@ -22,7 +22,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 		this->handleEvents(window);
 		
 
-		this->handleKeys();
+		this->handleKeys(m_clock.restart());
 		
 	}
 }
@@ -41,23 +41,23 @@ void Level::handleEvents(sf::RenderWindow * window)
 	}
 }
 
-void Level::handleKeys()
+void Level::handleKeys(sf::Time deltaTime)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		m_player->move(LEFT, delta_time);
+		m_player->move(LEFT, deltaTime);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) 
 	{
-		m_player->move(RIGHT, delta_time);
+		m_player->move(RIGHT, deltaTime);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		m_player->move(UP, delta_time);
+		m_player->move(UP, deltaTime);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		m_player->move(DOWN, delta_time);
+		m_player->move(DOWN, deltaTime);
 	}
 }
 

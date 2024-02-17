@@ -27,7 +27,7 @@ int Mouse::getKeys() const
 	return this->m_keys;
 }
 
-void Mouse::move(sf::Vector2f direction, sf::Time delta_time)
+void Mouse::move(sf::Vector2f direction, sf::Time deltaTime)
 {
 	this->setDirection(direction);
 
