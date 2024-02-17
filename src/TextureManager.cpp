@@ -39,6 +39,8 @@ TextureManager::TextureManager()
     load(currentTexture, "helpbutton.png");
     m_textures.push_back(currentTexture);
 
+   
+
 }
 
 //===================================================

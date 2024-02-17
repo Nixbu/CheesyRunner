@@ -14,7 +14,7 @@ enum Texture_t {
 	bgTileTexture,
 	playBtnTexture,
 	exitBtnTexture,
-	helpBtnTexture
+	helpBtnTexture,
 };
 
 enum Button_t {

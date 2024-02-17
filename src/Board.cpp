@@ -61,7 +61,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 			}
 
 			m_bgTiles.push_back(std::make_unique<BackgroundTile>(currLocation,
-				textures->getTexture(cheeseTexture)));
+				textures->getTexture(bgTileTexture)));
 		}
 
 		pos.y++;
