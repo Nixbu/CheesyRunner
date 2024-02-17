@@ -1,8 +1,13 @@
 #include "Board.h"
 
-Board::Board(std::ifstream * levelFile , Mouse * mouse ,
-				std::vector<std::unique_ptr<Cat>> * cats ,
-				const TextureManager & textures)
+Board::Board() :
+	m_width(0), m_length(0)
+{
+}
+
+void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
+				std::vector<Cat*> & cats ,
+				const TextureManager * textures)
 {
 	std::string line;
 	sf::Vector2i pos = { 0 , 0 };
@@ -26,22 +31,22 @@ Board::Board(std::ifstream * levelFile , Mouse * mouse ,
 				mouse->setKeys((- 1)* mouse ->getKeys());
 				mouse->setCheese((-1) * mouse->getCheese());
 				break;
-			/*case '^':
-				cats->push_back(std::make_unique<Cat>(currLocation,
-					textures.getTexture(catTexture)));
-				break;*/
+			case '^':
+				cats.push_back(new Cat (currLocation,
+					textures->getTexture(catTexture)));
+				break;
 
 			case '*': 
 				m_gameObjects.push_back(std::make_unique<Cheese>(currLocation ,
-							textures.getTexture(cheeseTexture)));
+							textures->getTexture(cheeseTexture)));
 				break;
 			case 'D':
 				m_obstacles.push_back(std::make_unique<Door>(currLocation,
-					textures.getTexture(doorTexture)));
+					textures->getTexture(doorTexture)));
 				break;
 			case 'F':
 				m_gameObjects.push_back(std::make_unique<Key>(currLocation,
-					textures.getTexture(keyTexture)));
+					textures->getTexture(keyTexture)));
 				break;
 			/*case '$':
 				m_gameObjects.push_back(std::make_unique<Gift>(currLocation,
@@ -49,14 +54,14 @@ Board::Board(std::ifstream * levelFile , Mouse * mouse ,
 				break;*/
 			case '#':
 				m_obstacles.push_back(std::make_unique<Wall>(currLocation,
-					textures.getTexture(wallTexture)));
+					textures->getTexture(wallTexture)));
 				break;
 			default:
 				break;
 			}
 
 			m_bgTiles.push_back(std::make_unique<BackgroundTile>(currLocation,
-				textures.getTexture(cheeseTexture)));
+				textures->getTexture(cheeseTexture)));
 		}
 
 		pos.y++;
@@ -66,6 +71,16 @@ Board::Board(std::ifstream * levelFile , Mouse * mouse ,
 
 	levelFile->clear();
 }
+
+//Board::Board(const Board& other)
+//{
+//	//shallow copy
+//	m_width = other.m_width;
+//	m_length = other.m_length;
+//	m_gameObjects  = other.m_gameObjects;
+//	m_bgTiles = other.m_bgTiles;
+//	m_obstacles = other.m_obstacles;
+//}
 
 void Board::removeObject(int index)
 {

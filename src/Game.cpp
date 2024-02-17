@@ -34,8 +34,8 @@ void Game::run()
 	{
 		levelFile.open(levelName);
 		/*checkFile(levelFile);*/
-		Level currentLevel(&levelFile, m_textures , &m_player);
-		currentLevel.levelLoop(m_window);
+		Level currentLevel( m_textures , &m_player);
+		currentLevel.levelLoop(m_window , &levelFile);
 
 	}
 }

@@ -11,12 +11,12 @@
 
 class Level {
 public:
-	Level(std::ifstream* levelFile,
-		TextureManager* textures,
+	Level(TextureManager* textures,
 		Mouse* player);
+		
 	virtual ~Level() = default;
 
-	void levelLoop(sf::RenderWindow * window);
+	void levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile);
 
 
 
@@ -25,7 +25,7 @@ private:
 	sf::Clock m_clock;
 	sf::Clock * m_timer;
 	/*int m_level_time*/
-	std::vector<std::unique_ptr<Cat>> m_cats;
+	std::vector<Cat*>  m_cats;
 	TextureManager* m_textures;
 	Mouse* m_player;
 

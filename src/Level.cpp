@@ -1,18 +1,21 @@
 #include "Level.h"
 
-Level::Level(std::ifstream* levelFile, TextureManager* textures, Mouse* player)
-	: m_board(levelFile, player, &m_cats, *textures)
+Level::Level( TextureManager* textures, Mouse* player)
+	:  m_board() 
 {
+	m_player = player;
+	m_textures = textures;
 }
 
-void Level::levelLoop(sf::RenderWindow * window)
+void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 {
-
+	m_board.readBoard(levelFile, m_player, m_cats , m_textures);
 	while (window->isOpen())
 	{
 		window->clear();
 
 		this->m_board.draw(window);
+		
 
 		window->display();
 

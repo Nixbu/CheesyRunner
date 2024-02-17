@@ -19,11 +19,15 @@
 
 class Board {
 public:
-	Board(std::ifstream * levelFile, Mouse* mouse,
-		std::vector<std::unique_ptr<Cat>> *cats,
-		const TextureManager& textures);
+	Board();
+	void readBoard(std::ifstream * levelFile, Mouse* mouse,
+		std::vector<Cat*> & cats ,
+		const TextureManager * textures);
+	//Board(const Board& other);
 
 	~Board() = default;
+
+	
 
 	void removeObject(int index);
 	void draw(sf::RenderWindow * window );
