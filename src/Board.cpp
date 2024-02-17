@@ -1,7 +1,7 @@
 #include "Board.h"
 
-Board::Board(std::ifstream levelFile , Mouse * mouse ,
-				std::vector<std::unique_ptr<Cat>> &cats ,
+Board::Board(std::ifstream * levelFile , Mouse * mouse ,
+				std::vector<std::unique_ptr<Cat>> * cats ,
 				const TextureManager & textures)
 {
 	std::string line;
@@ -9,7 +9,7 @@ Board::Board(std::ifstream levelFile , Mouse * mouse ,
 	sf::Vector2f  currLocation;
 
 	//reading line
-	while (std::getline(levelFile, line))
+	while (std::getline(*levelFile, line))
 	{
 		// checks which objects were in the line
 		for (pos.x = 0; pos.x < line.length(); pos.x++)
@@ -26,10 +26,10 @@ Board::Board(std::ifstream levelFile , Mouse * mouse ,
 				mouse->setKeys((- 1)* mouse ->getKeys());
 				mouse->setCheese((-1) * mouse->getCheese());
 				break;
-			case '^':
-				cats.push_back(std::make_unique<Cat>(currLocation,
+			/*case '^':
+				cats->push_back(std::make_unique<Cat>(currLocation,
 					textures.getTexture(catTexture)));
-				break;
+				break;*/
 
 			case '*': 
 				m_gameObjects.push_back(std::make_unique<Cheese>(currLocation ,
@@ -64,10 +64,32 @@ Board::Board(std::ifstream levelFile , Mouse * mouse ,
 	}
 	m_length = pos.y * TILE_LENGTH;
 
-	levelFile.clear();
+	levelFile->clear();
 }
 
 void Board::removeObject(int index)
 {
 	m_gameObjects.erase(m_gameObjects.begin() + index);
+}
+
+void Board::draw(sf::RenderWindow * window)
+{
+	for (int idx = 0; idx < m_bgTiles.size(); idx++)
+	{
+		m_bgTiles[idx]->draw(window);
+	}
+
+
+	for (int idx = 0; idx < m_obstacles.size(); idx++)
+	{
+		m_obstacles[idx]->draw(window);
+	}
+
+
+	for (int idx = 0; idx < m_gameObjects.size(); idx++)
+	{
+		m_gameObjects[idx]->draw(window);
+	}
+
+	
 }

@@ -17,7 +17,8 @@ public:
 	Button * getButton(Button_t btn) const;
 	void draw(sf::RenderWindow* window) const;
 	void handleClicks(sf::Vector2f mousePos,
-		sf::RenderWindow* window);
+		sf::RenderWindow* window,
+		const TextureManager& textures);
 	void handleFloating(sf::Vector2f mousePos);
 
 private:

@@ -4,6 +4,7 @@
 
 class Mouse :public MovingObject {
 public:
+	Mouse();
 	Mouse(sf::Vector2f pos, sf::Texture* texture);
 	~Mouse() = default;
 	void setKeys(int keys);

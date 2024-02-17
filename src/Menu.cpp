@@ -34,13 +34,14 @@ void Menu::draw(sf::RenderWindow* window) const
 }
 
 // Polymorphism
-void Menu::handleClicks(sf::Vector2f mousePos, sf::RenderWindow * window)
+void Menu::handleClicks(sf::Vector2f mousePos, sf::RenderWindow * window,
+	const TextureManager & textures)
 {
 	for (int btn = 0; btn < this->m_buttons.size(); btn++)
 	{
 		if (this->m_buttons[btn]->isClicked(mousePos))
 		{
-			this->m_buttons[btn]->action(window);
+			this->m_buttons[btn]->action(window, textures);
 		}
 	}
 }
