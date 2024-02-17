@@ -38,11 +38,11 @@ void GameManager::run()
 				m_menu.handleClicks(mousePos, &window, m_textures);
 				break;
 
-			/*case sf::Event::MouseMoved:
+			case sf::Event::MouseMoved:
 
 				sf::Event::MouseMoveEvent mouse = event.mouseMove;
 				mousePos = window.mapPixelToCoords({ mouse.x, mouse.y });
-				m_menu.handleFloating(mousePos);*/
+				m_menu.handleFloating(mousePos);
 			}
 		}
 

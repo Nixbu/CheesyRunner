@@ -21,7 +21,7 @@ class Board {
 public:
 	Board();
 	void readBoard(std::ifstream * levelFile, Mouse* mouse,
-		std::vector<Cat*> & cats ,
+		std::vector<std::unique_ptr<Cat>>& cats ,
 		const TextureManager * textures);
 	//Board(const Board& other);
 

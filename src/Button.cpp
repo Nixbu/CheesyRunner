@@ -8,7 +8,7 @@ Button::Button(sf::Vector2f position, sf::Texture* texture)
 	m_sprite.setTexture(*texture);
 	m_sprite.setOrigin(sf::Vector2f(m_sprite.getLocalBounds().width / 2,
 		m_sprite.getLocalBounds().height / 2));
-	this->resize(BUTTON_DEFA_SIZE);
+	/*this->resize(BUTTON_DEFA_SIZE);*/
 	
 
 }
@@ -32,11 +32,11 @@ void Button::draw(sf::RenderWindow* window) const
 }
 
 //===================================================================
-void Button::resize(sf::Vector2f wantedSize)
-{
-	this->scale(sf::Vector2f(wantedSize.x / this->getSprite()->getGlobalBounds().width,
-		wantedSize.y / this->getSprite()->getGlobalBounds().height));
-}
+////void Button::resize(sf::Vector2f wantedSize)
+//{
+//	this->scale(sf::Vector2f(wantedSize.x / this->getSprite()->getGlobalBounds().width,
+//		wantedSize.y / this->getSprite()->getGlobalBounds().height));
+//}
 
 //===================================================================
 void Button::scale(const sf::Vector2f& values)

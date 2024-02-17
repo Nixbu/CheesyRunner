@@ -14,7 +14,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 	{
 		window->clear();
 
-		this->m_board.draw(window);
+		this->draw(window);
 		
 
 		window->display();
@@ -30,4 +30,16 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 			}
 		}
 	}
+}
+
+void Level::draw(sf::RenderWindow* window)
+{
+	this->m_board.draw(window);
+	
+	for (int idx = 0; idx < m_cats.size(); idx++)
+	{
+		m_cats[idx]->draw(window);
+	}
+	
+	this->m_player->draw(window);
 }

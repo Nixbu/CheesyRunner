@@ -17,7 +17,7 @@ public:
 	virtual void draw(sf::RenderWindow* window) const;
 	virtual void action(sf::RenderWindow* window, 
 		const TextureManager& textures) = 0;
-	void resize(sf::Vector2f wantedSize);
+	/*void resize(sf::Vector2f wantedSize);*/
 
 private:
 	sf::Sprite m_sprite;

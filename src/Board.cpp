@@ -6,7 +6,7 @@ Board::Board() :
 }
 
 void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
-				std::vector<Cat*> & cats ,
+	std::vector<std::unique_ptr<Cat>>& cats ,
 				const TextureManager * textures)
 {
 	std::string line;
@@ -32,7 +32,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 				mouse->setCheese((-1) * mouse->getCheese());
 				break;
 			case '^':
-				cats.push_back(new Cat (currLocation,
+				cats.push_back(std::make_unique<Cat>(currLocation,
 					textures->getTexture(catTexture)));
 				break;
 

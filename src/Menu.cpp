@@ -52,11 +52,13 @@ void Menu::handleFloating(sf::Vector2f mousePos)
 	{
 		if ((this->m_buttons[btn]->getSprite()->getGlobalBounds()).contains(mousePos))
 		{
-			this->m_buttons[btn]->resize(BUTTON_FLOATED_SIZE);
+			this->m_buttons[btn]->scale(sf::Vector2f(BUTTON_FLOATED_SIZE.x / BUTTON_DEFA_SIZE.x,
+				BUTTON_FLOATED_SIZE.y / BUTTON_DEFA_SIZE.y));
 		}
 		else
 		{
-			this->m_buttons[btn]->resize(BUTTON_DEFA_SIZE);
+			this->m_buttons[btn]->scale(sf::Vector2f( BUTTON_DEFA_SIZE.x / BUTTON_FLOATED_SIZE.x,
+				 BUTTON_DEFA_SIZE.y / BUTTON_FLOATED_SIZE.y));
 		}
 	}
 }
