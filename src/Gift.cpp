@@ -8,3 +8,31 @@ Gift::Gift(sf::Vector2f position, sf::Texture* texture, Gift_t giftType) :
 void Gift::action()
 {
 }
+
+void Gift::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
+{
+}
+
+void Gift::handlecollision(Mouse& gameobject, sf::FloatRect intersection)
+{
+}
+
+void Gift::handleCollision(Cheese& gameObject, sf::FloatRect intersection)
+{
+}
+
+void Gift::handleCollision(Door& gameObject, sf::FloatRect intersection)
+{
+}
+
+void Gift::handleCollision(Cat& gameObject, sf::FloatRect intersection)
+{
+}
+
+void Gift::handleCollision(Key& gameObject, sf::FloatRect intersection)
+{
+}
+
+void Gift::handleCollision(Wall& gameObject, sf::FloatRect intersection)
+{
+}

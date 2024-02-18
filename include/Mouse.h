@@ -15,6 +15,15 @@ public:
 	void move(sf::Vector2f direction, float deltaTime);
 	void draw(sf::RenderWindow * window) const override;
 
+	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection);
+	virtual void handlecollision(Mouse& gameobject, sf::FloatRect intersection);
+	virtual void handleCollision(Cheese& gameObject, sf::FloatRect intersection);
+	virtual void handleCollision(Door& gameObject, sf::FloatRect intersection);
+	virtual void handleCollision(Cat& gameObject, sf::FloatRect intersection);
+	virtual void handleCollision(Key& gameObject, sf::FloatRect intersection);
+	virtual void handleCollision(Wall& gameObject, sf::FloatRect intersection);
+
+
 private:
 	int m_life,
 		m_keys,

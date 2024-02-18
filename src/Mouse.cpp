@@ -41,3 +41,36 @@ void Mouse::draw(sf::RenderWindow* window) const
 	window->draw(*this->getSprite());
 }
 
+void Mouse::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
+{
+	// double dispatch
+	gameObject.handleCollision(*this, intersection);
+}
+
+void Mouse::handlecollision(Mouse& gameobject, sf::FloatRect intersection)
+{
+}
+
+void Mouse::handleCollision(Cheese& gameObject, sf::FloatRect intersection)
+{
+}
+
+void Mouse::handleCollision(Door& gameObject, sf::FloatRect intersection)
+{
+}
+
+void Mouse::handleCollision(Cat& gameObject, sf::FloatRect intersection)
+{
+}
+
+void Mouse::handleCollision(Key& gameObject, sf::FloatRect intersection)
+{
+}
+
+void Mouse::handleCollision(Wall& gameObject, sf::FloatRect intersection)
+{
+	this->getSprite()->move((-1) * intersection.width * this->getDirection().x,
+		(-1) * intersection.height * this->getDirection().y);
+}
+
+

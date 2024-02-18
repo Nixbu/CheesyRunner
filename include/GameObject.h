@@ -3,6 +3,14 @@
 #include <SFML/Graphics.hpp>
 #include "Settings.h"
 
+class Cat;
+class Cheese;
+class Wall;
+class Door;
+class Mouse;
+class Key;
+class Gift;
+class Wall;
 
 class GameObject {
 public:
@@ -12,6 +20,18 @@ public:
 	 sf::Sprite* getSprite() const;
 	void scale(const sf::Vector2f &values);
 	void setPos(const sf::Vector2f &newPos);
+
+	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection) = 0;
+    virtual void handlecollision(Mouse& gameobject, sf::FloatRect intersection) = 0;
+    /*virtual void handleCollision(Cheese& gameObject) = 0;
+    virtual void handleCollision(Door& gameObject) = 0;
+    virtual void handleCollision(Cat& gameObject) = 0;
+	virtual void handleCollision(Key& gameObject) = 0;*/
+	virtual void handleCollision(Wall& gameObject, sf::FloatRect intersection) = 0;
+
+
+	/*virtual void handleCollision(Gift& gameObject) = 0;*/
+
 
 	virtual void draw(sf::RenderWindow * window) const = 0;
 
