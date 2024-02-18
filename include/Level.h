@@ -19,7 +19,7 @@ public:
 	void levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile);
 	void draw(sf::RenderWindow* window);
 	void handleEvents(sf::RenderWindow* window);
-	void handleKeys(sf::Time deltaTime);
+	void handleKeys(float deltaTime);
 
 
 private:

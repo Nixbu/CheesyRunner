@@ -22,7 +22,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 		this->handleEvents(window);
 		
 
-		this->handleKeys(m_clock.restart());
+		this->handleKeys(m_clock.restart().asSeconds());
 		
 	}
 }
@@ -41,7 +41,7 @@ void Level::handleEvents(sf::RenderWindow * window)
 	}
 }
 
-void Level::handleKeys(sf::Time deltaTime)
+void Level::handleKeys(float deltaTime)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{

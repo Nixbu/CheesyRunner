@@ -13,7 +13,7 @@
 
 Game::Game(TextureManager * textures,
 	sf::RenderWindow * window)
-	: m_player(sf::Vector2f(0, 0), textures->getTexture(mouseTexture)),
+	: m_player(sf::Vector2f(0, 0), textures->getTexture(mouseTexture), MOUSE_VELOCITY),
 	m_window(window)
 {
 	m_textures = textures;

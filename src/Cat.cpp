@@ -1,6 +1,6 @@
 #include "Cat.h"
 
-void Cat::move()
+void Cat::move(sf::Vector2f direction, float deltaTime)
 {
 }
 
