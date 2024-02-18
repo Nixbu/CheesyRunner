@@ -4,7 +4,7 @@ void Door::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 {
 }
 
-void Door::handlecollision(Mouse& gameobject, sf::FloatRect intersection)
+void Door::handleCollision(Mouse& gameObject, sf::FloatRect intersection)
 {
 }
 

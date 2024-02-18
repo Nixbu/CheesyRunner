@@ -108,3 +108,8 @@ void Board::draw(sf::RenderWindow * window)
 
 	
 }
+
+const std::vector<std::unique_ptr<GameObject>>& Board::getObstacles() const
+{
+	return m_obstacles;
+}

@@ -16,13 +16,13 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 
 		this->draw(window);
 		
-
 		window->display();
 
 		this->handleEvents(window);
-		
 
 		this->handleKeys(m_clock.restart().asSeconds());
+
+		this->handleAllCollisions();
 		
 	}
 }
@@ -58,6 +58,21 @@ void Level::handleKeys(float deltaTime)
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
 		m_player->move(DOWN, deltaTime);
+	}
+}
+
+void Level::handleAllCollisions()
+{
+	sf::FloatRect intersection;
+
+
+	for (int object = 0; object < m_board.getObstacles().size(); object++)
+	{
+		if (m_player->getSprite()->getGlobalBounds().intersects(
+			m_board.getObstacles()[object]->getSprite()->getGlobalBounds(), intersection))
+		{
+			m_board.getObstacles()[object]->handleCollision(*m_player, intersection);
+		}
 	}
 }
 

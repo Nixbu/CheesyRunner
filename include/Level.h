@@ -20,6 +20,7 @@ public:
 	void draw(sf::RenderWindow* window);
 	void handleEvents(sf::RenderWindow* window);
 	void handleKeys(float deltaTime);
+	void handleAllCollisions();
 
 
 private:

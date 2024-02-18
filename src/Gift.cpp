@@ -13,7 +13,7 @@ void Gift::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 {
 }
 
-void Gift::handlecollision(Mouse& gameobject, sf::FloatRect intersection)
+void Gift::handleCollision(Mouse& gameObject, sf::FloatRect intersection)
 {
 }
 

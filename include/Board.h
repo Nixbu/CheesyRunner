@@ -27,10 +27,11 @@ public:
 
 	~Board() = default;
 
-	
-
 	void removeObject(int index);
 	void draw(sf::RenderWindow * window );
+
+	const std::vector<std::unique_ptr<GameObject>>& getObstacles() const;
+
 private:
 	std::vector<std::unique_ptr<GameObject>> m_gameObjects;
 	std::vector<std::unique_ptr<GameObject>> m_obstacles;

@@ -4,9 +4,10 @@ void Key::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 {
 }
 
-void Key::handlecollision(Mouse& gameobject, sf::FloatRect intersection)
+void Key::handleCollision(Mouse& gameObject, sf::FloatRect intersection)
 {
 }
+
 
 void Key::handleCollision(Cheese& gameObject, sf::FloatRect intersection)
 {

@@ -13,7 +13,7 @@ void Cat::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 {
 }
 
-void Cat::handlecollision(Mouse& gameobject, sf::FloatRect intersection)
+void Cat::handleCollision(Mouse& gameObject, sf::FloatRect intersection)
 {
 }
 

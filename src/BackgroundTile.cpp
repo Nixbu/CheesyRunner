@@ -9,7 +9,7 @@ void BackgroundTile::handleCollision(GameObject& gameObject, sf::FloatRect inter
 {
 }
 
-void BackgroundTile::handlecollision(Mouse& gameobject, sf::FloatRect intersection)
+void BackgroundTile::handleCollision(Mouse& gameobject, sf::FloatRect intersection)
 {
 }
 

@@ -22,7 +22,7 @@ public:
 	void setPos(const sf::Vector2f &newPos);
 
 	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection) = 0;
-    virtual void handlecollision(Mouse& gameobject, sf::FloatRect intersection) = 0;
+    virtual void handleCollision(Mouse& gameObject, sf::FloatRect intersection) = 0;
     /*virtual void handleCollision(Cheese& gameObject) = 0;
     virtual void handleCollision(Door& gameObject) = 0;
     virtual void handleCollision(Cat& gameObject) = 0;

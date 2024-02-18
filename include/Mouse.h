@@ -16,7 +16,7 @@ public:
 	void draw(sf::RenderWindow * window) const override;
 
 	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection);
-	virtual void handlecollision(Mouse& gameobject, sf::FloatRect intersection);
+	virtual void handleCollision(Mouse& gameobject, sf::FloatRect intersection);
 	virtual void handleCollision(Cheese& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Door& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Cat& gameObject, sf::FloatRect intersection);
