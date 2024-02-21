@@ -1,6 +1,9 @@
 #pragma once
 
 #include "StaticObject.h"
+#include "Mouse.h"
+
+
 
 class Key : public StaticObject {
 public:
