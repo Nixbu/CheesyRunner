@@ -1,6 +1,7 @@
 #pragma once
 
 #include "StaticObject.h"
+#include "Mouse.h"
 
 class Cheese : public StaticObject {
 public:

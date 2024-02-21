@@ -46,3 +46,5 @@ DOWN = { 0, 1 },
 LEFT = { -1, 0 },
 RIGHT = { 1, 0 },
 STAND = { 0, 0 };
+
+const int CHEESE_SCORE = 10; 
