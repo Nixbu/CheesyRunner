@@ -81,6 +81,8 @@ void Level::handleAllCollisions()
 			m_board.getGameObjects()[object]->getSprite()->getGlobalBounds(), intersection))
 		{
 			m_board.getGameObjects()[object]->handleCollision(*m_player, intersection);
+
+			m_board.eraseFromVector(object);
 		}
 	}
 
