@@ -31,7 +31,7 @@ public:
 	void removeObject(int index);
 	void draw(sf::RenderWindow * window );
 
-	const std::vector<std::unique_ptr<GameObject>>& getObstacles() const;
+	const std::vector<std::unique_ptr<Wall>>& getWalls() const;
 	const std::vector<std::unique_ptr<GameObject>>& getGameObjects() const;
 
 	float getWidth() const;
@@ -39,8 +39,9 @@ public:
 
 private:
 	std::vector<std::unique_ptr<GameObject>> m_gameObjects;
-	std::vector<std::unique_ptr<GameObject>> m_obstacles;
+	std::vector<std::unique_ptr<Wall>> m_walls;
 	std::vector<std::unique_ptr<BackgroundTile>> m_bgTiles;
+	std::vector<std::unique_ptr<Door>> m_doors;
 	float m_width,
 		m_length;
 };

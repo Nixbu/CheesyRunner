@@ -56,12 +56,12 @@ void Level::handleAllCollisions()
 	bool key;
 
 
-	for (int object = 0; object < m_board.getObstacles().size(); object++)
+	for (int object = 0; object < m_board.getWalls().size(); object++)
 	{
 		if (m_player->getSprite()->getGlobalBounds().intersects(
-			m_board.getObstacles()[object]->getSprite()->getGlobalBounds(), intersection))
+			m_board.getWalls()[object]->getSprite()->getGlobalBounds(), intersection))
 		{
-			m_board.getObstacles()[object]->handleCollision(*m_player, intersection);
+			m_board.getWalls()[object]->handleCollision(*m_player, intersection);
 		}
 	}
 
