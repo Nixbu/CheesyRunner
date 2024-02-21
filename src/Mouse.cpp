@@ -66,6 +66,7 @@ void Mouse::handleCollision(Cat& gameObject, sf::FloatRect intersection)
 
 void Mouse::handleCollision(Key& gameObject, sf::FloatRect intersection)
 {
+	this->m_keys++;
 }
 
 void Mouse::handleCollision(Wall& gameObject, sf::FloatRect intersection)
