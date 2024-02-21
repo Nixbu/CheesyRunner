@@ -10,14 +10,15 @@ Level::Level( TextureManager* textures, Mouse* player)
 void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 {
 	m_board.readBoard(levelFile, m_player, m_cats , m_textures , m_level_time);
-	std::cout << "Out of readboard";
+	
 
 	m_states.setLevelState(this->m_board.getHeight(), m_level_time);
 
 	window->create(sf::VideoMode(this->m_board.getWidth(),
 		this->m_board.getHeight() + 100),
 		"Mouse And Cat");
-	while (window->isOpen() && Cheese::getCount() != 0)
+	
+	while ( Cheese::getCount() != 0)
 	{
 		window->clear();
 
