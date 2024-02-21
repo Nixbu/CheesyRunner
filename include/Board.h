@@ -32,6 +32,10 @@ public:
 
 	const std::vector<std::unique_ptr<GameObject>>& getObstacles() const;
 	const std::vector<std::unique_ptr<GameObject>>& getGameObjects() const;
+
+	float getWidth() const;
+	float getHeight() const;
+
 private:
 	std::vector<std::unique_ptr<GameObject>> m_gameObjects;
 	std::vector<std::unique_ptr<GameObject>> m_obstacles;

@@ -36,6 +36,10 @@ void Game::run()
 		/*checkFile(levelFile);*/
 		Level currentLevel( m_textures , &m_player);
 		currentLevel.levelLoop(m_window , &levelFile);
+		if (!m_window->isOpen())
+		{
+			break;
+		}
 
 	}
 }

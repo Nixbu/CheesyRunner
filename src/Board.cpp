@@ -118,3 +118,13 @@ const std::vector<std::unique_ptr<GameObject>>& Board::getGameObjects() const
 {
 	return m_gameObjects;
 }
+
+float Board::getWidth() const
+{
+	return m_width;
+}
+
+float Board::getHeight() const
+{
+	return m_length;
+}
