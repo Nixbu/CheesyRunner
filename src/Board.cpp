@@ -8,7 +8,7 @@ Board::Board() :
 void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 	std::vector<std::unique_ptr<Cat>>& cats ,
 				const TextureManager * textures ,
-				float &leveltime)
+				int &leveltime)
 {
 	*levelFile >> leveltime;
 

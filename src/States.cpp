@@ -10,6 +10,7 @@ States::States(Mouse* mouse, TextureManager* textures)
 
 	this->setText(m_scoreText);
 	this->setText(m_timeText);
+	this->setText(m_keyText);
 	
 	for (int heart = 0; heart < m_mouse->getSouls(); heart++)
 	{
@@ -18,7 +19,7 @@ States::States(Mouse* mouse, TextureManager* textures)
 	}
 }
 
-void States::setLevelState(float boardHeight, float levelTime)
+void States::setLevelState(float boardHeight, int levelTime)
 {
 	this->m_levelTime = levelTime;
 	this->m_position.y = boardHeight;
@@ -36,6 +37,8 @@ void States::setLevelState(float boardHeight, float levelTime)
 	this->m_scoreText.setPosition(currentPos);
 	currentPos.x += SCORE_OFFSET;
 	this->m_timeText.setPosition(currentPos);
+	currentPos.x += TIME_OFFSET;
+	this->m_keyText.setPosition(currentPos);
 }
 
 
@@ -46,12 +49,16 @@ void States::draw(sf::RenderWindow* window)
 		m_hearts[heart] ->draw(window);
 	}
 
-	m_timeText.setString("Time: " + std::to_string(m_levelTime - m_clock.getElapsedTime().asSeconds()));
+	m_timeText.setString("Time: " + std::to_string(m_levelTime -(int)m_clock.getElapsedTime().asSeconds()));
 
 	m_scoreText.setString("Score: " + std::to_string(m_mouse->getScore()));
+	
+	m_keyText.setString("Keys: " + std::to_string(m_mouse->getKeys()));
 
 	window->draw(m_timeText);
 	window->draw(m_scoreText);
+	window->draw(m_keyText);
+	
 }
 
 void States::setText(sf::Text& text)
