@@ -31,7 +31,7 @@ public:
 	void draw(sf::RenderWindow * window );
 
 	const std::vector<std::unique_ptr<GameObject>>& getObstacles() const;
-
+	const std::vector<std::unique_ptr<GameObject>>& getGameObjects() const;
 private:
 	std::vector<std::unique_ptr<GameObject>> m_gameObjects;
 	std::vector<std::unique_ptr<GameObject>> m_obstacles;

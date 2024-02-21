@@ -75,6 +75,14 @@ void Level::handleAllCollisions()
 		}
 	}
 
+	for (int object = 0; object < m_board.getGameObjects().size(); object++)
+	{
+		if (m_player->getSprite()->getGlobalBounds().intersects(
+			m_board.getGameObjects()[object]->getSprite()->getGlobalBounds(), intersection))
+		{
+			m_board.getGameObjects()[object]->handleCollision(*m_player, intersection);
+		}
+	}
 
 }
 

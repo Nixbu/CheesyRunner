@@ -113,3 +113,8 @@ const std::vector<std::unique_ptr<GameObject>>& Board::getObstacles() const
 {
 	return m_obstacles;
 }
+
+const std::vector<std::unique_ptr<GameObject>>& Board::getGameObjects() const
+{
+	return m_gameObjects;
+}
