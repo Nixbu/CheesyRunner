@@ -2,10 +2,12 @@
 
 void Key::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 {
+	gameObject.handleCollision(*this, intersection);
 }
 
 void Key::handleCollision(Mouse& gameObject, sf::FloatRect intersection)
 {
+	gameObject.handleCollision(*this, intersection);
 }
 
 

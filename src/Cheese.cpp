@@ -6,8 +6,9 @@ void Cheese::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 {
 }
 
-void Cheese::handleCollision(Mouse& gameobject, sf::FloatRect intersection)
+void Cheese::handleCollision(Mouse& gameObject, sf::FloatRect intersection)
 {
+	gameObject.handleCollision(*this, intersection);
 }
 
 void Cheese::handleCollision(Cheese& gameObject, sf::FloatRect intersection)

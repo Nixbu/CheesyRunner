@@ -53,6 +53,7 @@ void Mouse::handleCollision(Mouse& gameobject, sf::FloatRect intersection)
 
 void Mouse::handleCollision(Cheese& gameObject, sf::FloatRect intersection)
 {
+	m_score += CHEESE_SCORE;
 }
 
 void Mouse::handleCollision(Door& gameObject, sf::FloatRect intersection)
@@ -65,6 +66,7 @@ void Mouse::handleCollision(Cat& gameObject, sf::FloatRect intersection)
 
 void Mouse::handleCollision(Key& gameObject, sf::FloatRect intersection)
 {
+	this->m_keys++;
 }
 
 void Mouse::handleCollision(Wall& gameObject, sf::FloatRect intersection)

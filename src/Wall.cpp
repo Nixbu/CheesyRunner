@@ -2,7 +2,7 @@
 
 void Wall::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 {
-	gameObject.handleCollision(*this, intersection);
+	
 }
 
 void Wall::handleCollision(Mouse& gameObject, sf::FloatRect intersection)
