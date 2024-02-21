@@ -23,4 +23,10 @@ private:
 	sf::Clock m_clock;
 	float m_levelTime;
 	std::vector<std::unique_ptr<Heart>> m_hearts;
+	sf::Font m_font;
+	sf::Text m_scoreText,
+		m_timeText;
+
+	void setText(sf::Text& text);
+
 };

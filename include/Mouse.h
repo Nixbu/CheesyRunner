@@ -13,6 +13,8 @@ public:
 	int getCheese() const;
 	int getKeys() const;
 	int getSouls() const;
+	int getScore() const;
+
 	void move(sf::Vector2f direction, float deltaTime);
 	void draw(sf::RenderWindow * window) const override;
 
