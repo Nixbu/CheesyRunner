@@ -44,7 +44,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 							textures->getTexture(cheeseTexture)));
 				break;
 			case 'D':
-				m_obstacles.push_back(std::make_unique<Door>(currLocation,
+				m_doors.push_back(std::make_unique<Door>(currLocation,
 					textures->getTexture(doorTexture)));
 				break;
 			case 'F':
@@ -56,7 +56,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 					textures.getTexture(giftTexture)));
 				break;*/
 			case '#':
-				m_obstacles.push_back(std::make_unique<Wall>(currLocation,
+				m_walls.push_back(std::make_unique<Wall>(currLocation,
 					textures->getTexture(wallTexture)));
 				break;
 			default:
@@ -88,9 +88,9 @@ void Board::draw(sf::RenderWindow * window)
 	}
 
 
-	for (int idx = 0; idx < m_obstacles.size(); idx++)
+	for (int idx = 0; idx < m_walls.size(); idx++)
 	{
-		m_obstacles[idx]->draw(window);
+		m_walls[idx]->draw(window);
 	}
 
 
@@ -102,9 +102,9 @@ void Board::draw(sf::RenderWindow * window)
 	
 }
 
-const std::vector<std::unique_ptr<GameObject>>& Board::getObstacles() const
+const std::vector<std::unique_ptr<Wall>>& Board::getWalls() const
 {
-	return m_obstacles;
+	return m_walls;
 }
 
 const std::vector<std::unique_ptr<GameObject>>& Board::getGameObjects() const
