@@ -14,6 +14,7 @@ public:
 	int getKeys() const;
 	void move(sf::Vector2f direction, float deltaTime);
 	void draw(sf::RenderWindow * window) const override;
+	void handleKeys(float deltaTime);
 
 	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Mouse& gameobject, sf::FloatRect intersection);

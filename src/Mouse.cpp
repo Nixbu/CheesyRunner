@@ -75,4 +75,24 @@ void Mouse::handleCollision(Wall& gameObject, sf::FloatRect intersection)
 		(-1) * intersection.height * this->getDirection().y);
 }
 
+void Mouse::handleKeys(float deltaTime)
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		this->move(LEFT, deltaTime);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+		this->move(RIGHT, deltaTime);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		this->move(UP, deltaTime);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		this->move(DOWN, deltaTime);
+	}
+}
+
 
