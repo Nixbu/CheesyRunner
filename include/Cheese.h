@@ -5,8 +5,8 @@
 
 class Cheese : public StaticObject {
 public:
-	using StaticObject::StaticObject;
-	virtual ~Cheese() = default;
+	Cheese(sf::Vector2f position, sf::Texture* texture);
+	virtual ~Cheese() ;
 
 	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Mouse& gameObject, sf::FloatRect intersection);
@@ -16,4 +16,8 @@ public:
 	virtual void handleCollision(Key& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Wall& gameObject, sf::FloatRect intersection);
 private:
+	static int m_count;
 };
+
+
+

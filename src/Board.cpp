@@ -72,16 +72,6 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 	levelFile->clear();
 }
 
-//Board::Board(const Board& other)
-//{
-//	//shallow copy
-//	m_width = other.m_width;
-//	m_length = other.m_length;
-//	m_gameObjects  = other.m_gameObjects;
-//	m_bgTiles = other.m_bgTiles;
-//	m_obstacles = other.m_obstacles;
-//}
-
 void Board::removeObject(int index)
 {
 	m_gameObjects.erase(m_gameObjects.begin() + index);
