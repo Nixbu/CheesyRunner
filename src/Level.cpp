@@ -74,6 +74,8 @@ void Level::handleAllCollisions()
 			m_board.getObstacles()[object]->handleCollision(*m_player, intersection);
 		}
 	}
+
+
 }
 
 void Level::draw(sf::RenderWindow* window)
