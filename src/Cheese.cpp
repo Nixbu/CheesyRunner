@@ -15,6 +15,11 @@ Cheese::~Cheese()
 	m_count--;
 }
 
+ int Cheese::getCount()
+{
+	return m_count;
+}
+
 void Cheese::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 {
 	

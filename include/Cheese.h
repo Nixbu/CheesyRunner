@@ -8,6 +8,7 @@ public:
 	Cheese(sf::Vector2f position, sf::Texture* texture);
 	virtual ~Cheese() ;
 
+	static int getCount(); 
 	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Mouse& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Cheese& gameObject, sf::FloatRect intersection);

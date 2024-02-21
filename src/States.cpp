@@ -64,6 +64,6 @@ void States::draw(sf::RenderWindow* window)
 void States::setText(sf::Text& text)
 {
 	text.setFont(m_font);
-	text.setCharacterSize(40);
+	text.setCharacterSize(25);
 	text.setFillColor(sf::Color::Yellow);
 }

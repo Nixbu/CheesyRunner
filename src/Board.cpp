@@ -93,6 +93,11 @@ void Board::draw(sf::RenderWindow * window)
 		m_walls[idx]->draw(window);
 	}
 
+	for (int idx = 0; idx < m_doors.size(); idx++)
+	{
+		m_doors[idx]->draw(window);
+	}
+
 
 	for (int idx = 0; idx < m_gameObjects.size(); idx++)
 	{

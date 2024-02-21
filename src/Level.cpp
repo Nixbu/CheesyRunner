@@ -17,7 +17,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 	window->create(sf::VideoMode(this->m_board.getWidth(),
 		this->m_board.getHeight() + 100),
 		"Mouse And Cat");
-	while (window->isOpen())
+	while (window->isOpen() && Cheese::getCount() != 0)
 	{
 		window->clear();
 
