@@ -7,8 +7,11 @@ Board::Board() :
 
 void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 	std::vector<std::unique_ptr<Cat>>& cats ,
-				const TextureManager * textures)
+				const TextureManager * textures ,
+				float &leveltime)
 {
+	*levelFile >> leveltime;
+
 	std::string line;
 	sf::Vector2i pos = { 0 , 0 };
 	sf::Vector2f  currLocation;

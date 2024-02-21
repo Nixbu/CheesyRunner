@@ -22,7 +22,8 @@ public:
 	Board();
 	void readBoard(std::ifstream * levelFile, Mouse* mouse,
 		std::vector<std::unique_ptr<Cat>>& cats ,
-		const TextureManager * textures);
+		const TextureManager * textures ,
+		float &leveltime);
 	//Board(const Board& other);
 
 	~Board() = default;

@@ -17,6 +17,7 @@ Cheese::~Cheese()
 
 void Cheese::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 {
+	
 }
 
 void Cheese::handleCollision(Mouse& gameObject, sf::FloatRect intersection)

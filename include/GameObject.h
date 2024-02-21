@@ -21,10 +21,10 @@ public:
 	void scale(const sf::Vector2f &values);
 	void setPos(const sf::Vector2f &newPos);
 
-	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection) = 0;
+	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection ) = 0;
     virtual void handleCollision(Mouse& gameObject, sf::FloatRect intersection) = 0;
     virtual void handleCollision(Cheese& gameObject , sf::FloatRect intersection) = 0;
-    virtual void handleCollision(Door& gameObject, sf::FloatRect intersection) = 0;
+    virtual void handleCollision(Door& gameObject, sf::FloatRect intersection ) = 0;
     virtual void handleCollision(Cat& gameObject, sf::FloatRect intersection) = 0;
 	virtual void handleCollision(Key& gameObject, sf::FloatRect intersection) = 0;
 	virtual void handleCollision(Wall& gameObject, sf::FloatRect intersection) = 0;
