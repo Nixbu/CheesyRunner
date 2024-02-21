@@ -1,7 +1,7 @@
 #include "Level.h"
 
 Level::Level( TextureManager* textures, Mouse* player)
-	:  m_board() 
+	:  m_board() , m_level_time(DEFAULT_TIME), m_states(player, textures)
 {
 	m_player = player;
 	m_textures = textures;
@@ -9,10 +9,13 @@ Level::Level( TextureManager* textures, Mouse* player)
 
 void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 {
-	m_board.readBoard(levelFile, m_player, m_cats , m_textures);
+	m_board.readBoard(levelFile, m_player, m_cats , m_textures , m_level_time);
+	std::cout << "Out of readboard";
+
+	m_states.setLevelState(this->m_board.getHeight(), m_level_time);
 
 	window->create(sf::VideoMode(this->m_board.getWidth(),
-		this->m_board.getHeight()),
+		this->m_board.getHeight() + 100),
 		"Mouse And Cat");
 	while (window->isOpen())
 	{
@@ -68,6 +71,7 @@ void Level::handleKeys(float deltaTime)
 void Level::handleAllCollisions()
 {
 	sf::FloatRect intersection;
+	bool key;
 
 
 	for (int object = 0; object < m_board.getObstacles().size(); object++)
@@ -102,4 +106,5 @@ void Level::draw(sf::RenderWindow* window)
 	}
 	
 	this->m_player->draw(window);
+	this->m_states.draw(window);
 }

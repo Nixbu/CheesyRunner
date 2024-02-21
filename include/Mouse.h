@@ -12,6 +12,7 @@ public:
 	void setCheese(int cheese);
 	int getCheese() const;
 	int getKeys() const;
+	int getSouls() const;
 	void move(sf::Vector2f direction, float deltaTime);
 	void draw(sf::RenderWindow * window) const override;
 

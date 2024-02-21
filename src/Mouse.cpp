@@ -28,6 +28,11 @@ int Mouse::getKeys() const
 	return this->m_keys;
 }
 
+int Mouse::getSouls() const
+{
+	return m_life;
+}
+
 void Mouse::move(sf::Vector2f direction, float deltaTime)
 {
 	this->setDirection(direction);

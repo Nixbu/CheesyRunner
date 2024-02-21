@@ -15,6 +15,7 @@ enum Texture_t {
 	playBtnTexture,
 	exitBtnTexture,
 	helpBtnTexture,
+	heartTexture
 };
 
 enum Button_t {
@@ -28,7 +29,11 @@ TILE_LENGTH = 40,
 WINDOW_MANAGER_WIDTH = 1200,
 WINDOW_MANAGER_HEIGHT = 800,
 CAT_VELOCITY = 30,
-MOUSE_VELOCITY = 100;
+MOUSE_VELOCITY = 100,
+DEFAULT_TIME = 100,
+HEART_POS = 100,
+HEART_OFFSET = 50 ,
+STARTING_SOULS =3;
 
 const sf::Vector2f BUTTON_DEFA_SIZE = { 180.0f, 105.0f },
 BUTTON_FLOATED_SIZE = { 210.0f, 125.0f },
@@ -47,4 +52,5 @@ LEFT = { -1, 0 },
 RIGHT = { 1, 0 },
 STAND = { 0, 0 };
 
-const int CHEESE_SCORE = 10; 
+const int CHEESE_SCORE = 10;
+			

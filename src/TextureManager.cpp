@@ -39,6 +39,9 @@ TextureManager::TextureManager()
     load(currentTexture, "helpbutton.png");
     m_textures.push_back(currentTexture);
 
+    load(currentTexture, "Heart.png");
+    m_textures.push_back(currentTexture);
+
    
 
 }

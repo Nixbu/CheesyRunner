@@ -20,4 +20,5 @@ private:
 	std::ifstream m_playlist;
 	sf::RenderWindow * m_window;
 	TextureManager * m_textures;
+
 };
