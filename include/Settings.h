@@ -8,14 +8,15 @@ enum Texture_t {
 	catTexture,
 	wallTexture,
 	cheeseTexture,
-	giftTexture,
 	keyTexture,
 	doorTexture,
 	bgTileTexture,
 	playBtnTexture,
 	exitBtnTexture,
 	helpBtnTexture,
-	heartTexture
+	heartTexture,
+	timeGiftTexture,
+	freezeGiftTexture
 };
 
 enum Button_t {
@@ -37,8 +38,8 @@ STARTING_SOULS = 3,
 SCORE_OFFSET = 250,
 TIME_OFFSET = 300;
 
-const sf::Vector2f BUTTON_DEFA_SIZE = { 180.0f, 105.0f },
-BUTTON_FLOATED_SIZE = { 210.0f, 125.0f },
+const sf::Vector2f BUTTON_DEFA_SIZE = { 0.33f, 0.33f },
+BUTTON_FLOATED_SIZE = { 0.4f, 0.4f },
 PLAY_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - BUTTON_DEFA_SIZE.x / 2,
 				WINDOW_MANAGER_HEIGHT / 2 - 200 },
 HELP_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - BUTTON_DEFA_SIZE.x / 2,

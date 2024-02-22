@@ -18,9 +18,6 @@ TextureManager::TextureManager()
     load(currentTexture, "cheese.png");
     m_textures.push_back(currentTexture);
 
-    load(currentTexture, "gift.png");
-    m_textures.push_back(currentTexture);
-
     load(currentTexture, "key.png");
     m_textures.push_back(currentTexture);
 
@@ -40,6 +37,12 @@ TextureManager::TextureManager()
     m_textures.push_back(currentTexture);
 
     load(currentTexture, "Heart.png");
+    m_textures.push_back(currentTexture);
+
+    load(currentTexture, "TimeGift.png");
+    m_textures.push_back(currentTexture);
+
+    load(currentTexture, "FreezeGift.png");
     m_textures.push_back(currentTexture);
 
    
@@ -64,5 +67,7 @@ void TextureManager::load(sf::Texture& current,
         std::cout << "faild to load texture " << std::endl;
         exit(EXIT_FAILURE);
     }
+
+    current.setSmooth(true);
 }
 
