@@ -52,4 +52,6 @@ private:
 	std::vector<std::unique_ptr<Gift>> m_gifts;
 	float m_width,
 		m_length;
+
+	Texture_t chooseRandTexture();
 };

@@ -65,7 +65,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 			}
 
 			m_bgTiles.push_back(std::make_unique<BackgroundTile>(currLocation,
-				textures->getTexture(bgTileTexture)));
+				textures->getTexture(chooseRandTexture()))); // Get a unique bg tile each time
 		}
 
 		pos.y++;
@@ -75,6 +75,36 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 	//instead set seek to 0 , 0 if player got crashed.
 	levelFile->clear();
 }
+
+Texture_t Board::chooseRandTexture()
+{
+	int rndVal = rand() % BG_TILES,
+		chosen = BASE_TILE + rndVal;
+	
+
+	switch (chosen)
+	{
+	case bgTileTexture:
+		return bgTileTexture;
+
+	case bgTileTexture2:
+		return bgTileTexture2;
+
+	case bgTileTexture3:
+		return bgTileTexture3;
+
+	case bgTileTexture4:
+		return bgTileTexture4;
+
+	case bgTileTexture5:
+		return bgTileTexture5;
+
+	default:
+		break;
+	}
+
+}
+
 
 void Board::genarateGift(int numOfGifts , sf::Vector2f location , const TextureManager * textures)
 {

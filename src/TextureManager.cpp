@@ -24,7 +24,19 @@ TextureManager::TextureManager()
     load(currentTexture, "door.png");
     m_textures.push_back(currentTexture);
 
-    load(currentTexture, "space.png");
+    load(currentTexture, "bgTile1.png");
+    m_textures.push_back(currentTexture);
+
+    load(currentTexture, "bgTile2.png");
+    m_textures.push_back(currentTexture);
+
+    load(currentTexture, "bgTile3.png");
+    m_textures.push_back(currentTexture);
+
+    load(currentTexture, "bgTile4.png");
+    m_textures.push_back(currentTexture);
+
+    load(currentTexture, "bgTile5.png");
     m_textures.push_back(currentTexture);
 
     load(currentTexture, "playbutton.png");
