@@ -18,7 +18,9 @@ enum Texture_t {
 	helpBtnTexture,
 	heartTexture,
 	timeGiftTexture,
-	freezeGiftTexture
+	freezeGiftTexture,
+	lifeGiftTexture,
+	deadCatGiftTexture
 };
 
 enum Button_t {

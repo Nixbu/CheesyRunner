@@ -85,7 +85,7 @@ void Board::genarateGift(int numOfGifts , sf::Vector2f location , const TextureM
 	if (numOfGifts > NUM_OF_GIFTS_FOR_EZ_LEVEL && !isKillCat)
 	{
 		m_gifts.push_back(std::make_unique<KillCatGift>(location,
-			textures->getTexture(giftTexture)));
+			textures->getTexture(deadCatGiftTexture)));
 
 		isKillCat = true;
 
@@ -99,12 +99,12 @@ void Board::genarateGift(int numOfGifts , sf::Vector2f location , const TextureM
 		{
 		case freeze:
 			m_gifts.push_back(std::make_unique<FreezeGift>(location,
-				textures->getTexture(giftTexture)));
+				textures->getTexture(freezeGiftTexture)));
 			
 			break;
 		case addTime:
 			m_gifts.push_back(std::make_unique<TimeGift>(location,
-				textures->getTexture(giftTexture)));
+				textures->getTexture(lifeGiftTexture)));
 			break;
 		default:
 			break;

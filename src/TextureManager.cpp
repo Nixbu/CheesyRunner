@@ -44,6 +44,12 @@ TextureManager::TextureManager()
 
     load(currentTexture, "FreezeGift.png");
     m_textures.push_back(currentTexture);
+    
+    load(currentTexture, "LifeGift.png");
+    m_textures.push_back(currentTexture);
+    
+    load(currentTexture, "DeadCatGift.png");
+    m_textures.push_back(currentTexture);
 
    
 
