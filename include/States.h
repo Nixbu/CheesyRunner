@@ -14,6 +14,8 @@ public:
 	void setLevelState(float boardHeight, int levelTime);
 
 	void draw(sf::RenderWindow* window);
+	void setLevelTime(int time);
+	int getTimeAsSeconds() const;
 
 private:
 	Mouse* m_mouse;

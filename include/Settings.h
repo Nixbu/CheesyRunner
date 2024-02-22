@@ -58,5 +58,11 @@ STAND = { 0, 0 };
 
 const int CHEESE_SCORE = 10 ,
 		   GIFT_TYPES = 2 ,
-	NUM_OF_GIFTS_FOR_EZ_LEVEL = 3;
+	NUM_OF_GIFTS_FOR_EZ_LEVEL = 3 ,
+	LOW_TIME =15 ,
+	MID_TIME = 20,
+	LARGE_TIME = 30 ,
+	AMOUNTS = 3 ,
+	FREEZE_TIME = 5;
 			
+enum AddTime{lowAmount  , midAmount , largeAmount};
