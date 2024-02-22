@@ -9,6 +9,9 @@ Menu::Menu(const TextureManager& textures)
 		textures.getTexture(helpBtnTexture)));
 	m_buttons.push_back(new ExitButton(EXIT_BTN_POS,
 		textures.getTexture(exitBtnTexture)));
+
+	m_backgroung_img.setTexture(*(textures.getTexture(backgroundTexture)));
+	m_backgroung_img.scale(0.5f, 0.5f);
 }
 
 Menu::~Menu()
@@ -26,6 +29,7 @@ Button * Menu::getButton(Button_t btn) const
 
 void Menu::draw(sf::RenderWindow* window) const
 {
+	window->draw(m_backgroung_img);
 	for (int btn = 0; btn < m_buttons.size(); btn++)
 	{
 		m_buttons[btn]->draw(window);

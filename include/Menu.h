@@ -23,4 +23,5 @@ public:
 
 private:
 	std::vector<Button *> m_buttons;
+	sf::Sprite m_backgroung_img;
 };

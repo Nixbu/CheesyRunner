@@ -51,6 +51,9 @@ TextureManager::TextureManager()
     load(currentTexture, "DeadCatGift.png");
     m_textures.push_back(currentTexture);
 
+    load(currentTexture, "Background.png");
+    m_textures.push_back(currentTexture);
+
    
 
 }

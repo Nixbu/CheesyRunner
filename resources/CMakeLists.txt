@@ -12,6 +12,8 @@ configure_file ("TimeGift.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("FreezeGift.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("DeadCatGift.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LifeGift.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Background.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
 configure_file ("LevelPlaylistFile.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("level1.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("level2.txt" ${CMAKE_BINARY_DIR} COPYONLY)

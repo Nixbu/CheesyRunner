@@ -20,7 +20,8 @@ enum Texture_t {
 	timeGiftTexture,
 	freezeGiftTexture,
 	lifeGiftTexture,
-	deadCatGiftTexture
+	deadCatGiftTexture,
+	backgroundTexture
 };
 
 enum Button_t {
