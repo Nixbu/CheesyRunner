@@ -10,6 +10,7 @@ Level::Level( TextureManager* textures, Mouse* player)
 void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 {
 	enum Gift_t giftStatus = noGift;
+	int catMovement = 0;
 	m_board.readBoard(levelFile, m_player, m_cats , m_textures , m_level_time);
 	
 
@@ -32,6 +33,8 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 		this->m_player->handleKeys(m_clock.restart().asSeconds());
 
 		this->handleAllCollisions(giftStatus);
+
+		this->giftsAffect(giftStatus , catMovement);
 		
 	}
 }
@@ -130,6 +133,58 @@ void Level::handleDoorCollisions()
 		}
 	}
 
+}
+
+void Level::removeCat()
+{
+	int cat = (rand() % m_cats.size()) ;
+	m_cats.erase(m_cats.begin() + cat);
+}
+
+void Level::addPlayerTime()
+{
+	int amount = rand() % AMOUNTS;
+
+	switch (amount)
+	{
+	case lowAmount:
+		m_level_time += LOW_TIME;
+		break;
+	case midAmount:
+		m_level_time += MID_TIME;
+		break;
+	case largeAmount:
+		m_level_time += LARGE_TIME;
+		break;
+	}
+
+	m_states.setLevelTime(m_level_time);
+}
+
+void Level::handleFreeze(int &catMovement)
+{
+	catMovement = m_states.getTimeAsSeconds() + FREEZE_TIME;
+}
+
+void Level::giftsAffect(enum Gift_t& giftStatus , int & catMovement)
+{
+	switch (giftStatus)
+	{
+	case freeze:
+		handleFreeze(catMovement);
+		break;
+	case killCat:
+		removeCat(); 
+		break;
+	case addTime:
+		addPlayerTime(); 
+		break;
+	default:
+		break;
+
+	}
+
+	giftStatus = noGift;
 }
 
 void Level::draw(sf::RenderWindow* window)

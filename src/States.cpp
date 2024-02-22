@@ -61,6 +61,16 @@ void States::draw(sf::RenderWindow* window)
 	
 }
 
+void States::setLevelTime(int time)
+{
+	m_levelTime = time;
+}
+
+int States::getTimeAsSeconds() const
+{
+	return m_clock.getElapsedTime().asSeconds();
+}
+
 void States::setText(sf::Text& text)
 {
 	text.setFont(m_font);

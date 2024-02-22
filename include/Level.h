@@ -21,6 +21,8 @@ public:
 	void draw(sf::RenderWindow* window);
 	void handleEvents(sf::RenderWindow* window);
 	void handleAllCollisions(enum Gift_t& giftStatus);
+	void giftsAffect(enum Gift_t& giftStatus , int& catMovement);
+	
 
 	void handleWallCollisions();
 	void handleGameObjectCollisions();
@@ -37,6 +39,10 @@ private:
 	TextureManager* m_textures;
 	Mouse* m_player;
 	States m_states;
+
+	void removeCat();
+	void addPlayerTime();
+	 void handleFreeze(int& catMovement);
 
 	
 };
