@@ -58,10 +58,27 @@ void Level::handleAllCollisions(enum Gift_t & giftStatus)
 	this->handleWallCollisions();
 	this->handleGameObjectCollisions();
 	this->handleDoorCollisions();
+	this->handleGiftCollisions(giftStatus);
 
 
 }
 
+
+void Level::handleGiftCollisions(enum Gift_t& giftStatus)
+{
+	sf::FloatRect intersection;
+
+	for (int gift = 0; gift < m_board.getGifts().size(); gift++)
+	{
+		if (m_player->getSprite()->getGlobalBounds().intersects(
+			m_board.getGifts()[gift]->getSprite()->getGlobalBounds(), intersection))
+		{
+			m_board.getGifts()[gift]->action(giftStatus);
+
+			this->m_board.removeGift(gift);
+		}
+	}
+}
 void Level::handleWallCollisions()
 {
 	sf::FloatRect intersection;
@@ -88,16 +105,6 @@ void Level::handleGameObjectCollisions()
 			m_board.getGameObjects()[object]->handleCollision(*m_player, intersection);
 
 			this->m_board.removeObject(object);
-		}
-	}
-	for (int gift = 0; gift < m_board.getGifts().size(); gift++)
-	{
-		if (m_player->getSprite()->getGlobalBounds().intersects(
-			m_board.getGifts()[gift]->getSprite()->getGlobalBounds(), intersection))
-		{
-			m_board.getGifts()[gift]->action(giftStatus);
-
-			this->m_board.removeGift(gift);
 		}
 	}
 }

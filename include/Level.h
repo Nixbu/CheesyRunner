@@ -25,6 +25,7 @@ public:
 	void handleWallCollisions();
 	void handleGameObjectCollisions();
 	void handleDoorCollisions();
+	void handleGiftCollisions(enum Gift_t& giftStatus);
 
 
 private:
