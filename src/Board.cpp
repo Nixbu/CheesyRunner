@@ -104,7 +104,7 @@ void Board::genarateGift(int numOfGifts , sf::Vector2f location , const TextureM
 			break;
 		case addTime:
 			m_gifts.push_back(std::make_unique<TimeGift>(location,
-				textures->getTexture(lifeGiftTexture)));
+				textures->getTexture(timeGiftTexture)));
 			break;
 		default:
 			break;
