@@ -13,6 +13,16 @@ void Mouse::setKeys(int keys)
 	this->m_keys = keys;
 }
 
+void Mouse::addKey()
+{
+	m_keys++;
+}
+
+void Mouse::removeKey()
+{
+	m_keys--;
+}
+
 void Mouse::setCheese(int cheese)
 {
 	this->m_numOfCheese = cheese;
@@ -68,6 +78,8 @@ void Mouse::handleCollision(Cheese& gameObject, sf::FloatRect intersection)
 
 void Mouse::handleCollision(Door& gameObject, sf::FloatRect intersection)
 {
+	this->getSprite()->move((-1) * intersection.width * this->getDirection().x,
+		(-1) * intersection.height * this->getDirection().y);
 }
 
 void Mouse::handleCollision(Cat& gameObject, sf::FloatRect intersection)
@@ -76,7 +88,7 @@ void Mouse::handleCollision(Cat& gameObject, sf::FloatRect intersection)
 
 void Mouse::handleCollision(Key& gameObject, sf::FloatRect intersection)
 {
-	this->m_keys++;
+	this->addKey();
 }
 
 void Mouse::handleCollision(Wall& gameObject, sf::FloatRect intersection)

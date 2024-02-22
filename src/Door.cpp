@@ -6,6 +6,7 @@ void Door::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 
 void Door::handleCollision(Mouse& gameObject, sf::FloatRect intersection)
 {
+	gameObject.handleCollision(*this, intersection);
 }
 
 void Door::handleCollision(Cheese& gameObject, sf::FloatRect intersection)

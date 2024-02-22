@@ -53,9 +53,17 @@ void Level::handleEvents(sf::RenderWindow * window)
 
 void Level::handleAllCollisions()
 {
-	sf::FloatRect intersection;
-	bool key;
 
+	this->handleWallCollisions();
+	this->handleGameObjectCollisions();
+	this->handleDoorCollisions();
+
+
+}
+
+void Level::handleWallCollisions()
+{
+	sf::FloatRect intersection;
 
 	for (int object = 0; object < m_board.getWalls().size(); object++)
 	{
@@ -65,6 +73,11 @@ void Level::handleAllCollisions()
 			m_board.getWalls()[object]->handleCollision(*m_player, intersection);
 		}
 	}
+}
+
+void Level::handleGameObjectCollisions()
+{
+	sf::FloatRect intersection;
 
 	for (int object = 0; object < m_board.getGameObjects().size(); object++)
 	{
@@ -74,6 +87,28 @@ void Level::handleAllCollisions()
 			m_board.getGameObjects()[object]->handleCollision(*m_player, intersection);
 
 			this->m_board.removeObject(object);
+		}
+	}
+}
+
+void Level::handleDoorCollisions()
+{
+	sf::FloatRect intersection;
+
+	for (int object = 0; object < m_board.getDoors().size(); object++)
+	{
+		if (m_player->getSprite()->getGlobalBounds().intersects(
+			m_board.getDoors()[object]->getSprite()->getGlobalBounds(), intersection))
+		{
+			m_board.getDoors()[object]->handleCollision(*m_player, intersection);
+
+			if (m_player->getKeys() > 0)
+			{
+				m_player->removeKey();
+				this->m_board.removeDoor(object);
+
+			}
+
 		}
 	}
 

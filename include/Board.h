@@ -24,15 +24,17 @@ public:
 		std::vector<std::unique_ptr<Cat>>& cats ,
 		const TextureManager * textures ,
 		int &leveltime);
-	//Board(const Board& other);
+	
 
 	~Board() = default;
 
 	void removeObject(int index);
+	void removeDoor(int index);
 	void draw(sf::RenderWindow * window );
 
 	const std::vector<std::unique_ptr<Wall>>& getWalls() const;
 	const std::vector<std::unique_ptr<GameObject>>& getGameObjects() const;
+	const std::vector<std::unique_ptr<Door>> &getDoors() const;
 
 	float getWidth() const;
 	float getHeight() const;

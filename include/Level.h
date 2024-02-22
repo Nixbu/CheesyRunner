@@ -22,6 +22,10 @@ public:
 	void handleEvents(sf::RenderWindow* window);
 	void handleAllCollisions();
 
+	void handleWallCollisions();
+	void handleGameObjectCollisions();
+	void handleDoorCollisions();
+
 
 private:
 	Board m_board;

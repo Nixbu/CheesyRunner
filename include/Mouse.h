@@ -9,6 +9,8 @@ public:
 		float velocity);
 	~Mouse() = default;
 	void setKeys(int keys);
+	void addKey();
+	void removeKey();
 	void setCheese(int cheese);
 	int getCheese() const;
 	int getKeys() const;

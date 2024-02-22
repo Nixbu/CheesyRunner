@@ -2,6 +2,9 @@
 
 #include "StaticObject.h"
 
+#include "Mouse.h"
+#include "Cat.h"
+
 class Door : public StaticObject {
 public:
 	using StaticObject::StaticObject;
