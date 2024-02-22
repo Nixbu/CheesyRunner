@@ -15,6 +15,9 @@
 #include "Door.h"
 #include "Wall.h"
 #include "Gift.h"
+#include "FreezeGift.h"
+#include "TimeGift.h"
+#include "KillCatGift.h"
 
 
 class Board {
@@ -27,7 +30,7 @@ public:
 	//Board(const Board& other);
 
 	~Board() = default;
-
+	void genarateGift(int numOfGifts, sf::Vector2f location, const TextureManager* textures);
 	void removeObject(int index);
 	void draw(sf::RenderWindow * window );
 
@@ -42,6 +45,7 @@ private:
 	std::vector<std::unique_ptr<Wall>> m_walls;
 	std::vector<std::unique_ptr<BackgroundTile>> m_bgTiles;
 	std::vector<std::unique_ptr<Door>> m_doors;
+	std::vector<std::unique_ptr<Gift>> m_gifts;
 	float m_width,
 		m_length;
 };

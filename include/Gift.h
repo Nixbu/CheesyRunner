@@ -5,19 +5,10 @@
 
 class Gift : public StaticObject {
 public:
-	Gift(sf::Vector2f position, sf::Texture* texture , enum Gift_t giftType);
+	Gift(sf::Vector2f position, sf::Texture* texture);
 	virtual ~Gift() = default;
 
-	virtual void action();
-
-	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection);
-	virtual void handleCollision(Mouse& gameObject, sf::FloatRect intersection);
-	virtual void handleCollision(Cheese& gameObject, sf::FloatRect intersection);
-	virtual void handleCollision(Door& gameObject, sf::FloatRect intersection);
-	virtual void handleCollision(Cat& gameObject, sf::FloatRect intersection);
-	virtual void handleCollision(Key& gameObject, sf::FloatRect intersection);
-	virtual void handleCollision(Wall& gameObject, sf::FloatRect intersection);
-	
+	virtual void action(enum Gift_t &giftType) = 0;	
+	virtual void draw(sf::RenderWindow* window);
 private:
-	enum Gift_t m_type;
 };

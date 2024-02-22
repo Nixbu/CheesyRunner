@@ -7,6 +7,7 @@ GameManager::GameManager()
 
 void GameManager::run()
 {
+	srand(time(NULL));
 	sf::Vector2f mousePos;
 
 	sf::RenderWindow window(sf::VideoMode(WINDOW_MANAGER_WIDTH,
