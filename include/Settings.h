@@ -1,7 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-enum Gift_t { freeze , killCat , addTime  };
+enum Gift_t { freeze , addTime , killCat , noGift
+};
+
 
 enum Texture_t {
 	mouseTexture,
@@ -55,5 +57,7 @@ LEFT = { -1, 0 },
 RIGHT = { 1, 0 },
 STAND = { 0, 0 };
 
-const int CHEESE_SCORE = 10;
+const int CHEESE_SCORE = 10 ,
+		   GIFT_TYPES = 2 ,
+	NUM_OF_GIFTS_FOR_EZ_LEVEL = 3;
 			

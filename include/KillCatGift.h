@@ -2,7 +2,7 @@
 
 #include "Gift.h"
 
-class TimeGift : public Gift {
+class KillCatGift : public Gift {
 public:
 	using Gift::Gift;
 	virtual void action(enum Gift_t& giftType);

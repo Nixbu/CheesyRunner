@@ -9,6 +9,7 @@ Level::Level( TextureManager* textures, Mouse* player)
 
 void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 {
+	enum Gift_t giftStatus = noGift;
 	m_board.readBoard(levelFile, m_player, m_cats , m_textures , m_level_time);
 	
 
@@ -30,7 +31,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 
 		this->m_player->handleKeys(m_clock.restart().asSeconds());
 
-		this->handleAllCollisions();
+		this->handleAllCollisions(giftStatus);
 		
 	}
 }
@@ -51,7 +52,7 @@ void Level::handleEvents(sf::RenderWindow * window)
 
 
 
-void Level::handleAllCollisions()
+void Level::handleAllCollisions(enum Gift_t & giftStatus)
 {
 
 	this->handleWallCollisions();
@@ -87,6 +88,16 @@ void Level::handleGameObjectCollisions()
 			m_board.getGameObjects()[object]->handleCollision(*m_player, intersection);
 
 			this->m_board.removeObject(object);
+		}
+	}
+	for (int gift = 0; gift < m_board.getGifts().size(); gift++)
+	{
+		if (m_player->getSprite()->getGlobalBounds().intersects(
+			m_board.getGifts()[gift]->getSprite()->getGlobalBounds(), intersection))
+		{
+			m_board.getGifts()[gift]->action(giftStatus);
+
+			this->m_board.removeGift(gift);
 		}
 	}
 }
