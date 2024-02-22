@@ -78,17 +78,13 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 
 void Board::genarateGift(int numOfGifts , sf::Vector2f location , const TextureManager * textures)
 {
-	static bool isKillCat = false; // i want to give only once the kill cat gift
-								  // and only if the level is hard
+
 	int giftType;
 
-	if (numOfGifts > NUM_OF_GIFTS_FOR_EZ_LEVEL && !isKillCat)
+	if (numOfGifts % NUM_OF_GIFTS_FOR_EZ_LEVEL == 0)
 	{
 		m_gifts.push_back(std::make_unique<KillCatGift>(location,
 			textures->getTexture(deadCatGiftTexture)));
-
-		isKillCat = true;
-
 		return;
 	}
 	else
