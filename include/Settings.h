@@ -37,7 +37,8 @@ enum Button_t {
 const unsigned int WINDOW_MANAGER_WIDTH = 869,
 WINDOW_MANAGER_HEIGHT = 867,
 BG_TILES = 2,
-BASE_TILE = bgTileTexture;
+BASE_TILE = bgTileTexture,
+VOLUME = 50;
 
 const float TILE_WIDTH = 40,
 TILE_LENGTH = 40,
