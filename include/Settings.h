@@ -6,13 +6,17 @@ enum Gift_t { freeze , addTime , killCat , noGift
 
 
 enum Texture_t {
-	mouseTexture,
+	mouseTexture = 0,
 	catTexture,
 	wallTexture,
 	cheeseTexture,
 	keyTexture,
 	doorTexture,
 	bgTileTexture,
+	bgTileTexture2,
+	bgTileTexture3,
+	bgTileTexture4,
+	bgTileTexture5,
 	playBtnTexture,
 	exitBtnTexture,
 	helpBtnTexture,
@@ -30,10 +34,13 @@ enum Button_t {
 	exitBtn
 };
 
+const unsigned int WINDOW_MANAGER_WIDTH = 869,
+WINDOW_MANAGER_HEIGHT = 867,
+BG_TILES = 2,
+BASE_TILE = bgTileTexture;
+
 const float TILE_WIDTH = 40,
 TILE_LENGTH = 40,
-WINDOW_MANAGER_WIDTH = 869,
-WINDOW_MANAGER_HEIGHT = 867,
 CAT_VELOCITY = 30,
 MOUSE_VELOCITY = 300,
 DEFAULT_TIME = 100,
