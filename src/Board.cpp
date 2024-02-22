@@ -117,6 +117,11 @@ void Board::removeObject(int index)
 	m_gameObjects.erase(m_gameObjects.begin() + index);
 }
 
+void Board::removeGift(int index)
+{
+	m_gifts.erase(m_gifts.begin() + index);
+}
+
 void Board::draw(sf::RenderWindow * window)
 {
 	for (int idx = 0; idx < m_bgTiles.size(); idx++)
@@ -157,6 +162,11 @@ const std::vector<std::unique_ptr<Wall>>& Board::getWalls() const
 const std::vector<std::unique_ptr<GameObject>>& Board::getGameObjects() const
 {
 	return m_gameObjects;
+}
+
+const std::vector<std::unique_ptr<Gift>>& Board::getGifts() const
+{
+	return m_gifts;
 }
 
 float Board::getWidth() const

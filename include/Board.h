@@ -32,10 +32,12 @@ public:
 	~Board() = default;
 	void genarateGift(int numOfGifts, sf::Vector2f location, const TextureManager* textures);
 	void removeObject(int index);
+	void removeGift(int index);
 	void draw(sf::RenderWindow * window );
 
 	const std::vector<std::unique_ptr<Wall>>& getWalls() const;
 	const std::vector<std::unique_ptr<GameObject>>& getGameObjects() const;
+	const std::vector<std::unique_ptr<Gift>> & getGifts() const;
 
 	float getWidth() const;
 	float getHeight() const;

@@ -20,7 +20,7 @@ public:
 	void levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile);
 	void draw(sf::RenderWindow* window);
 	void handleEvents(sf::RenderWindow* window);
-	void handleAllCollisions();
+	void handleAllCollisions(enum Gift_t& giftStatus);
 
 
 private:
