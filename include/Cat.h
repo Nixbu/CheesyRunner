@@ -13,7 +13,7 @@ public:
 	
 	void draw(sf::RenderWindow* window) const override;
 
-	bool dfsChasingAlgorithm(std::vector<std::vector<bool>> &boardMatrix,
+	int dfsChasingAlgorithm(std::vector<std::vector<bool>> &boardMatrix,
 		sf::Vector2i newPos,
 		sf::Vector2i mouseMatrixPosition) const;
 	sf::Vector2f chooseMove(std::vector<std::vector<bool>> boardMatrix) const;
@@ -29,4 +29,7 @@ public:
 	virtual void handleCollision(Wall& gameObject, sf::FloatRect intersection);
 private:
 	Mouse* m_player;
+
+	sf::Vector2f findMinDirection(int upDistance, int downDistance,
+		int rightDistance, int leftDistance) const;
 };
