@@ -11,20 +11,25 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 				int &leveltime)
 {
 	*levelFile >> leveltime;
+	levelFile->get();
 
 	int  numOfGifts = 0;
 	std::string line;
 	sf::Vector2i pos = { 0 , 0 };
 	sf::Vector2f  currLocation;
+	
+	bool tileState;
 
 	//reading line
 	while (std::getline(*levelFile, line))
 	{
+		std::vector<bool> currentLine;
 		// checks which objects were in the line
 		for (pos.x = 0; pos.x < line.length(); pos.x++)
 		{
-			 m_width = (float)line.length() * TILE_WIDTH;
-			 currLocation ={ TILE_WIDTH * pos.x,  pos.y * TILE_LENGTH };
+			tileState = true;
+			m_width = (float)line.length() * TILE_WIDTH;
+			currLocation ={ TILE_WIDTH * pos.x,  pos.y * TILE_LENGTH };
 				
 		
 			switch (line[pos.x])
@@ -32,12 +37,12 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 			case '%':
 				//updating mouse states as needed
 				mouse->setPos(currLocation);
-				mouse->setKeys((- 1)* mouse ->getKeys());
+				mouse->setKeys(0);
 				mouse->setCheese((-1) * mouse->getCheese());
 				break;
 			case '^':
 				cats.push_back(std::make_unique<Cat>(currLocation,
-					textures->getTexture(catTexture), CAT_VELOCITY));
+					textures->getTexture(catTexture), CAT_VELOCITY, mouse));
 				break;
 
 			case '*': 
@@ -47,6 +52,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 			case 'D':
 				m_doors.push_back(std::make_unique<Door>(currLocation,
 					textures->getTexture(doorTexture)));
+				tileState = false;
 				break;
 			case 'F':
 				m_gameObjects.push_back(std::make_unique<Key>(currLocation,
@@ -59,6 +65,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 			case '#':
 				m_walls.push_back(std::make_unique<Wall>(currLocation,
 					textures->getTexture(wallTexture)));
+				tileState = false;
 				break;
 			default:
 				break;
@@ -66,8 +73,10 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 
 			m_bgTiles.push_back(std::make_unique<BackgroundTile>(currLocation,
 				textures->getTexture(chooseRandTexture()))); // Get a unique bg tile each time
+			currentLine.push_back(tileState);
 		}
-
+		std::cout << currentLine.size();
+		m_boardMatrix.push_back(currentLine);
 		pos.y++;
 
 	}
@@ -202,6 +211,11 @@ const std::vector<std::unique_ptr<GameObject>>& Board::getGameObjects() const
 const std::vector<std::unique_ptr<Door>>& Board::getDoors() const
 {
 	return m_doors;
+}
+
+const std::vector<std::vector<bool>>& Board::getBoardMatrix() const
+{
+	return m_boardMatrix;
 }
 
 const std::vector<std::unique_ptr<Gift>>& Board::getGifts() const

@@ -9,7 +9,7 @@ public:
 	virtual ~MovingObject() = default;
 
 	bool isCollided(GameObject& obj) const;
-	virtual void move(sf::Vector2f direction, float deltaTime) = 0;
+	
 	sf::Vector2f getDirection() const;
 	void setDirection(const sf::Vector2f);
 	float getVelocity() const;

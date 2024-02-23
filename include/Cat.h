@@ -2,12 +2,18 @@
 
 #include "MovingObject.h"
 
+#include "Mouse.h";
+#include <iostream>
+
 class Cat : public MovingObject {
 public:
-	using MovingObject::MovingObject;
+	Cat(sf::Vector2f position, sf::Texture* texture,
+		float velocity, Mouse* mouse);
 	~Cat() = default;
-	void move(sf::Vector2f direction, float deltaTime) override;
+	void move(float deltaTime, 
+		std::vector<std::vector<bool>> boardMatrix);
 	void draw(sf::RenderWindow* window) const override;
+	sf::Vector2f dfsChasingAlgorithm(std::vector<std::vector<bool>> boardMatrix) const;
 
 	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Mouse& gameObject, sf::FloatRect intersection);
@@ -17,5 +23,5 @@ public:
 	virtual void handleCollision(Key& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Wall& gameObject, sf::FloatRect intersection);
 private:
-	//todo
+	Mouse* m_player;
 };

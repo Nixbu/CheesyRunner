@@ -22,6 +22,7 @@ public:
 	void handleEvents(sf::RenderWindow* window);
 	void handleAllCollisions(enum Gift_t& giftStatus);
 	void giftsAffect(enum Gift_t& giftStatus , int& catMovement);
+	void moveCats(float deltaTime, std::vector<std::vector<bool>> boardMatrix);
 	
 
 	void handleWallCollisions();

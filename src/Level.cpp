@@ -11,6 +11,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 {
 	enum Gift_t giftStatus = noGift;
 	int catMovement = 0;
+	float deltaTime;
 	m_board.readBoard(levelFile, m_player, m_cats , m_textures , m_level_time);
 	
 
@@ -22,6 +23,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 	
 	while (window->isOpen() && Cheese::getCount() != 0)
 	{
+		deltaTime = m_clock.restart().asSeconds();
 		window->clear();
 
 		this->draw(window);
@@ -30,12 +32,22 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 
 		this->handleEvents(window);
 
-		this->m_player->handleKeys(m_clock.restart().asSeconds());
+		this->m_player->handleKeys(deltaTime);
+
+		this->moveCats(deltaTime, this->m_board.getBoardMatrix());
 
 		this->handleAllCollisions(giftStatus);
 
 		this->giftsAffect(giftStatus , catMovement);
 		
+	}
+}
+
+void Level::moveCats(float deltaTime, std::vector<std::vector<bool>> boardMatrix)
+{
+	for (int cat = 0; cat < this->m_cats.size(); cat++)
+	{
+		m_cats[cat]->move(deltaTime, boardMatrix);
 	}
 }
 
