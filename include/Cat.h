@@ -10,10 +10,15 @@ public:
 	Cat(sf::Vector2f position, sf::Texture* texture,
 		float velocity, Mouse* mouse);
 	~Cat() = default;
-	void move(float deltaTime, 
-		std::vector<std::vector<bool>> boardMatrix);
+	
 	void draw(sf::RenderWindow* window) const override;
-	sf::Vector2f dfsChasingAlgorithm(std::vector<std::vector<bool>> boardMatrix) const;
+
+	bool dfsChasingAlgorithm(std::vector<std::vector<bool>> &boardMatrix,
+		sf::Vector2i newPos,
+		sf::Vector2i mouseMatrixPosition) const;
+	sf::Vector2f chooseMove(std::vector<std::vector<bool>> boardMatrix) const;
+	void move(float deltaTime,
+		std::vector<std::vector<bool>> boardMatrix);
 
 	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Mouse& gameObject, sf::FloatRect intersection);
