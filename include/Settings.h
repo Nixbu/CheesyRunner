@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-enum Gift_t { freeze , addTime , killCat , noGift
+enum Gift_t { freeze , addTime ,addLife , killCat , noGift
 };
 
 
@@ -35,7 +35,7 @@ TILE_LENGTH = 40,
 WINDOW_MANAGER_WIDTH = 869,
 WINDOW_MANAGER_HEIGHT = 867,
 CAT_VELOCITY = 30,
-MOUSE_VELOCITY = 300,
+MOUSE_VELOCITY = 170,
 DEFAULT_TIME = 100,
 HEART_POS = 100,
 HEART_OFFSET = 50,
@@ -61,12 +61,13 @@ RIGHT = { 1, 0 },
 STAND = { 0, 0 };
 
 const int CHEESE_SCORE = 10 ,
-		   GIFT_TYPES = 2 ,
+		   GIFT_TYPES = 3 ,
 	NUM_OF_GIFTS_FOR_EZ_LEVEL = 3 ,
 	LOW_TIME =15 ,
 	MID_TIME = 20,
 	LARGE_TIME = 30 ,
 	AMOUNTS = 3 ,
-	FREEZE_TIME = 5;
+	FREEZE_TIME = 5 ,
+	SOULS_NUM = 3;
 			
 enum AddTime{lowAmount  , midAmount , largeAmount};

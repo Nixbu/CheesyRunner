@@ -42,7 +42,8 @@ private:
 
 	void removeCat();
 	void addPlayerTime();
-	 void handleFreeze(int& catMovement);
+	void handleFreeze(int& catMovement);
+	void addPlayerLife();
 
 	
 };

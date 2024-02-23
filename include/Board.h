@@ -18,6 +18,7 @@
 #include "FreezeGift.h"
 #include "TimeGift.h"
 #include "KillCatGift.h"
+#include "LifeGift.h"
 
 
 class Board {

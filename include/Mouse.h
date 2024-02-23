@@ -17,6 +17,7 @@ public:
 	int getSouls() const;
 	int getScore() const;
 
+	void addSouls(int soulNum);
 	void move(sf::Vector2f direction, float deltaTime);
 	void draw(sf::RenderWindow * window) const override;
 	void handleKeys(float deltaTime);

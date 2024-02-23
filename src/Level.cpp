@@ -166,6 +166,14 @@ void Level::handleFreeze(int &catMovement)
 	catMovement = m_states.getTimeAsSeconds() + FREEZE_TIME;
 }
 
+void Level::addPlayerLife()
+{
+	if (this->m_player->getSouls() < SOULS_NUM)
+	{
+		m_player->addSouls(1);
+	}
+}
+
 void Level::giftsAffect(enum Gift_t& giftStatus , int & catMovement)
 {
 	switch (giftStatus)
@@ -179,6 +187,8 @@ void Level::giftsAffect(enum Gift_t& giftStatus , int & catMovement)
 	case addTime:
 		addPlayerTime(); 
 		break;
+	case addLife:
+		addPlayerLife();
 	default:
 		break;
 

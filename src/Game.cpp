@@ -32,7 +32,7 @@ void Game::run()
 	
 	while (std::getline(m_playlist, levelName))
 	{
-		std::cout << levelName;
+
 		levelFile.open(levelName);
 		/*checkFile(levelFile);*/
 		Level currentLevel( m_textures , &m_player);

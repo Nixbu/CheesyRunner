@@ -1,15 +1,20 @@
 #pragma once
 
-#include "Gift"
-#include "Settings.h"
+#include "Gift.h"
 
 class LifeGift : public Gift {
 public:
 	using Gift::Gift;
-	virtual ~LifeGift() = default;
+	virtual void action(enum Gift_t& giftType);
 
-	virtual void draw(sf::RenderWindow* window) const override;
-	virtual void action() override;
+	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection);
+	virtual void handleCollision(Mouse& gameobject, sf::FloatRect intersection);
+	virtual void handleCollision(Cheese& gameObject, sf::FloatRect intersection);
+	virtual void handleCollision(Door& gameObject, sf::FloatRect intersection);
+	virtual void handleCollision(Cat& gameObject, sf::FloatRect intersection);
+	virtual void handleCollision(Key& gameObject, sf::FloatRect intersection);
+	virtual void handleCollision(Wall& gameObject, sf::FloatRect intersection);
 
 private:
+
 };
