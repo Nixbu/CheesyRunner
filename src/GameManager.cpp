@@ -3,6 +3,7 @@
 GameManager::GameManager()
 	: m_textures(), m_menu(m_textures)
 {
+	this->loadMusic();
 }
 
 void GameManager::run()
@@ -49,4 +50,16 @@ void GameManager::run()
 
 
 	}
+}
+
+void GameManager::loadMusic()
+{
+	if (!m_music.openFromFile("BackgroundMusic.ogg")) {
+		std::cerr << "Error loading music file" << std::endl;
+		exit(EXIT_FAILURE);
+	}
+
+	m_music.play();
+	m_music.setLoop(true);
+	m_music.setVolume(VOLUME);
 }

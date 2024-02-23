@@ -20,7 +20,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 		this->m_board.getHeight() + 100),
 		"Mouse And Cat");
 	
-	while ( Cheese::getCount() != 0)
+	while (window->isOpen() && Cheese::getCount() != 0)
 	{
 		window->clear();
 
