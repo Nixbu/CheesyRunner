@@ -6,6 +6,7 @@
 #include "Mouse.h"
 #include <fstream>
 #include "TextureManager.h"
+#include "SoundManager.h"
 #include <SFML/Graphics.hpp>
 #include "States.h"
 
@@ -13,6 +14,7 @@
 class Level {
 public:
 	Level(TextureManager* textures,
+		SoundManager* sounds,
 		Mouse* player);
 		
 	virtual ~Level() = default;
@@ -38,6 +40,7 @@ private:
 	int m_level_time;
 	std::vector<std::unique_ptr<Cat>> m_cats;
 	TextureManager* m_textures;
+	SoundManager* m_sounds;
 	Mouse* m_player;
 	States m_states;
 

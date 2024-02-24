@@ -5,7 +5,8 @@
 
 class Gift : public StaticObject {
 public:
-	Gift(sf::Vector2f position, sf::Texture* texture);
+	Gift(sf::Vector2f position, sf::Texture* texture,
+		sf::SoundBuffer* soundBffr);
 	virtual ~Gift() = default;
 
 	virtual void action(enum Gift_t &giftType) = 0;	

@@ -1,10 +1,13 @@
 #include "Level.h"
 
-Level::Level( TextureManager* textures, Mouse* player)
+Level::Level( TextureManager* textures,
+	SoundManager* sounds,
+	Mouse* player)
 	:  m_board() , m_level_time(DEFAULT_TIME), m_states(player, textures)
 {
 	m_player = player;
 	m_textures = textures;
+	m_sounds = sounds;
 }
 
 void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
@@ -12,7 +15,8 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 	enum Gift_t giftStatus = noGift;
 	int catMovement = 0;
 	float deltaTime;
-	m_board.readBoard(levelFile, m_player, m_cats , m_textures , m_level_time);
+	m_board.readBoard(levelFile, m_player, m_cats , m_textures,
+		m_sounds, m_level_time);
 	
 
 	m_states.setLevelState(this->m_board.getHeight(), m_level_time);

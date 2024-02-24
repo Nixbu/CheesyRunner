@@ -5,7 +5,8 @@
 
 class Cheese : public StaticObject {
 public:
-	Cheese(sf::Vector2f position, sf::Texture* texture);
+	Cheese(sf::Vector2f position, sf::Texture* texture,
+		sf::SoundBuffer* soundBffr);
 	virtual ~Cheese() ;
 
 	static int getCount(); 

@@ -8,6 +8,7 @@ Board::Board() :
 void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 	std::vector<std::unique_ptr<Cat>>& cats ,
 				const TextureManager * textures ,
+				const SoundManager* sounds,
 				int &leveltime)
 {
 	*levelFile >> leveltime;
@@ -47,24 +48,24 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 
 			case '*': 
 				m_gameObjects.push_back(std::make_unique<Cheese>(currLocation ,
-							textures->getTexture(cheeseTexture)));
+							textures->getTexture(cheeseTexture), sounds->getSoundBuffer(keySound)));
 				break;
 			case 'D':
 				m_doors.push_back(std::make_unique<Door>(currLocation,
-					textures->getTexture(doorTexture)));
+					textures->getTexture(doorTexture), sounds->getSoundBuffer(keySound)));
 				tileState = false;
 				break;
 			case 'F':
 				m_gameObjects.push_back(std::make_unique<Key>(currLocation,
-					textures->getTexture(keyTexture)));
+					textures->getTexture(keyTexture), sounds->getSoundBuffer(keySound)));
 				break;
 			case '$':
 				numOfGifts++;
-				genarateGift(numOfGifts , currLocation , textures);
+				genarateGift(numOfGifts , currLocation , textures, sounds);
 				break;
 			case '#':
 				m_walls.push_back(std::make_unique<Wall>(currLocation,
-					textures->getTexture(wallTexture)));
+					textures->getTexture(wallTexture), sounds->getSoundBuffer(keySound)));
 				tileState = false;
 				break;
 			default:
@@ -72,7 +73,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 			}
 
 			m_bgTiles.push_back(std::make_unique<BackgroundTile>(currLocation,
-				textures->getTexture(chooseRandTexture()))); // Get a unique bg tile each time
+				textures->getTexture(chooseRandTexture()), sounds->getSoundBuffer(keySound))); // Get a unique bg tile each time
 			currentLine.push_back(tileState);
 		}
 		std::cout << currentLine.size();
@@ -115,7 +116,9 @@ Texture_t Board::chooseRandTexture()
 }
 
 
-void Board::genarateGift(int numOfGifts , sf::Vector2f location , const TextureManager * textures)
+void Board::genarateGift(int numOfGifts , sf::Vector2f location , 
+	const TextureManager * textures,
+	const SoundManager* sounds)
 {
 
 	int giftType;
@@ -123,7 +126,7 @@ void Board::genarateGift(int numOfGifts , sf::Vector2f location , const TextureM
 	if (numOfGifts % NUM_OF_GIFTS_FOR_EZ_LEVEL == 0)
 	{
 		m_gifts.push_back(std::make_unique<KillCatGift>(location,
-			textures->getTexture(deadCatGiftTexture)));
+			textures->getTexture(deadCatGiftTexture), sounds->getSoundBuffer(keySound)));
 		return;
 	}
 	else
@@ -134,16 +137,19 @@ void Board::genarateGift(int numOfGifts , sf::Vector2f location , const TextureM
 		{
 		case freeze:
 			m_gifts.push_back(std::make_unique<FreezeGift>(location,
-				textures->getTexture(freezeGiftTexture)));
+				textures->getTexture(freezeGiftTexture), 
+				sounds->getSoundBuffer(keySound)));
 			
 			break;
 		case addTime:
 			m_gifts.push_back(std::make_unique<TimeGift>(location,
-				textures->getTexture(timeGiftTexture)));
+				textures->getTexture(timeGiftTexture),
+				sounds->getSoundBuffer(keySound)));
 			break;
 		case addLife:
 			m_gifts.push_back(std::make_unique<LifeGift>(location,
-				textures->getTexture(lifeGiftTexture)));
+				textures->getTexture(lifeGiftTexture),
+				sounds->getSoundBuffer(keySound)));
 			break;
 		default:
 			break;

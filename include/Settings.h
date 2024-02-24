@@ -28,6 +28,10 @@ enum Texture_t {
 	backgroundTexture
 };
 
+enum Sound_t {
+	keySound
+};
+
 enum Button_t {
 	playBtn,
 	helpBtn,
@@ -38,7 +42,7 @@ const unsigned int WINDOW_MANAGER_WIDTH = 869,
 WINDOW_MANAGER_HEIGHT = 867,
 BG_TILES = 2,
 BASE_TILE = bgTileTexture,
-VOLUME = 50;
+VOLUME = 1;
 
 const float TILE_WIDTH = 40,
 TILE_LENGTH = 40,
