@@ -15,9 +15,10 @@ Game::Game(TextureManager * textures,
 	SoundManager * sounds,
 	sf::RenderWindow * window)
 	: m_player(sf::Vector2f(0, 0),
-		textures->getTexture(mouseTexture),
+		textures->getTexture(mouseFrontTexture),
 		MOUSE_VELOCITY,
-		sounds),
+		sounds,
+		textures),
 	m_window(window)
 {
 	m_textures = textures;

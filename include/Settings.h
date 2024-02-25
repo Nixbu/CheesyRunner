@@ -25,7 +25,11 @@ enum Texture_t {
 	freezeGiftTexture,
 	lifeGiftTexture,
 	deadCatGiftTexture,
-	backgroundTexture
+	backgroundTexture,
+	mouseFrontTexture,
+	mouseBackTexture,
+	mouseLeftTexture,
+	mouseRightTexture
 };
 
 enum Sound_t {

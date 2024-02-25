@@ -2,12 +2,14 @@
 
 Mouse::Mouse(sf::Vector2f position, sf::Texture* texture,
 	float velocity,
-	SoundManager * sounds)
+	SoundManager * sounds,
+	TextureManager* textures)
 	: MovingObject(position, texture, MOUSE_VELOCITY),
 	m_keys(0), m_life(SOULS_NUM), m_score(0),
 	m_numOfCheese(0)
 {
 	m_sounds = sounds;
+	m_textures = textures;
 }
 
 void Mouse::setKeys(int keys)
@@ -59,8 +61,39 @@ void Mouse::move(sf::Vector2i direction, float deltaTime)
 {
 	this->setDirection(direction);
 
+	this->setSpriteDirection(direction);
+
+
+
 	this->getSprite()->move(this->getDirection().x * deltaTime * this->getVelocity(),
 		this->getDirection().y * deltaTime * this->getVelocity());
+}
+
+void Mouse::setSpriteDirection(sf::Vector2i direction)
+{
+	Texture_t wantedTexture;
+
+	if (direction == UP)
+	{
+		wantedTexture = mouseBackTexture;
+	}
+	else if(direction == DOWN)
+	{
+		wantedTexture = mouseFrontTexture;
+	}
+	else if (direction == LEFT)
+	{
+		wantedTexture = mouseLeftTexture;
+	}
+	else
+	{
+		wantedTexture = mouseRightTexture;
+	}
+
+
+	this->getSprite()->setTexture(*m_textures->getTexture(wantedTexture));
+
+
 }
 
 void Mouse::draw(sf::RenderWindow* window) const

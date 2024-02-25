@@ -15,6 +15,14 @@ configure_file ("bgTile2.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("bgTile3.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("bgTile4.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("bgTile5.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("mouseFront.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("mouseBack.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("mouseLeft.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("mouseRight.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
+
+
 
 # BUTTONS
 configure_file ("playbutton.png" ${CMAKE_BINARY_DIR} COPYONLY)
