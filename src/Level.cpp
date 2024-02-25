@@ -34,7 +34,10 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 
 		this->m_player->handleKeys(deltaTime);
 
-		this->moveCats(deltaTime);
+		if (catMovement < m_states.getTimeAsSeconds())
+		{
+			this->moveCats(deltaTime);
+		}
 
 		this->handleAllCollisions(giftStatus);
 
