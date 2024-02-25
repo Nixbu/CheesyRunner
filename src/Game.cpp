@@ -12,11 +12,16 @@
 
 
 Game::Game(TextureManager * textures,
+	SoundManager * sounds,
 	sf::RenderWindow * window)
-	: m_player(sf::Vector2f(0, 0), textures->getTexture(mouseTexture), MOUSE_VELOCITY),
+	: m_player(sf::Vector2f(0, 0),
+		textures->getTexture(mouseTexture),
+		MOUSE_VELOCITY,
+		sounds),
 	m_window(window)
 {
 	m_textures = textures;
+	m_sounds = sounds;
 	std::ifstream playlistLevelFile;
 
 	m_playlist.open("LevelPlaylistFile.txt");
@@ -35,7 +40,7 @@ void Game::run()
 
 		levelFile.open(levelName);
 		/*checkFile(levelFile);*/
-		Level currentLevel( m_textures , &m_player);
+		Level currentLevel( m_textures , m_sounds, &m_player);
 		currentLevel.levelLoop(m_window , &levelFile);
 		if (!m_window->isOpen())
 		{

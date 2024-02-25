@@ -1,11 +1,13 @@
 #include "Mouse.h"
 
 Mouse::Mouse(sf::Vector2f position, sf::Texture* texture,
-	float velocity)
+	float velocity,
+	SoundManager * sounds)
 	: MovingObject(position, texture, MOUSE_VELOCITY),
 	m_keys(0), m_life(SOULS_NUM), m_score(0),
 	m_numOfCheese(0)
 {
+	m_sounds = sounds;
 }
 
 void Mouse::setKeys(int keys)
@@ -93,6 +95,7 @@ void Mouse::handleCollision(Cat& gameObject, sf::FloatRect intersection)
 
 void Mouse::handleCollision(Key& gameObject, sf::FloatRect intersection)
 {
+	this->m_sounds->playKeySound();
 	this->addKey();
 }
 

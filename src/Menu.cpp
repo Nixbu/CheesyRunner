@@ -39,13 +39,13 @@ void Menu::draw(sf::RenderWindow* window) const
 
 // Polymorphism
 void Menu::handleClicks(sf::Vector2f mousePos, sf::RenderWindow * window,
-	const TextureManager & textures)
+	const TextureManager & textures, const SoundManager & sounds)
 {
 	for (int btn = 0; btn < this->m_buttons.size(); btn++)
 	{
 		if (this->m_buttons[btn]->isClicked(mousePos))
 		{
-			this->m_buttons[btn]->action(window, textures);
+			this->m_buttons[btn]->action(window, textures, sounds);
 		}
 	}
 }

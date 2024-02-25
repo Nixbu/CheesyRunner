@@ -1,10 +1,13 @@
 #include "Level.h"
 
-Level::Level( TextureManager* textures, Mouse* player)
+Level::Level( TextureManager* textures,
+	SoundManager* sounds,
+	Mouse* player)
 	:  m_board() , m_level_time(DEFAULT_TIME), m_states(player, textures)
 {
 	m_player = player;
 	m_textures = textures;
+	m_sounds = sounds;
 }
 
 void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
@@ -257,6 +260,7 @@ void Level::giftsAffect(enum Gift_t& giftStatus , int & catMovement)
 		break;
 	case addLife:
 		addPlayerLife();
+		break;
 	default:
 		break;
 

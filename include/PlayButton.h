@@ -9,7 +9,8 @@ public:
 	using Button::Button;
 	~PlayButton() = default;
 	
-	virtual void action(sf::RenderWindow* window, const TextureManager& textures) override;
+	virtual void action(sf::RenderWindow* window, const TextureManager& textures,
+		const SoundManager& sounds) override;
 
 private:
 };

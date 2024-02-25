@@ -5,6 +5,7 @@
 #include <vector>
 #include <memory>
 #include "TextureManager.h"
+#include "SoundManager.h"
 #include "PlayButton.h"
 #include "HelpButton.h"
 #include "ExitButton.h"
@@ -18,7 +19,8 @@ public:
 	void draw(sf::RenderWindow* window) const;
 	void handleClicks(sf::Vector2f mousePos,
 		sf::RenderWindow* window,
-		const TextureManager& textures);
+		const TextureManager& textures,
+		const SoundManager& sounds);
 	void handleFloating(sf::Vector2f mousePos);
 
 private:

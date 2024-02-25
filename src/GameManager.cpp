@@ -1,7 +1,7 @@
 #include "GameManager.h"
 
 GameManager::GameManager()
-	: m_textures(), m_menu(m_textures)
+	: m_textures(), m_sounds() , m_menu(m_textures)
 {
 	this->loadMusic();
 }
@@ -37,7 +37,7 @@ void GameManager::run()
 			case sf::Event::MouseButtonReleased:
 
 				mousePos = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
-				m_menu.handleClicks(mousePos, &window, m_textures);
+				m_menu.handleClicks(mousePos, &window, m_textures, m_sounds);
 				break;
 
 			case sf::Event::MouseMoved:
