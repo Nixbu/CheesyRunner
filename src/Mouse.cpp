@@ -53,7 +53,7 @@ void Mouse::addSouls(int soulNum)
 	m_life += soulNum;
 }
 
-void Mouse::move(sf::Vector2f direction, float deltaTime)
+void Mouse::move(sf::Vector2i direction, float deltaTime)
 {
 	this->setDirection(direction);
 

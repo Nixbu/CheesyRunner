@@ -58,10 +58,11 @@ PLAY_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - BUTTON_DEFA_SIZE.x / 2,
 HELP_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - BUTTON_DEFA_SIZE.x / 2,
 				WINDOW_MANAGER_HEIGHT / 2 },
 EXIT_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - BUTTON_DEFA_SIZE.x / 2,
-				WINDOW_MANAGER_HEIGHT / 2 + 200 };
+				WINDOW_MANAGER_HEIGHT / 2 + 200 } ,
+	CAT_OFFSET = { 17 , 17 };
 
 //Directions
-const sf::Vector2f 
+const sf::Vector2i 
 UP = { 0, -1 },
 DOWN = { 0, 1 },
 LEFT = { -1, 0 },
@@ -78,6 +79,6 @@ const int CHEESE_SCORE = 10 ,
 	FREEZE_TIME = 5 ,
 	SOULS_NUM = 3,
 	INFINIT = 1000 ,
-	VALID = 1;
+	VALID = -1;
 			
 enum AddTime{lowAmount  , midAmount , largeAmount};

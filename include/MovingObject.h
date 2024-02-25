@@ -10,13 +10,13 @@ public:
 
 	bool isCollided(GameObject& obj) const;
 	
-	sf::Vector2f getDirection() const;
-	void setDirection(const sf::Vector2f);
+	sf::Vector2i getDirection() const;
+	void setDirection(const sf::Vector2i);
 	float getVelocity() const;
 	void setVelocity(float velocity);
 
 private:
-	sf::Vector2f m_initPos,
-		m_direction;
+	sf::Vector2f m_initPos; 
+	sf::Vector2i m_direction;
 	float m_velocity;
 };

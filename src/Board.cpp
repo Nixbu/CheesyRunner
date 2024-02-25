@@ -42,7 +42,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 				mouse->setCheese((-1) * mouse->getCheese());
 				break;
 			case '^':
-				cats.push_back(std::make_unique<Cat>(currLocation,
+				cats.push_back(std::make_unique<Cat>(currLocation + CAT_OFFSET,
 					textures->getTexture(catTexture), CAT_VELOCITY, mouse));
 				break;
 

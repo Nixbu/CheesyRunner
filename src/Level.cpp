@@ -47,14 +47,6 @@ void Level::moveCats(float deltaTime)
 {
 	this->calcDistanceMat();
 
-	for (int i = 0; i < m_levelMatrix.size(); i++)
-	{
-		for (int j = 0; j < m_levelMatrix[i].size(); j++)
-		{
-			std::cout << m_levelMatrix[i][j] << " ";
-		}
-		std::cout <<std::endl;
-	}
 	
 	for (int cat = 0; cat < this->m_cats.size(); cat++)
 	{
@@ -199,16 +191,49 @@ void Level::addPlayerLife()
 
 void Level::calcDistanceMat()
 {
-	sf::Vector2i mouseMatPos = { (int)((this->m_player ->getSprite()->getPosition().x+20) / TILE_WIDTH),
-					   (int)((this->m_player->getSprite()->getPosition().y+20) / TILE_LENGTH) };
+	sf::Vector2i mouseMatPos = { static_cast<int>((this->m_player->getSprite()->getPosition().x) / TILE_WIDTH),
+							  static_cast<int>((this->m_player->getSprite()->getPosition().y) / TILE_LENGTH ) };
+	this ->initMat();
 
+	std::queue<sf::Vector2i> bfsQueue;
+
+	const sf::Vector2i directions[] = { UP , DOWN , LEFT , RIGHT };
+
+	m_levelMatrix[mouseMatPos.y][mouseMatPos.x] = 0;
+
+	bfsQueue.push(mouseMatPos);
+
+	while (!bfsQueue.empty())
+	{
+		sf::Vector2i currentPos = bfsQueue.front();
+		bfsQueue.pop();
+
+		for (const auto& direction : directions)
+		{
+			sf::Vector2i neighbor = currentPos + direction;
+
+			// Check if the neighbor is within bounds and has not been visited yet
+			if (neighbor.x >= 0 && neighbor.x < m_levelMatrix[0].size() &&
+				neighbor.y >= 0 && neighbor.y < m_levelMatrix.size() &&
+				m_levelMatrix[neighbor.y][neighbor.x] == VALID)
+			{
+				// Update the distance and enqueue the neighbor
+				m_levelMatrix[neighbor.y][neighbor.x] = m_levelMatrix[currentPos.y][currentPos.x] + 1;
+				bfsQueue.push(neighbor);
+			}
+		}	
+	}
+}
+
+void Level::initMat()
+{
 	for (int row = 0; row < m_levelMatrix.size(); row++)
 	{
 		for (int col = 0; col < m_levelMatrix[row].size(); col++)
 		{
 			if (m_levelMatrix[row][col] != INFINIT)
 			{
-				m_levelMatrix[row][col] = abs(mouseMatPos.x - col) + abs(mouseMatPos.y - row);
+				m_levelMatrix[row][col] = VALID;
 			}
 		}
 	}

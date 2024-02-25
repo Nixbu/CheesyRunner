@@ -6,6 +6,8 @@ MovingObject::MovingObject(sf::Vector2f position, sf::Texture* texture,
 	m_velocity(velocity)
 {
 	this->scale(sf::Vector2f(0.25, 0.25));
+	this->getSprite()->setOrigin(sf::Vector2f(this->getSprite()->getLocalBounds().width / 2,
+		this->getSprite()->getLocalBounds().height / 2));
 }
 
 bool MovingObject::isCollided(GameObject& obj) const
@@ -14,12 +16,12 @@ bool MovingObject::isCollided(GameObject& obj) const
 		obj.getSprite()->getGlobalBounds());
 }
 
-sf::Vector2f MovingObject::getDirection() const
+sf::Vector2i MovingObject::getDirection() const
 {
 	return m_direction;
 }
 
-void MovingObject::setDirection(const sf::Vector2f direction)
+void MovingObject::setDirection(const sf::Vector2i direction)
 {
 	m_direction = direction;
 }

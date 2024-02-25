@@ -9,7 +9,8 @@ Cat::Cat(sf::Vector2f position, sf::Texture* texture, float velocity, Mouse* mou
 void Cat::move(float deltaTime,
 	std::vector<std::vector<int>> boardMatrix)
 {
-	sf::Vector2f wantedDirection = chooseMove(boardMatrix);
+
+	sf::Vector2i wantedDirection = chooseMove(boardMatrix);
 
 	this->setDirection(wantedDirection);
 
@@ -24,11 +25,27 @@ void Cat::draw(sf::RenderWindow* window) const
 	window->draw(*(this->getSprite()));
 }
 
-sf::Vector2f Cat:: chooseMove(std::vector<std::vector<int>> boardMatrix) const
+sf::Vector2i Cat:: chooseMove(std::vector<std::vector<int>> boardMatrix) const
 {
     // finding myself on the matrix
-    sf::Vector2i myMatrixPosition = { (int)((this->getSprite()->getPosition().x+20) / TILE_WIDTH),
-                        (int)((this->getSprite()->getPosition().y +20) / TILE_LENGTH) };
+
+    sf::Vector2f catPos = getSprite()->getPosition();
+
+    sf::Vector2i dir = this->getDirection();
+
+    if (dir == RIGHT || dir == DOWN)
+    {
+        catPos.x -= 17;
+        catPos.y -= 17;
+    }
+    if(dir == LEFT || dir == UP)
+    {
+        catPos.x += 17;
+        catPos.y += 17;
+    }
+
+    sf::Vector2i myMatrixPosition = { (int)(catPos.x / TILE_WIDTH),
+                        (int)(catPos.y / TILE_LENGTH ) };
 
 
     int upDistance, downDistance, rightDistance, leftDistance;
@@ -92,7 +109,7 @@ void Cat::handleCollision(Wall& gameObject, sf::FloatRect intersection)
 {
 }
 
-sf::Vector2f Cat::findMinDirection(int upDistance, int downDistance,
+sf::Vector2i Cat::findMinDirection(int upDistance, int downDistance,
     int rightDistance, int leftDistance) const
 {
     int arr[4] = { upDistance, downDistance, rightDistance, leftDistance },

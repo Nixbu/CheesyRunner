@@ -8,7 +8,7 @@
 #include "TextureManager.h"
 #include <SFML/Graphics.hpp>
 #include "States.h"
-#include <thread>
+#include <queue>
 
 
 class Level {
@@ -45,6 +45,7 @@ private:
 	void handleFreeze(int& catMovement);
 	void addPlayerLife();
 	void calcDistanceMat();
+	void initMat();
 	void handleWallCollisions();
 	void handleGameObjectCollisions();
 	void handleDoorCollisions();

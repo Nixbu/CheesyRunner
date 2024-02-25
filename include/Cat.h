@@ -13,10 +13,9 @@ public:
 	
 	void draw(sf::RenderWindow* window) const override;
 
-	sf::Vector2f chooseMove(std::vector<std::vector<int>> boardMatrix) const;
+	sf::Vector2i chooseMove(std::vector<std::vector<int>> boardMatrix) const;
 	void move(float deltaTime,
-		std::vector<std::vector<int
-		>> boardMatrix);
+		std::vector<std::vector<int>> boardMatrix);
 
 	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Mouse& gameObject, sf::FloatRect intersection);
@@ -28,6 +27,6 @@ public:
 private:
 	Mouse* m_player;
 
-	sf::Vector2f findMinDirection(int upDistance, int downDistance,
+	sf::Vector2i findMinDirection(int upDistance, int downDistance,
 		int rightDistance, int leftDistance) const;
 };
