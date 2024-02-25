@@ -29,6 +29,4 @@ void SoundManager::load(sf::SoundBuffer & current, std::string soundName)
         exit(EXIT_FAILURE);
     }
 
-    std::cout << "Loaded key succesfully\n";
-
 }
