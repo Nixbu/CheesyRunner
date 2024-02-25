@@ -8,7 +8,8 @@ Board::Board() :
 void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 	std::vector<std::unique_ptr<Cat>>& cats ,
 				const TextureManager * textures ,
-				int &leveltime)
+				int &leveltime,
+	std::vector<std::vector<int>> & boardMatrix)
 {
 	*levelFile >> leveltime;
 	levelFile->get();
@@ -18,16 +19,16 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 	sf::Vector2i pos = { 0 , 0 };
 	sf::Vector2f  currLocation;
 	
-	bool tileState;
+	int tileState;
 
 	//reading line
 	while (std::getline(*levelFile, line))
 	{
-		std::vector<bool> currentLine;
+		std::vector<int> currentLine;
 		// checks which objects were in the line
 		for (pos.x = 0; pos.x < line.length(); pos.x++)
 		{
-			tileState = true;
+			tileState = VALID;
 			m_width = (float)line.length() * TILE_WIDTH;
 			currLocation ={ TILE_WIDTH * pos.x,  pos.y * TILE_LENGTH };
 				
@@ -52,7 +53,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 			case 'D':
 				m_doors.push_back(std::make_unique<Door>(currLocation,
 					textures->getTexture(doorTexture)));
-				tileState = false;
+				tileState = INFINIT;
 				break;
 			case 'F':
 				m_gameObjects.push_back(std::make_unique<Key>(currLocation,
@@ -65,18 +66,17 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 			case '#':
 				m_walls.push_back(std::make_unique<Wall>(currLocation,
 					textures->getTexture(wallTexture)));
-				tileState = false;
+				tileState = INFINIT;
 				break;
 			default:
 				break;
 			}
-
+			
 			m_bgTiles.push_back(std::make_unique<BackgroundTile>(currLocation,
 				textures->getTexture(chooseRandTexture()))); // Get a unique bg tile each time
 			currentLine.push_back(tileState);
 		}
-		std::cout << currentLine.size();
-		m_boardMatrix.push_back(currentLine);
+		boardMatrix.push_back(currentLine);
 		pos.y++;
 
 	}
@@ -213,10 +213,6 @@ const std::vector<std::unique_ptr<Door>>& Board::getDoors() const
 	return m_doors;
 }
 
-const std::vector<std::vector<bool>>& Board::getBoardMatrix() const
-{
-	return m_boardMatrix;
-}
 
 const std::vector<std::unique_ptr<Gift>>& Board::getGifts() const
 {

@@ -13,12 +13,10 @@ public:
 	
 	void draw(sf::RenderWindow* window) const override;
 
-	int dfsChasingAlgorithm(std::vector<std::vector<bool>> &boardMatrix,
-		sf::Vector2i newPos,
-		sf::Vector2i mouseMatrixPosition) const;
-	sf::Vector2f chooseMove(std::vector<std::vector<bool>> boardMatrix) const;
+	sf::Vector2f chooseMove(std::vector<std::vector<int>> boardMatrix) const;
 	void move(float deltaTime,
-		std::vector<std::vector<bool>> boardMatrix);
+		std::vector<std::vector<int
+		>> boardMatrix);
 
 	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Mouse& gameObject, sf::FloatRect intersection);

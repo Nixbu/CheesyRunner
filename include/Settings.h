@@ -38,7 +38,7 @@ const unsigned int WINDOW_MANAGER_WIDTH = 869,
 WINDOW_MANAGER_HEIGHT = 867,
 BG_TILES = 2,
 BASE_TILE = bgTileTexture,
-VOLUME = 50;
+VOLUME = 0;
 
 const float TILE_WIDTH = 40,
 TILE_LENGTH = 40,
@@ -76,6 +76,8 @@ const int CHEESE_SCORE = 10 ,
 	LARGE_TIME = 30 ,
 	AMOUNTS = 3 ,
 	FREEZE_TIME = 5 ,
-	SOULS_NUM = 3;
+	SOULS_NUM = 3,
+	INFINIT = 1000 ,
+	VALID = 1;
 			
 enum AddTime{lowAmount  , midAmount , largeAmount};

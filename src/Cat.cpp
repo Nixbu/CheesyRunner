@@ -7,7 +7,7 @@ Cat::Cat(sf::Vector2f position, sf::Texture* texture, float velocity, Mouse* mou
 }
 
 void Cat::move(float deltaTime,
-	std::vector<std::vector<bool>> boardMatrix)
+	std::vector<std::vector<int>> boardMatrix)
 {
 	sf::Vector2f wantedDirection = chooseMove(boardMatrix);
 
@@ -24,115 +24,44 @@ void Cat::draw(sf::RenderWindow* window) const
 	window->draw(*(this->getSprite()));
 }
 
-int Cat::dfsChasingAlgorithm(std::vector<std::vector<bool>> & boardMatrix, 
-    sf::Vector2i newPos, 
-    sf::Vector2i mouseMatrixPosition) const
+sf::Vector2f Cat:: chooseMove(std::vector<std::vector<int>> boardMatrix) const
 {
-    if (!boardMatrix[newPos.y][newPos.x])
-    {
-        return (int)INFINITY;
-    }
-
-    if (newPos == mouseMatrixPosition)
-    {
-        return 0;
-    }
-
-    int upDistance,
-        downDistance,
-        rightDistance,
-        leftDistance;
-
-    // Update visited tile
-    boardMatrix[newPos.y][newPos.x] = false;
+    // finding myself on the matrix
+    sf::Vector2i myMatrixPosition = { (int)((this->getSprite()->getPosition().x+20) / TILE_WIDTH),
+                        (int)((this->getSprite()->getPosition().y +20) / TILE_LENGTH) };
 
 
-    if (newPos.x + 1 < boardMatrix[0].size())
-    {
-        // Right
-        rightDistance = dfsChasingAlgorithm(boardMatrix,
-            sf::Vector2i(newPos.x + 1, newPos.y),
-            mouseMatrixPosition);
-    }
+    int upDistance, downDistance, rightDistance, leftDistance;
 
-    if (newPos.y + 1 < boardMatrix.size())
-    {
-        // Down
-        downDistance = dfsChasingAlgorithm(boardMatrix,
-            sf::Vector2i(newPos.x, newPos.y + 1),
-            mouseMatrixPosition);
-    }
-    if (newPos.x - 1 >= 0)
-    {
-        // Left
-        leftDistance = dfsChasingAlgorithm(boardMatrix,
-            sf::Vector2i(newPos.x - 1, newPos.y),
-            mouseMatrixPosition);
-    }
-
-    if (newPos.y - 1 >= 0)
-    {
-        // UP
-        upDistance = dfsChasingAlgorithm(boardMatrix,
-            sf::Vector2i(newPos.x, newPos.y - 1),
-            mouseMatrixPosition);
-    }
-
-
-
-    auto min1 = std::min(rightDistance, upDistance),
-        min2 = std::min(downDistance, leftDistance);
-
-    return std::min(min1, min2);
-
-    
-}
-
-sf::Vector2f Cat::chooseMove(std::vector<std::vector<bool>> boardMatrix) const
-{
-    sf::Vector2i myMatrixPosition = { (int)(this->getSprite()->getPosition().x / TILE_WIDTH),
-                        (int)(this->getSprite()->getPosition().y / TILE_LENGTH) },
-        mouseMatrixPosition = { (int)(this->m_player->getSprite()->getPosition().x / TILE_WIDTH),
-                        (int)(this->m_player->getSprite()->getPosition().y / TILE_LENGTH) };
-    int upDistance = 0,
-        downDistance = 0,
-        rightDistance = 0,
-        leftDistance = 0;
+    upDistance = downDistance = rightDistance = leftDistance = INFINIT;
 
     if (myMatrixPosition.x + 1 < boardMatrix[0].size())
     {
         // Right
-        rightDistance = dfsChasingAlgorithm(boardMatrix,
-            sf::Vector2i(myMatrixPosition.x + 1, myMatrixPosition.y),
-            mouseMatrixPosition);
+        rightDistance = boardMatrix[myMatrixPosition.y][myMatrixPosition.x + 1];
     }
+    
 
     if (myMatrixPosition.y + 1 < boardMatrix.size())
     {
         // Down
-        downDistance = dfsChasingAlgorithm(boardMatrix,
-            sf::Vector2i(myMatrixPosition.x, myMatrixPosition.y + 1),
-            mouseMatrixPosition);
+        downDistance = boardMatrix[myMatrixPosition.y+1][myMatrixPosition.x];
     }
-
-    if (myMatrixPosition.x - 1 >= 0)
+    if (myMatrixPosition.x - 1 >= 0 )
     {
         // Left
-        leftDistance = dfsChasingAlgorithm(boardMatrix,
-            sf::Vector2i(myMatrixPosition.x - 1, myMatrixPosition.y),
-            mouseMatrixPosition);
+        leftDistance = boardMatrix[myMatrixPosition.y][myMatrixPosition.x - 1];
     }
 
-
-    if (myMatrixPosition.y - 1 >= 0)
+    if (myMatrixPosition.y - 1 >= 0 )
     {
-        // Up
-        upDistance = dfsChasingAlgorithm(boardMatrix,
-            sf::Vector2i(myMatrixPosition.x, myMatrixPosition.y - 1),
-            mouseMatrixPosition);
+        // UP
+        upDistance = boardMatrix[myMatrixPosition.y -1][myMatrixPosition.x];
     }
 
     return findMinDirection(upDistance, downDistance, rightDistance, leftDistance);
+
+    
 }
 
 void Cat::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
@@ -167,7 +96,7 @@ sf::Vector2f Cat::findMinDirection(int upDistance, int downDistance,
     int rightDistance, int leftDistance) const
 {
     int arr[4] = { upDistance, downDistance, rightDistance, leftDistance },
-        min = (int)INFINITY,
+        min = INFINIT,
         min_direction = 0;
 
     for (int direction = 0; direction < 4; direction++)
@@ -190,6 +119,7 @@ sf::Vector2f Cat::findMinDirection(int upDistance, int downDistance,
     case 3:
         return LEFT;
     default:
+
         break;
     }
 }

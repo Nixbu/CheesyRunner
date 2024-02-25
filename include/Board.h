@@ -24,10 +24,11 @@
 class Board {
 public:
 	Board();
-	void readBoard(std::ifstream * levelFile, Mouse* mouse,
-		std::vector<std::unique_ptr<Cat>>& cats ,
-		const TextureManager * textures ,
-		int &leveltime);
+	void readBoard(std::ifstream* levelFile, Mouse* mouse,
+		std::vector<std::unique_ptr<Cat>>& cats,
+		const TextureManager* textures,
+		int& leveltime,
+		std::vector<std::vector<int>> & boardMatrix);
 	
 
 	~Board() = default;
@@ -41,7 +42,6 @@ public:
 	const std::vector<std::unique_ptr<GameObject>>& getGameObjects() const;
 	const std::vector<std::unique_ptr<Gift>> & getGifts() const;
 	const std::vector<std::unique_ptr<Door>> &getDoors() const;
-	const std::vector<std::vector<bool>> & getBoardMatrix() const;
 
 	float getWidth() const;
 	float getHeight() const;
@@ -54,7 +54,6 @@ private:
 	std::vector<std::unique_ptr<Gift>> m_gifts;
 	float m_width,
 		m_length;
-	std::vector<std::vector<bool>> m_boardMatrix;
 
 	Texture_t chooseRandTexture();
 };

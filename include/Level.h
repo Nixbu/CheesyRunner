@@ -8,6 +8,7 @@
 #include "TextureManager.h"
 #include <SFML/Graphics.hpp>
 #include "States.h"
+#include <thread>
 
 
 class Level {
@@ -22,13 +23,10 @@ public:
 	void handleEvents(sf::RenderWindow* window);
 	void handleAllCollisions(enum Gift_t& giftStatus);
 	void giftsAffect(enum Gift_t& giftStatus , int& catMovement);
-	void moveCats(float deltaTime, std::vector<std::vector<bool>> boardMatrix);
+	void moveCats(float deltaTime);
 	
-
-	void handleWallCollisions();
-	void handleGameObjectCollisions();
-	void handleDoorCollisions();
-	void handleGiftCollisions(enum Gift_t& giftStatus);
+	
+	
 
 
 private:
@@ -40,11 +38,15 @@ private:
 	TextureManager* m_textures;
 	Mouse* m_player;
 	States m_states;
+	std::vector<std::vector <int>> m_levelMatrix;
 
 	void removeCat();
 	void addPlayerTime();
 	void handleFreeze(int& catMovement);
 	void addPlayerLife();
-
-	
+	void calcDistanceMat();
+	void handleWallCollisions();
+	void handleGameObjectCollisions();
+	void handleDoorCollisions();
+	void handleGiftCollisions(enum Gift_t& giftStatus);
 };

@@ -12,7 +12,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 	enum Gift_t giftStatus = noGift;
 	int catMovement = 0;
 	float deltaTime;
-	m_board.readBoard(levelFile, m_player, m_cats , m_textures , m_level_time);
+	m_board.readBoard(levelFile, m_player, m_cats , m_textures , m_level_time , m_levelMatrix);
 	
 
 	m_states.setLevelState(this->m_board.getHeight(), m_level_time);
@@ -34,7 +34,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 
 		this->m_player->handleKeys(deltaTime);
 
-		this->moveCats(deltaTime, this->m_board.getBoardMatrix());
+		this->moveCats(deltaTime);
 
 		this->handleAllCollisions(giftStatus);
 
@@ -43,11 +43,22 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 	}
 }
 
-void Level::moveCats(float deltaTime, std::vector<std::vector<bool>> boardMatrix)
+void Level::moveCats(float deltaTime)
 {
+	this->calcDistanceMat();
+
+	for (int i = 0; i < m_levelMatrix.size(); i++)
+	{
+		for (int j = 0; j < m_levelMatrix[i].size(); j++)
+		{
+			std::cout << m_levelMatrix[i][j] << " ";
+		}
+		std::cout <<std::endl;
+	}
+	
 	for (int cat = 0; cat < this->m_cats.size(); cat++)
 	{
-		m_cats[cat]->move(deltaTime, boardMatrix);
+		m_cats[cat]->move(deltaTime, m_levelMatrix);
 	}
 }
 
@@ -183,6 +194,23 @@ void Level::addPlayerLife()
 	if (this->m_player->getSouls() < SOULS_NUM)
 	{
 		m_player->addSouls(1);
+	}
+}
+
+void Level::calcDistanceMat()
+{
+	sf::Vector2i mouseMatPos = { (int)((this->m_player ->getSprite()->getPosition().x+20) / TILE_WIDTH),
+					   (int)((this->m_player->getSprite()->getPosition().y+20) / TILE_LENGTH) };
+
+	for (int row = 0; row < m_levelMatrix.size(); row++)
+	{
+		for (int col = 0; col < m_levelMatrix[row].size(); col++)
+		{
+			if (m_levelMatrix[row][col] != INFINIT)
+			{
+				m_levelMatrix[row][col] = abs(mouseMatPos.x - col) + abs(mouseMatPos.y - row);
+			}
+		}
 	}
 }
 
