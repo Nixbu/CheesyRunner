@@ -19,6 +19,10 @@ configure_file ("mouseFront.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("mouseBack.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("mouseLeft.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("mouseRight.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("catFront.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("catBack.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("catLeft.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("catRight.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 

@@ -1,14 +1,15 @@
 #pragma once
 
 #include "MovingObject.h"
-
+#include "TextureManager.h"
 #include "Mouse.h";
 #include <iostream>
 
 class Cat : public MovingObject {
 public:
 	Cat(sf::Vector2f position, sf::Texture* texture,
-		float velocity, Mouse* mouse);
+		float velocity, Mouse* mouse,
+		const TextureManager * textures);
 	~Cat() = default;
 	
 	void draw(sf::RenderWindow* window) const override;
@@ -26,7 +27,9 @@ public:
 	virtual void handleCollision(Wall& gameObject, sf::FloatRect intersection);
 private:
 	Mouse* m_player;
-
+	const TextureManager* m_textures;
 	sf::Vector2i findMinDirection(int upDistance, int downDistance,
 		int rightDistance, int leftDistance) const;
+
+	void setSpriteDirection(sf::Vector2i direction);
 };

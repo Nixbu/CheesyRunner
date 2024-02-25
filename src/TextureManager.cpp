@@ -78,6 +78,18 @@ TextureManager::TextureManager()
     load(currentTexture, "mouseRight.png");
     m_textures.push_back(currentTexture);
 
+    load(currentTexture, "catFront.png");
+    m_textures.push_back(currentTexture);
+
+    load(currentTexture, "catBack.png");
+    m_textures.push_back(currentTexture);
+
+    load(currentTexture, "catLeft.png");
+    m_textures.push_back(currentTexture);
+
+    load(currentTexture, "catRight.png");
+    m_textures.push_back(currentTexture);
+
    
 
 }

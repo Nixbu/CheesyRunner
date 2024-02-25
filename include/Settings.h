@@ -29,7 +29,11 @@ enum Texture_t {
 	mouseFrontTexture,
 	mouseBackTexture,
 	mouseLeftTexture,
-	mouseRightTexture
+	mouseRightTexture,
+	catFrontTexture,
+	catBackTexture,
+	catLeftTexture,
+	catRightTexture
 };
 
 enum Sound_t {

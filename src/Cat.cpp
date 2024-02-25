@@ -1,18 +1,23 @@
 #include "Cat.h"
 
-Cat::Cat(sf::Vector2f position, sf::Texture* texture, float velocity, Mouse* mouse)
+Cat::Cat(sf::Vector2f position, sf::Texture* texture, float velocity, Mouse* mouse,
+    const TextureManager* textures)
 	: MovingObject(position, texture, velocity)
 {
 	m_player = mouse;
+    m_textures = textures;
+
 }
 
 void Cat::move(float deltaTime,
 	std::vector<std::vector<int>> boardMatrix)
 {
-
+    
 	sf::Vector2i wantedDirection = chooseMove(boardMatrix);
 
 	this->setDirection(wantedDirection);
+
+    this->setSpriteDirection(wantedDirection);
 
 	this->getSprite()->move(this->getDirection().x * deltaTime * this->getVelocity(),
 		this->getDirection().y * deltaTime * this->getVelocity());
@@ -138,4 +143,29 @@ sf::Vector2i Cat::findMinDirection(int upDistance, int downDistance,
 
         break;
     }
+}
+
+void Cat::setSpriteDirection(sf::Vector2i direction)
+{
+    Texture_t wantedTexture;
+
+    if (direction == UP)
+    {
+        wantedTexture = catBackTexture;
+    }
+    else if (direction == DOWN)
+    {
+        wantedTexture = catFrontTexture;
+    }
+    else if (direction == LEFT)
+    {
+        wantedTexture = catLeftTexture;
+    }
+    else
+    {
+        wantedTexture = catRightTexture;
+    }
+
+
+    this->getSprite()->setTexture(*m_textures->getTexture(wantedTexture));
 }
