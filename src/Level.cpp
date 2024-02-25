@@ -15,8 +15,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 	enum Gift_t giftStatus = noGift;
 	int catMovement = 0;
 	float deltaTime;
-	m_board.readBoard(levelFile, m_player, m_cats , m_textures,
-		m_sounds, m_level_time);
+	m_board.readBoard(levelFile, m_player, m_cats , m_textures, m_level_time);
 	
 
 	m_states.setLevelState(this->m_board.getHeight(), m_level_time);
@@ -205,6 +204,7 @@ void Level::giftsAffect(enum Gift_t& giftStatus , int & catMovement)
 		break;
 	case addLife:
 		addPlayerLife();
+		break;
 	default:
 		break;
 

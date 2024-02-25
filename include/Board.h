@@ -9,7 +9,6 @@
 #include "Mouse.h"
 #include "Cat.h"
 #include "TextureManager.h"
-#include "SoundManager.h"
 #include <memory>
 #include "Cheese.h"
 #include "Key.h"
@@ -20,7 +19,6 @@
 #include "TimeGift.h"
 #include "KillCatGift.h"
 #include "LifeGift.h"
-#include <SFML/Audio.hpp>
 
 
 class Board {
@@ -29,14 +27,11 @@ public:
 	void readBoard(std::ifstream * levelFile, Mouse* mouse,
 		std::vector<std::unique_ptr<Cat>>& cats ,
 		const TextureManager * textures ,
-		const SoundManager* sounds,
 		int &leveltime);
 	
 
 	~Board() = default;
-	void genarateGift(int numOfGifts, sf::Vector2f location, 
-		const TextureManager* textures,
-		const SoundManager* sounds);
+	void genarateGift(int numOfGifts, sf::Vector2f location, const TextureManager* textures);
 	void removeObject(int index);
 	void removeGift(int index);
 	void removeDoor(int index);

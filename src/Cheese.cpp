@@ -4,9 +4,8 @@
 
 int Cheese::m_count = 0;
 
-Cheese::Cheese(sf::Vector2f position, sf::Texture* texture,
-	sf::SoundBuffer * soundBffr) :
-	StaticObject(position , texture, soundBffr) 
+Cheese::Cheese(sf::Vector2f position, sf::Texture* texture) :
+	StaticObject(position , texture) 
 {
 	m_count++;
 }

@@ -2,11 +2,13 @@
 
 #include "MovingObject.h"
 #include "Settings.h"
+#include "SoundManager.h"
 
 class Mouse :public MovingObject {
 public:
 	Mouse(sf::Vector2f position, sf::Texture* texture,
-		float velocity);
+		float velocity,
+		SoundManager* sounds);
 	~Mouse() = default;
 	void setKeys(int keys);
 	void addKey();
@@ -36,5 +38,6 @@ private:
 		m_keys,
 		m_score,
 		m_numOfCheese;
+	SoundManager* m_sounds;
 
 };

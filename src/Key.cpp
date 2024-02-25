@@ -7,7 +7,6 @@ void Key::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 
 void Key::handleCollision(Mouse& gameObject, sf::FloatRect intersection)
 {
-	this->playSound();
 	gameObject.handleCollision(*this, intersection);
 }
 

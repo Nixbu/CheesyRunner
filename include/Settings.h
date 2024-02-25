@@ -42,7 +42,7 @@ const unsigned int WINDOW_MANAGER_WIDTH = 869,
 WINDOW_MANAGER_HEIGHT = 867,
 BG_TILES = 2,
 BASE_TILE = bgTileTexture,
-VOLUME = 1;
+VOLUME = 0;
 
 const float TILE_WIDTH = 40,
 TILE_LENGTH = 40,
