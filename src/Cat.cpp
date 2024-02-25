@@ -35,13 +35,12 @@ sf::Vector2i Cat:: chooseMove(std::vector<std::vector<int>> boardMatrix) const
 
     if (dir == RIGHT || dir == DOWN)
     {
-        catPos.x -= 17;
-        catPos.y -= 17;
+        catPos -= CAT_OFFSET;
+       
     }
     if(dir == LEFT || dir == UP)
     {
-        catPos.x += 17;
-        catPos.y += 17;
+        catPos += CAT_OFFSET;       
     }
 
     sf::Vector2i myMatrixPosition = { (int)(catPos.x / TILE_WIDTH),
