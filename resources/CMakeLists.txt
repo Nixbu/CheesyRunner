@@ -22,6 +22,7 @@ configure_file ("catBack.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("catLeft.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("catRight.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("instructions.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("clockTexture.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 

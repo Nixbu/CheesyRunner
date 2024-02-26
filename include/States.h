@@ -11,7 +11,7 @@ class States {
 public:
 	States(Mouse* mouse, TextureManager* textures);
 
-	void setLevelState(float boardHeight, int levelTime);
+	void setLevelState(const float& boardHeight, const int& levelTime, const int& leveNum);
 
 	void draw(sf::RenderWindow* window);
 	void setLevelTime(int time);
@@ -23,12 +23,15 @@ private:
 	sf::Vector2f m_position;
 
 	sf::Clock m_clock;
-	int m_levelTime;
+	int m_levelTime, m_levelNum;
 	std::vector<std::unique_ptr<Heart>> m_hearts;
 	sf::Font m_font;
 	sf::Text m_scoreText,
 		m_timeText,
-		m_keyText;
+		m_keyText,
+		m_levelText,
+		m_timerText;
+	sf::Sprite m_clockSprite;
 
 	void setText(sf::Text& text);
 

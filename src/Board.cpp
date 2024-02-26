@@ -64,7 +64,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 				break;
 			case '$':
 				numOfGifts++;
-				genarateGift(numOfGifts , currLocation , textures);
+				genarateGift(numOfGifts , currLocation , textures , leveltime);
 				break;
 			case '#':
 				m_walls.push_back(std::make_unique<Wall>(currLocation,
@@ -119,7 +119,8 @@ Texture_t Board::chooseRandTexture()
 }
 
 
-void Board::genarateGift(int numOfGifts , sf::Vector2f location , const TextureManager * textures)
+void Board::genarateGift(int numOfGifts , sf::Vector2f location ,
+	const TextureManager * textures , const int& levelTime)
 {
 
 	int giftType;
@@ -132,7 +133,14 @@ void Board::genarateGift(int numOfGifts , sf::Vector2f location , const TextureM
 	}
 	else
 	{
-		giftType =  rand() % GIFT_TYPES;
+		if (levelTime == NO_TIME)
+		{
+			giftType = rand() % (GIFT_TYPES -1);
+		}
+		else
+		{
+			giftType = rand() % GIFT_TYPES;
+		}
 
 		switch (giftType)
 		{

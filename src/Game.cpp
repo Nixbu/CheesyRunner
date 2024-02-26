@@ -35,18 +35,20 @@ void Game::run()
 	std::ifstream levelFile;
 	std::string levelName;
 	bool passed = false;
+	int levelNum = 0;
 	
 	
 	while (std::getline(m_playlist, levelName))
 	{
 		passed = false;
+		levelNum ++;
 		levelFile.open(levelName);
 		/*checkFile(levelFile);*/
 
 		while (!passed && this->m_player.getSouls() > 0 && m_window->isOpen())
 		{
 			Level currentLevel(m_textures, m_sounds, &m_player);
-			currentLevel.levelLoop(m_window, &levelFile , passed);			
+			currentLevel.levelLoop(m_window, &levelFile , passed , levelNum);			
 		}
 
 		if (!m_window->isOpen() || this->m_player.getSouls() <= 0)
