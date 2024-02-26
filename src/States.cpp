@@ -12,7 +12,7 @@ States::States(Mouse* mouse, TextureManager* textures)
 	this->setText(m_timeText);
 	this->setText(m_keyText);
 	
-	for (int heart = 0; heart < m_mouse->getSouls(); heart++)
+	for (int heart = 0; heart < STARTING_SOULS; heart++)
 	{
 		m_hearts.push_back(std::make_unique<Heart>(sf::Vector2f(0, 0),
 			textures->getTexture(heartTexture)));

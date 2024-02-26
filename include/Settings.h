@@ -83,7 +83,7 @@ STAND = { 0, 0 };
 
 const int CHEESE_SCORE = 10 ,
 		   GIFT_TYPES = 3 ,
-	NUM_OF_GIFTS_FOR_EZ_LEVEL = 3 ,
+	KILL_CAT_GIFT = 3 ,
 	LOW_TIME =15 ,
 	MID_TIME = 20,
 	LARGE_TIME = 30 ,

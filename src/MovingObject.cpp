@@ -36,3 +36,13 @@ void MovingObject::setVelocity(float velocity)
 	m_velocity = velocity;
 }
 
+void MovingObject::resetPosition()
+{
+	this->getSprite()->setPosition(m_initPos);
+}
+
+void MovingObject::setInitPos(const sf::Vector2f &pos)
+{
+	m_initPos = pos;
+}
+

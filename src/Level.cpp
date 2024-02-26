@@ -10,7 +10,7 @@ Level::Level( TextureManager* textures,
 	m_sounds = sounds;
 }
 
-void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
+void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile , bool &passed)
 {
 	enum Gift_t giftStatus = noGift;
 	int catMovement = 0;
@@ -24,7 +24,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 		this->m_board.getHeight() + 100),
 		"Mouse And Cat");
 	
-	while (window->isOpen() && Cheese::getCount() != 0)
+	while (window->isOpen() && Cheese::getCount() != 0 && this ->m_player ->getSouls() > 0)
 	{
 		deltaTime = m_clock.restart().asSeconds();
 		window->clear();
@@ -32,6 +32,13 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 		this->draw(window);
 		
 		window->display();
+
+		if (this->m_states.getTimeAsSeconds() > m_level_time)
+		{
+			this->m_player->suckSoul();
+			break;
+		}
+
 
 		this->handleEvents(window);
 
@@ -47,6 +54,13 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 		this->giftsAffect(giftStatus , catMovement);
 		
 	}
+	
+	if (Cheese::getCount() == 0)
+	{
+		passed = true;
+	}
+
+	
 }
 
 void Level::moveCats(float deltaTime)
@@ -83,6 +97,7 @@ void Level::handleAllCollisions(enum Gift_t & giftStatus)
 	this->handleGameObjectCollisions();
 	this->handleDoorCollisions();
 	this->handleGiftCollisions(giftStatus);
+	this->handleCatColisions();
 
 
 }
@@ -101,6 +116,28 @@ void Level::handleGiftCollisions(enum Gift_t& giftStatus)
 
 			this->m_board.removeGift(gift);
 		}
+	}
+}
+void Level::handleCatColisions()
+{
+	for (int cat = 0; cat < m_cats.size(); cat++)
+	{
+		if (m_player->getSprite()->getGlobalBounds().intersects(m_cats[cat] ->getSprite()
+			->getGlobalBounds()))
+		{
+			// life -- , and reseting objects to the init pos
+			this->m_player->suckSoul();
+			resetMovingObjects();
+		}
+	}
+}
+void Level::resetMovingObjects()
+{
+	this->m_player->resetPosition();
+
+	for (int cat = 0; cat < m_cats.size(); cat++)
+	{
+		m_cats[cat]->resetPosition();
 	}
 }
 void Level::handleWallCollisions()

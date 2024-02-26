@@ -41,6 +41,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 				mouse->setKeys(0);
 				mouse->setCheese((-1) * mouse->getCheese());
 				mouse->getSprite()->setTexture(*textures->getTexture(mouseFrontTexture));
+				mouse->setInitPos(currLocation);
 				break;
 			case '^':
 				cats.push_back(std::make_unique<Cat>(currLocation + CAT_OFFSET,
@@ -85,6 +86,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 	m_length = pos.y * TILE_LENGTH;
 	//instead set seek to 0 , 0 if player got crashed.
 	levelFile->clear();
+	levelFile ->seekg(0, std::ios::beg);
 }
 
 Texture_t Board::chooseRandTexture()
@@ -122,7 +124,7 @@ void Board::genarateGift(int numOfGifts , sf::Vector2f location , const TextureM
 
 	int giftType;
 
-	if (numOfGifts % NUM_OF_GIFTS_FOR_EZ_LEVEL == 0)
+	if (numOfGifts == KILL_CAT_GIFT)
 	{
 		m_gifts.push_back(std::make_unique<KillCatGift>(location,
 			textures->getTexture(deadCatGiftTexture)));

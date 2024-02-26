@@ -32,7 +32,7 @@ public:
 	
 
 	~Board() = default;
-	void genarateGift(int numOfGifts, sf::Vector2f location, const TextureManager* textures);
+	
 	void removeObject(int index);
 	void removeGift(int index);
 	void removeDoor(int index);
@@ -56,4 +56,5 @@ private:
 		m_length;
 
 	Texture_t chooseRandTexture();
+	void genarateGift(int numOfGifts, sf::Vector2f location, const TextureManager* textures);
 };
