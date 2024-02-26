@@ -12,12 +12,14 @@ public:
 	~SoundManager() = default;
 
 	sf::SoundBuffer * getSoundBuffer(Sound_t sound) const;
-	void playKeySound();
+	void playSound(Sound_t soundNum);
 
 private:
-	std::vector<sf::SoundBuffer> m_sounds;
+	std::vector<sf::SoundBuffer> m_soundBuffers;
+	std::vector<sf::Sound> m_sounds;
 	sf::Sound m_keySound;
 
-	void load(sf::SoundBuffer& current, std::string texture_name);
+	void load(std::string texture_name,
+		Sound_t soundNum);
 
 };

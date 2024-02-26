@@ -133,7 +133,7 @@ void Mouse::handleCollision(Cat& gameObject, sf::FloatRect intersection)
 
 void Mouse::handleCollision(Key& gameObject, sf::FloatRect intersection)
 {
-	this->m_sounds->playKeySound();
+	this->m_sounds->playSound(keySound);
 	this->addKey();
 }
 
