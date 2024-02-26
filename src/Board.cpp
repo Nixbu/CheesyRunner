@@ -124,7 +124,7 @@ void Board::genarateGift(int numOfGifts , sf::Vector2f location , const TextureM
 
 	int giftType;
 
-	if (numOfGifts % NUM_OF_GIFTS_FOR_EZ_LEVEL == 0)
+	if (numOfGifts == KILL_CAT_GIFT)
 	{
 		m_gifts.push_back(std::make_unique<KillCatGift>(location,
 			textures->getTexture(deadCatGiftTexture)));
