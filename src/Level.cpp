@@ -10,7 +10,7 @@ Level::Level( TextureManager* textures,
 	m_sounds = sounds;
 }
 
-void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
+void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile , bool &passed)
 {
 	enum Gift_t giftStatus = noGift;
 	int catMovement = 0;
@@ -33,6 +33,13 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 		
 		window->display();
 
+		if (this->m_states.getTimeAsSeconds() > m_level_time)
+		{
+			this->m_player->suckSoul();
+			break;
+		}
+
+
 		this->handleEvents(window);
 
 		this->m_player->handleKeys(deltaTime);
@@ -47,6 +54,13 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 		this->giftsAffect(giftStatus , catMovement);
 		
 	}
+	
+	if (Cheese::getCount() == 0)
+	{
+		passed = true;
+	}
+
+	
 }
 
 void Level::moveCats(float deltaTime)

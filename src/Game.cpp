@@ -34,21 +34,28 @@ void Game::run()
 {
 	std::ifstream levelFile;
 	std::string levelName;
+	bool passed = false;
 	
 	
 	while (std::getline(m_playlist, levelName))
 	{
-
+		passed = false;
 		levelFile.open(levelName);
 		/*checkFile(levelFile);*/
-		Level currentLevel( m_textures , m_sounds, &m_player);
-		currentLevel.levelLoop(m_window , &levelFile);
-		if (!m_window->isOpen() || this ->m_player.getSouls() <= 0)
+
+		while (!passed && this->m_player.getSouls() > 0 && m_window->isOpen())
+		{
+			Level currentLevel(m_textures, m_sounds, &m_player);
+			currentLevel.levelLoop(m_window, &levelFile , passed);			
+		}
+
+		if (!m_window->isOpen() || this->m_player.getSouls() <= 0)
 		{
 			levelFile.close();
 			break;
 		}
 		levelFile.close();
+
 
 	}
 }
