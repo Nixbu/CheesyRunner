@@ -6,9 +6,7 @@ enum Gift_t { freeze , addTime ,addLife , killCat , noGift
 
 
 enum Texture_t {
-	mouseTexture = 0,
-	catTexture,
-	wallTexture,
+	wallTexture = 0,
 	cheeseTexture,
 	keyTexture,
 	doorTexture,
@@ -33,7 +31,8 @@ enum Texture_t {
 	catFrontTexture,
 	catBackTexture,
 	catLeftTexture,
-	catRightTexture
+	catRightTexture,
+	instructionsTexture
 };
 
 enum Sound_t {

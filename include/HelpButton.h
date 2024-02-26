@@ -10,4 +10,6 @@ public:
 		const SoundManager& sounds) override;
 
 private:
+
+	void handleEvents(sf::RenderWindow* window);
 };

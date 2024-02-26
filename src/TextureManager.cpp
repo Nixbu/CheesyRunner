@@ -6,12 +6,6 @@ TextureManager::TextureManager()
 {   
     sf::Texture currentTexture;
 
-    load(currentTexture, "mouse.png");
-    m_textures.push_back(currentTexture);
-
-    load(currentTexture, "cat.png");
-    m_textures.push_back(currentTexture);
-
     load(currentTexture, "wall.png");
     m_textures.push_back(currentTexture);
 
@@ -88,6 +82,9 @@ TextureManager::TextureManager()
     m_textures.push_back(currentTexture);
 
     load(currentTexture, "catRight.png");
+    m_textures.push_back(currentTexture);
+
+    load(currentTexture, "instructions.png");
     m_textures.push_back(currentTexture);
 
    
