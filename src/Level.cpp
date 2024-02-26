@@ -24,7 +24,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile)
 		this->m_board.getHeight() + 100),
 		"Mouse And Cat");
 	
-	while (window->isOpen() && Cheese::getCount() != 0)
+	while (window->isOpen() && Cheese::getCount() != 0 && this ->m_player ->getSouls() > 0)
 	{
 		deltaTime = m_clock.restart().asSeconds();
 		window->clear();

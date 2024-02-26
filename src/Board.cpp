@@ -86,6 +86,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 	m_length = pos.y * TILE_LENGTH;
 	//instead set seek to 0 , 0 if player got crashed.
 	levelFile->clear();
+	levelFile ->seekg(0, std::ios::beg);
 }
 
 Texture_t Board::chooseRandTexture()

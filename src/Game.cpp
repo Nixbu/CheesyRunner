@@ -43,7 +43,7 @@ void Game::run()
 		/*checkFile(levelFile);*/
 		Level currentLevel( m_textures , m_sounds, &m_player);
 		currentLevel.levelLoop(m_window , &levelFile);
-		if (!m_window->isOpen())
+		if (!m_window->isOpen() || this ->m_player.getSouls() <= 0)
 		{
 			levelFile.close();
 			break;
