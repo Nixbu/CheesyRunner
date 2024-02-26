@@ -21,4 +21,5 @@ void GameObject::scale(const sf::Vector2f &values)
 void GameObject::setPos(const sf::Vector2f &newPos)
 {
 	this->m_sprite.setPosition(newPos);
+	
 }

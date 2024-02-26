@@ -14,6 +14,8 @@ public:
 	void setDirection(const sf::Vector2i);
 	float getVelocity() const;
 	void setVelocity(float velocity);
+	void setInitPos(const sf::Vector2f& pos);
+	void resetPosition();
 
 private:
 	sf::Vector2f m_initPos; 

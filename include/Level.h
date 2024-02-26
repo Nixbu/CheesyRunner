@@ -53,4 +53,6 @@ private:
 	void handleGameObjectCollisions();
 	void handleDoorCollisions();
 	void handleGiftCollisions(enum Gift_t& giftStatus);
+	void handleCatColisions();
+	void resetMovingObjects();
 };

@@ -52,6 +52,11 @@ int Mouse::getScore() const
 	return m_score;
 }
 
+void Mouse::suckSoul()
+{
+	this->m_life--;
+}
+
 void Mouse::addSouls(int soulNum)
 {
 	m_life += soulNum;

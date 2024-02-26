@@ -83,6 +83,7 @@ void Level::handleAllCollisions(enum Gift_t & giftStatus)
 	this->handleGameObjectCollisions();
 	this->handleDoorCollisions();
 	this->handleGiftCollisions(giftStatus);
+	this->handleCatColisions();
 
 
 }
@@ -101,6 +102,28 @@ void Level::handleGiftCollisions(enum Gift_t& giftStatus)
 
 			this->m_board.removeGift(gift);
 		}
+	}
+}
+void Level::handleCatColisions()
+{
+	for (int cat = 0; cat < m_cats.size(); cat++)
+	{
+		if (m_player->getSprite()->getGlobalBounds().intersects(m_cats[cat] ->getSprite()
+			->getGlobalBounds()))
+		{
+			// life -- , and reseting objects to the init pos
+			this->m_player->suckSoul();
+			resetMovingObjects();
+		}
+	}
+}
+void Level::resetMovingObjects()
+{
+	this->m_player->resetPosition();
+
+	for (int cat = 0; cat < m_cats.size(); cat++)
+	{
+		m_cats[cat]->resetPosition();
 	}
 }
 void Level::handleWallCollisions()
