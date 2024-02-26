@@ -112,10 +112,6 @@ void Mouse::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 	gameObject.handleCollision(*this, intersection);
 }
 
-void Mouse::handleCollision(Mouse& gameobject, sf::FloatRect intersection)
-{
-}
-
 void Mouse::handleCollision(Cheese& gameObject, sf::FloatRect intersection)
 {
 	m_score += CHEESE_SCORE;

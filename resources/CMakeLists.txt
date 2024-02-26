@@ -53,5 +53,9 @@ configure_file ("StatesFont.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 # MUSIC
 configure_file ("BackgroundMusic.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("keySound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("doorSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("gotHitSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
 
 

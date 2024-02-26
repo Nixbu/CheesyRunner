@@ -37,7 +37,9 @@ enum Texture_t {
 };
 
 enum Sound_t {
-	keySound
+	keySound = 0,
+	doorSound,
+	gotHitSound
 };
 
 enum Button_t {
@@ -51,7 +53,7 @@ WINDOW_MANAGER_HEIGHT = 867,
 BG_TILES = 2,
 BASE_TILE = bgTileTexture,
 VOLUME = 1,
-SFX_VOLUME = 50;
+SFX_VOLUME = 2;
 
 const float TILE_WIDTH = 40,
 TILE_LENGTH = 40,

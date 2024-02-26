@@ -2,11 +2,19 @@
 
 SoundManager::SoundManager()
 {
-	sf::SoundBuffer currentSndBffr;
-
 	load("keySound.ogg", keySound);
-    // WORKING - Just need to do it in a function, and for more sounds
+    load("doorSound.ogg", doorSound);
+    load("gotHitSound.ogg", gotHitSound);
+
    
+}
+
+SoundManager::~SoundManager()
+{
+    for (int idx = 0; idx < m_soundBuffers.size(); idx++)
+    {
+        delete m_soundBuffers[idx];
+    }
 }
 
 sf::SoundBuffer* SoundManager::getSoundBuffer(Sound_t sound) const
@@ -21,9 +29,9 @@ void SoundManager::playSound(Sound_t soundNum)
 
 void SoundManager::load(std::string soundName, Sound_t soundNum)
 {
-    sf::SoundBuffer current;
+    sf::SoundBuffer * current = new sf::SoundBuffer;
     sf::Sound currSound;
-    if (!current.loadFromFile(soundName))
+    if (!current->loadFromFile(soundName))
     {
         std::cout << "failed to load sound " << std::endl;
         exit(EXIT_FAILURE);
@@ -31,7 +39,7 @@ void SoundManager::load(std::string soundName, Sound_t soundNum)
 
     m_soundBuffers.push_back(current);
 
-    currSound.setBuffer(m_soundBuffers[soundNum]);
+    currSound.setBuffer(*m_soundBuffers[soundNum]);
     currSound.setVolume(SFX_VOLUME);
     m_sounds.push_back(currSound);
 

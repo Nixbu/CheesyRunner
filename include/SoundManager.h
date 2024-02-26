@@ -9,13 +9,13 @@
 class SoundManager {
 public:
 	SoundManager();
-	~SoundManager() = default;
+	~SoundManager();
 
 	sf::SoundBuffer * getSoundBuffer(Sound_t sound) const;
 	void playSound(Sound_t soundNum);
 
 private:
-	std::vector<sf::SoundBuffer> m_soundBuffers;
+	std::vector<sf::SoundBuffer *> m_soundBuffers;
 	std::vector<sf::Sound> m_sounds;
 	sf::Sound m_keySound;
 

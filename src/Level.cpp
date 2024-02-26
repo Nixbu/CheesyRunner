@@ -126,6 +126,7 @@ void Level::handleCatColisions()
 			->getGlobalBounds()))
 		{
 			// life -- , and reseting objects to the init pos
+			m_sounds->playSound(gotHitSound);
 			this->m_player->suckSoul();
 			resetMovingObjects();
 		}
@@ -190,6 +191,7 @@ void Level::handleDoorCollisions()
 
 			if (m_player->getKeys() > 0)
 			{
+				m_sounds->playSound(doorSound);
 				m_player->removeKey();
 				this->m_board.removeDoor(object);
 
