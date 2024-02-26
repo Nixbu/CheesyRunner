@@ -56,5 +56,6 @@ private:
 		m_length;
 
 	Texture_t chooseRandTexture();
-	void genarateGift(int numOfGifts, sf::Vector2f location, const TextureManager* textures);
+	void genarateGift(int numOfGifts, sf::Vector2f location,
+		const TextureManager* textures , const int & levelTime);
 };

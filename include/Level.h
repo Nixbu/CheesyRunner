@@ -20,7 +20,8 @@ public:
 		
 	virtual ~Level() = default;
 
-	void levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile , bool &passed);
+	void levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile 
+		, bool &passed , const int& levelnum);
 	void draw(sf::RenderWindow* window);
 	void handleEvents(sf::RenderWindow* window);
 	void handleAllCollisions(enum Gift_t& giftStatus);
@@ -55,4 +56,5 @@ private:
 	void handleGiftCollisions(enum Gift_t& giftStatus);
 	void handleCatColisions();
 	void resetMovingObjects();
+	void updateLevelUp(bool& passed);
 };

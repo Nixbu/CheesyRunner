@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-enum Gift_t { freeze , addTime ,addLife , killCat , noGift
+enum Gift_t { freeze ,addLife , addTime, killCat , noGift
 };
 
 
@@ -32,7 +32,8 @@ enum Texture_t {
 	catBackTexture,
 	catLeftTexture,
 	catRightTexture,
-	instructionsTexture
+	instructionsTexture,
+	clockTexture
 };
 
 enum Sound_t {
@@ -63,6 +64,7 @@ STARTING_SOULS = 3,
 SCORE_OFFSET = 250,
 TIME_OFFSET = 300;
 
+
 const sf::Vector2f BUTTON_DEFA_SIZE = { 0.33f, 0.33f },
 BUTTON_FLOATED_SIZE = { 0.4f, 0.4f },
 PLAY_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - BUTTON_DEFA_SIZE.x / 2,
@@ -81,16 +83,19 @@ LEFT = { -1, 0 },
 RIGHT = { 1, 0 },
 STAND = { 0, 0 };
 
-const int CHEESE_SCORE = 10 ,
-		   GIFT_TYPES = 3 ,
-	KILL_CAT_GIFT = 3 ,
-	LOW_TIME =15 ,
-	MID_TIME = 20,
-	LARGE_TIME = 30 ,
-	AMOUNTS = 3 ,
-	FREEZE_TIME = 5 ,
-	SOULS_NUM = 3,
-	INFINIT = 1000 ,
-	VALID = -1;
+const int CHEESE_SCORE = 10,
+GIFT_TYPES = 3,
+KILL_CAT_GIFT = 3,
+LOW_TIME = 15,
+MID_TIME = 20,
+LARGE_TIME = 30,
+AMOUNTS = 3,
+FREEZE_TIME = 5,
+SOULS_NUM = 3,
+INFINIT = 1000,
+VALID = -1,
+LEVEL_AND_TIME_OFFSET = 170,
+TIMER_OFFSET = 55,
+NO_TIME = -2;
 			
 enum AddTime{lowAmount  , midAmount , largeAmount};

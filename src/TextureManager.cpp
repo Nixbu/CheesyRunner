@@ -87,6 +87,10 @@ TextureManager::TextureManager()
     load(currentTexture, "instructions.png");
     m_textures.push_back(currentTexture);
 
+    load(currentTexture, "clocktexTure.png");
+    m_textures.push_back(currentTexture);
+   
+
    
 
 }

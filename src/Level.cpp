@@ -10,7 +10,8 @@ Level::Level( TextureManager* textures,
 	m_sounds = sounds;
 }
 
-void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile , bool &passed)
+void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile ,
+		bool &passed ,const int & levelNum)
 {
 	enum Gift_t giftStatus = noGift;
 	int catMovement = 0;
@@ -18,7 +19,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile , bo
 	m_board.readBoard(levelFile, m_player, m_cats , m_textures , m_level_time , m_levelMatrix);
 	
 
-	m_states.setLevelState(this->m_board.getHeight(), m_level_time);
+	m_states.setLevelState(this->m_board.getHeight(), m_level_time , levelNum);
 
 	window->create(sf::VideoMode(this->m_board.getWidth(),
 		this->m_board.getHeight() + 100),
@@ -33,7 +34,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile , bo
 		
 		window->display();
 
-		if (this->m_states.getTimeAsSeconds() > m_level_time)
+		if (this->m_states.getTimeAsSeconds() > m_level_time && m_level_time != NO_TIME)
 		{
 			this->m_player->suckSoul();
 			break;
@@ -55,10 +56,9 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile , bo
 		
 	}
 	
-	if (Cheese::getCount() == 0)
-	{
-		passed = true;
-	}
+
+	updateLevelUp(passed);
+
 
 	
 }
@@ -138,6 +138,13 @@ void Level::resetMovingObjects()
 	for (int cat = 0; cat < m_cats.size(); cat++)
 	{
 		m_cats[cat]->resetPosition();
+	}
+}
+void Level::updateLevelUp(bool& passed)
+{
+	if (Cheese::getCount() == 0)
+	{
+		passed = true;
 	}
 }
 void Level::handleWallCollisions()
