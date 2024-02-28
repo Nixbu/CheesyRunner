@@ -60,6 +60,8 @@ configure_file ("lifeGiftSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("timeGiftSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("killCatGiftSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("freezeGiftSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("loseFromTimeSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+
 
 
 

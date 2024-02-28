@@ -35,7 +35,7 @@ public:
 private:
 	Board m_board;
 	sf::Clock m_clock;
-	sf::Clock * m_timer;
+
 	int m_level_time;
 	std::vector<std::unique_ptr<Cat>> m_cats;
 	TextureManager* m_textures;

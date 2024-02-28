@@ -34,8 +34,10 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile ,
 		
 		window->display();
 
+
 		if (this->m_states.getTimeAsSeconds() > m_level_time && m_level_time != NO_TIME)
 		{
+			this->m_sounds->playSound(loseFromTimeSound);
 			this->m_player->suckSoul();
 			break;
 		}

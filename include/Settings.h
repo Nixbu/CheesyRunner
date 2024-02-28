@@ -45,8 +45,8 @@ enum Sound_t {
 	timeGiftSound,
 	killCatGiftSound,
 	freezeGiftSound,
-	loseSound,
 	loseFromTimeSound,
+	loseSound,
 	winSound
 };
 

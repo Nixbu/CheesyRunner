@@ -10,6 +10,7 @@ SoundManager::SoundManager()
     load("timeGiftSound.ogg", timeGiftSound);
     load("killCatGiftSound.ogg", killCatGiftSound);
     load("freezeGiftSound.ogg", freezeGiftSound);
+    load("loseFromTimeSound.ogg", loseFromTimeSound);
 }
 
 SoundManager::~SoundManager()
