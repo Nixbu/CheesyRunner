@@ -23,9 +23,11 @@ public:
 
 	void suckSoul();
 	void addSouls(int soulNum);
-	void move(sf::Vector2i direction, float deltaTime);
+	void move(sf::Vector2i direction, float deltaTime,
+		float boardHeight, float boardWidth);
 	void draw(sf::RenderWindow * window) const override;
-	void handleKeys(float deltaTime);
+	void handleKeys(float deltaTime,
+		float boardHeight, float boardWidth);
 
 	virtual void handleCollision(GameObject& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Mouse& gameobject, sf::FloatRect intersection) {};
@@ -45,5 +47,7 @@ private:
 	TextureManager* m_textures;
 
 	void setSpriteDirection(sf::Vector2i direction);
+	bool checkValidPos(float boardHeight, float boardWidth,
+		float deltaTime, sf::Vector2i direction);
 
 };

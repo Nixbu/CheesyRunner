@@ -62,16 +62,20 @@ void Mouse::addSouls(int soulNum)
 	m_life += soulNum;
 }
 
-void Mouse::move(sf::Vector2i direction, float deltaTime)
+void Mouse::move(sf::Vector2i direction, float deltaTime,
+	float boardHeight, float boardWidth)
 {
 	this->setDirection(direction);
 
 	this->setSpriteDirection(direction);
 
 
-
-	this->getSprite()->move(this->getDirection().x * deltaTime * this->getVelocity(),
-		this->getDirection().y * deltaTime * this->getVelocity());
+	if (checkValidPos(boardHeight, boardWidth, deltaTime, direction))
+	{
+		this->getSprite()->move(this->getDirection().x * deltaTime * this->getVelocity(),
+			this->getDirection().y * deltaTime * this->getVelocity());
+	}
+	
 }
 
 void Mouse::setSpriteDirection(sf::Vector2i direction)
@@ -99,6 +103,28 @@ void Mouse::setSpriteDirection(sf::Vector2i direction)
 	this->getSprite()->setTexture(*m_textures->getTexture(wantedTexture));
 
 
+}
+
+bool Mouse::checkValidPos(float boardHeight, float boardWidth, float deltaTime, sf::Vector2i direction)
+{
+	sf::FloatRect myRec = this->getSprite()->getGlobalBounds();
+
+	sf::Vector2f addedMovement;
+
+	addedMovement.x += (direction == DOWN || direction == RIGHT) ?
+		myRec.left + myRec.width + deltaTime * this->getVelocity() * direction.x :
+		myRec.left + deltaTime * this->getVelocity() * direction.x;
+	addedMovement.y += (direction == DOWN || direction == RIGHT) ?
+		myRec.top + myRec.height + deltaTime * this->getVelocity() * direction.y :
+		myRec.top + deltaTime * this->getVelocity() * direction.y;
+	
+	if (addedMovement.x >=0 && addedMovement.x < boardWidth
+		&& addedMovement.y >= 0 && addedMovement.y < boardHeight)
+	{
+		return true;
+	}
+
+	return false;
 }
 
 void Mouse::draw(sf::RenderWindow* window) const
@@ -139,23 +165,28 @@ void Mouse::handleCollision(Wall& gameObject, sf::FloatRect intersection)
 		(-1) * intersection.height * this->getDirection().y);
 }
 
-void Mouse::handleKeys(float deltaTime)
+void Mouse::handleKeys(float deltaTime,
+	float boardHeight, float boardWidth)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		this->move(LEFT, deltaTime);
+		this->move(LEFT, deltaTime, 
+			boardHeight, boardWidth);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		this->move(RIGHT, deltaTime);
+		this->move(RIGHT, deltaTime,
+			boardHeight, boardWidth);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		this->move(UP, deltaTime);
+		this->move(UP, deltaTime,
+			boardHeight, boardWidth);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		this->move(DOWN, deltaTime);
+		this->move(DOWN, deltaTime,
+			boardHeight, boardWidth);
 	}
 }
 

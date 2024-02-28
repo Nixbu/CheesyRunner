@@ -42,8 +42,9 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile ,
 
 
 		this->handleEvents(window);
-
-		this->m_player->handleKeys(deltaTime);
+		
+		this->m_player->handleKeys(deltaTime, this->m_board.getHeight(),
+									this->m_board.getWidth());
 
 		if (catMovement < m_states.getTimeAsSeconds())
 		{
