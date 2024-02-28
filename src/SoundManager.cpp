@@ -12,6 +12,9 @@ SoundManager::SoundManager()
     load("killCatGiftSound.ogg", killCatGiftSound);
     load("freezeGiftSound.ogg", freezeGiftSound);
     load("loseFromTimeSound.ogg", loseFromTimeSound);
+    load("loseSound.ogg", loseSound);
+    load("winSound.ogg", winSound);
+
 }
 //======================================================
 SoundManager::~SoundManager()

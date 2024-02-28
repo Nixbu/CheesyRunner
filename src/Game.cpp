@@ -69,10 +69,12 @@ void Game::displayResultScreen(const bool& passed)
 
 	if (passed)
 	{
+		this->m_sounds->playSound(winSound);
 		endScrean.setTexture(*m_textures->getTexture(youWonTexture));
 	}
 	else
 	{
+		this->m_sounds->playSound(loseSound);
 		endScrean.setTexture(*m_textures->getTexture(youLostTexture));
 	}
 
