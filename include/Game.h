@@ -8,6 +8,12 @@
 #include <fstream>
 #include <string>
 
+/*
+	Class Game:
+		The class represents the game of mouse and cat.
+*/
+
+
 class Game {
 public:
 	Game(TextureManager * textures,

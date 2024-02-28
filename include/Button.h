@@ -5,6 +5,12 @@
 #include "TextureManager.h"
 #include "SoundManager.h"
 
+/*
+	Class Button:
+		The class represents a clickable button to be used for the UI.
+		The class is abstract.
+*/
+
 class Button {
 
 public:

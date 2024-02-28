@@ -3,6 +3,11 @@
 #include "StaticObject.h"
 #include "Mouse.h"
 
+/*
+	Class Cheese:
+		The class represents the cheese in the game.
+*/
+
 class Cheese : public StaticObject {
 public:
 	Cheese(sf::Vector2f position, sf::Texture* texture);

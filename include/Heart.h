@@ -3,6 +3,11 @@
 #include <SFML/Graphics.hpp>
 
 
+/*
+	Class Heart:
+		The class represents the represents the heart shown in States.
+*/
+
 class Heart {
 public:
 	Heart(sf::Vector2f position, sf::Texture * texture);
