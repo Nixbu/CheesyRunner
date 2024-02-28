@@ -31,7 +31,9 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile ,
 		this->m_board.getHeight() + 100),
 		"Mouse And Cat");
 	// play loop
-	while (window->isOpen() && Cheese::getCount() != 0 && this ->m_player ->getSouls() > 0)
+	while (window->isOpen() &&
+		Cheese::getCount() != 0 && 
+		this ->m_player ->getSouls() > 0)
 	{
 		deltaTime = m_clock.restart().asSeconds();
 		window->clear();
@@ -74,7 +76,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile ,
 	}
 	
 	// if the level is completed adding the needed score
-	updateLevelUpAndScore(passed , catNum);
+	this->updateLevelUpAndScore(passed , catNum);
 
 
 	
@@ -244,6 +246,9 @@ void Level::handleDoorCollisions()
 
 }
 
+//====================================================== 
+// Update the level matrix that a door has been removed,
+// for correct bfs
 void Level::updateLevelMatrix(const std::unique_ptr<Door> & door)
 { 
 	sf::Vector2i doorMatPos = { static_cast<int>((door->getSprite()->getPosition().x) / TILE_WIDTH),
@@ -299,10 +304,10 @@ void Level::addPlayerLife()
 	}
 }
 //======================================================
-// This function appears to be calculating the distance matrix from the player's position
+// This function is calculating the distance matrix from the player's position
 // using BFS on a grid-based map. The distance matrix represents the minimum distance from 
 // each valid tile on the map to the player's current position.
-// the cats uses it to choose the best move torwards the player.
+// the cats use it to choose the best move towards the player.
 void Level::calcDistanceMat()
 {
 	sf::Vector2i mouseMatPos = { static_cast<int>((this->m_player->getSprite()->getPosition().x) / TILE_WIDTH),
@@ -354,7 +359,7 @@ void Level::initMat()
 	}
 }
 //======================================================
-// function implements the gift affects , it gets the gifts flag
+// function implements the gift affects, it gets the gifts flag
 void Level::giftsAffect(enum Gift_t& giftStatus , int & catMovement)
 {
 	

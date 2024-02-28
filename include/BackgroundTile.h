@@ -15,6 +15,5 @@ public:
 	virtual void handleCollision(Key& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Wall& gameObject, sf::FloatRect intersection);
 
-	virtual void draw(sf::RenderWindow* window) const override;
 private:
 };

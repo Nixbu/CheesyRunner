@@ -23,3 +23,9 @@ void GameObject::setPos(const sf::Vector2f &newPos)
 	this->m_sprite.setPosition(newPos);
 	
 }
+
+//======================================================
+void GameObject::draw(sf::RenderWindow* window) const
+{
+	window->draw(*this->getSprite());
+}

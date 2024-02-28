@@ -30,7 +30,7 @@ public:
 	virtual void handleCollision(Wall& gameObject, sf::FloatRect intersection) = 0;
 
 
-	virtual void draw(sf::RenderWindow * window) const = 0;
+	void draw(sf::RenderWindow* window) const;
 
 	
 private:

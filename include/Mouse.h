@@ -25,7 +25,6 @@ public:
 	void addSouls(int soulNum);
 	void move(sf::Vector2i direction, float deltaTime,
 		float boardHeight, float boardWidth);
-	void draw(sf::RenderWindow * window) const override;
 	void handleKeys(float deltaTime,
 		float boardHeight, float boardWidth);
 

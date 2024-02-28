@@ -1,9 +1,6 @@
 #include "BackgroundTile.h"
 
-void BackgroundTile::draw(sf::RenderWindow* window) const
-{
-	window->draw(*this->getSprite());
-}
+
 //======================================================
 void BackgroundTile::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 {

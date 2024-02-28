@@ -5,8 +5,3 @@ StaticObject::StaticObject(sf::Vector2f position, sf::Texture* texture) :
 {
 	this->scale(sf::Vector2f(0.375f, 0.375f));
 }
-
-void StaticObject::draw(sf::RenderWindow* window) const
-{
-	window->draw(*this->getSprite());
-}

@@ -4,7 +4,7 @@
 #include "SoundManager.h"
 #include "Mouse.h"
 #include "Level.h"
-//#include "Utilities.h"
+#include "Utilities.h"
 #include <fstream>
 #include <string>
 

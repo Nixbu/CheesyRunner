@@ -13,26 +13,21 @@ Cat::Cat(sf::Vector2f position, sf::Texture* texture, float velocity, Mouse* mou
 // function moves the cat according to wanted direction
 
 void Cat::move(float deltaTime,
-	std::vector<std::vector<int>> boardMatrix)
+    std::vector<std::vector<int>> boardMatrix)
 {
     //picking best direction to get closer to the mouse 
-	sf::Vector2i wantedDirection = chooseMove(boardMatrix);
+    sf::Vector2i wantedDirection = chooseMove(boardMatrix);
 
-	this->setDirection(wantedDirection);
+    this->setDirection(wantedDirection);
 
     // using correct sprite 
     this->setSpriteDirection(wantedDirection);
 
     // moving the cat according to the direction
-	this->getSprite()->move(this->getDirection().x * deltaTime * this->getVelocity(),
-		this->getDirection().y * deltaTime * this->getVelocity());
+    this->getSprite()->move(this->getDirection().x * deltaTime * this->getVelocity(),
+        this->getDirection().y * deltaTime * this->getVelocity());
 
 
-}
-//======================================================
-void Cat::draw(sf::RenderWindow* window) const
-{
-	window->draw(*(this->getSprite()));
 }
 //======================================================
 // this function peaks the best direction to the cat according to the 

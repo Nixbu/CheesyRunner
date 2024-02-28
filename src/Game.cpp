@@ -13,10 +13,9 @@ Game::Game(TextureManager * textures,
 {
 	m_textures = textures;
 	m_sounds = sounds;
-	std::ifstream playlistLevelFile;
 
 	m_playlist.open("LevelPlaylistFile.txt");
-	/*checkFile(playlistLevelFile);*/
+	checkFile(m_playlist);
 	
 }
 //======================================================
@@ -34,7 +33,7 @@ void Game::run()
 		passed = false;
 		levelNum ++;
 		levelFile.open(levelName);
-		/*checkFile(levelFile);*/
+		checkFile(levelFile);
 
 		// run the same level from the start if the player got eliminated by time
 		while (!passed && this->m_player.getSouls() > 0 && m_window->isOpen())

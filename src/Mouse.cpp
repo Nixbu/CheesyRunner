@@ -62,7 +62,8 @@ void Mouse::addSouls(int soulNum)
 {
 	m_life += soulNum;
 }
-
+//======================================================
+// 
 void Mouse::move(sf::Vector2i direction, float deltaTime,
 	float boardHeight, float boardWidth)
 {
@@ -129,12 +130,6 @@ bool Mouse::checkValidPos(float boardHeight, float boardWidth,
 	}
 
 	return false;
-}
-
-//=============================================================================
-void Mouse::draw(sf::RenderWindow* window) const
-{
-	window->draw(*this->getSprite());
 }
 
 //=============================================================================

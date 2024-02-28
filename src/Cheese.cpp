@@ -23,7 +23,7 @@ Cheese::~Cheese()
  //======================================================
 void Cheese::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 {
-	
+	gameObject.handleCollision(*this, intersection);
 }
 //======================================================
 void Cheese::handleCollision(Mouse& gameObject, sf::FloatRect intersection)
@@ -33,21 +33,26 @@ void Cheese::handleCollision(Mouse& gameObject, sf::FloatRect intersection)
 //======================================================
 void Cheese::handleCollision(Cheese& gameObject, sf::FloatRect intersection)
 {
+	// ignore
 }
 //======================================================
 void Cheese::handleCollision(Door& gameObject, sf::FloatRect intersection)
 {
+	// ignore
 }
 //======================================================
 void Cheese::handleCollision(Cat& gameObject, sf::FloatRect intersection)
 {
+	// ignore
 }
 //======================================================
 void Cheese::handleCollision(Key& gameObject, sf::FloatRect intersection)
 {
+	// ignore
 }
 //======================================================
 void Cheese::handleCollision(Wall& gameObject, sf::FloatRect intersection)
 {
+	// ignore
 }
 

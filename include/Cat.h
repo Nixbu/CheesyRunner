@@ -11,8 +11,6 @@ public:
 		float velocity, Mouse* mouse,
 		const TextureManager * textures);
 	~Cat() = default;
-	
-	void draw(sf::RenderWindow* window) const override;
 
 	sf::Vector2i chooseMove(std::vector<std::vector<int>> boardMatrix) const;
 	void move(float deltaTime,

@@ -9,6 +9,5 @@ public:
 	virtual ~Gift() = default;
 
 	virtual void action(enum Gift_t &giftType) = 0;	
-	virtual void draw(sf::RenderWindow* window);
 private:
 };

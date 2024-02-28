@@ -7,12 +7,6 @@ Gift::Gift(sf::Vector2f position, sf::Texture* texture) :
 {
 	this->getSprite()->scale(0.4f, 0.4f);
 }
-////======================================================
-void Gift::draw(sf::RenderWindow* window)
-{
-	window->draw(*this->getSprite());
-}
-
 
 
 
