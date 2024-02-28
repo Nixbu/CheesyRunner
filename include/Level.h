@@ -56,5 +56,5 @@ private:
 	void handleGiftCollisions(enum Gift_t& giftStatus);
 	void handleCatColisions();
 	void resetMovingObjects();
-	void updateLevelUp(bool& passed);
+	void updateLevelUpAndScore(bool& passed , const int& catNum);
 };

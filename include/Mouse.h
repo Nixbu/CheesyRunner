@@ -34,6 +34,8 @@ public:
 	virtual void handleCollision(Cat& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Key& gameObject, sf::FloatRect intersection);
 	virtual void handleCollision(Wall& gameObject, sf::FloatRect intersection);
+	void handleCollision(Gift& gift);
+	void addScore(const int& score);
 
 
 private:

@@ -55,8 +55,8 @@ BASE_TILE = bgTileTexture,
 VOLUME = 1,
 SFX_VOLUME = 2;
 
-const float TILE_WIDTH = 40,
-TILE_LENGTH = 40,
+const float TILE_WIDTH = 45,
+TILE_LENGTH = 45,
 CAT_VELOCITY = 60,
 MOUSE_VELOCITY = 170,
 DEFAULT_TIME = 100,
@@ -98,6 +98,10 @@ INFINIT = 1000,
 VALID = -1,
 LEVEL_AND_TIME_OFFSET = 170,
 TIMER_OFFSET = 55,
-NO_TIME = -2;
+NO_TIME = -2,
+GIFT_SCORE = 5,
+DOOR_SCORE = 2,
+LEVEL_UP_SCORE = 25 ,
+CAT_SCORE = 5;
 			
 enum AddTime{lowAmount  , midAmount , largeAmount};

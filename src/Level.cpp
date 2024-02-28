@@ -14,10 +14,10 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile ,
 		bool &passed ,const int & levelNum)
 {
 	enum Gift_t giftStatus = noGift;
-	int catMovement = 0;
+	int catMovement = 0 , catNum;
 	float deltaTime;
 	m_board.readBoard(levelFile, m_player, m_cats , m_textures , m_level_time , m_levelMatrix);
-	
+	catNum = this->m_cats.size();
 
 	m_states.setLevelState(this->m_board.getHeight(), m_level_time , levelNum);
 
@@ -57,7 +57,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile ,
 	}
 	
 
-	updateLevelUp(passed);
+	updateLevelUpAndScore(passed , catNum);
 
 
 	
@@ -112,6 +112,8 @@ void Level::handleGiftCollisions(enum Gift_t& giftStatus)
 		if (m_player->getSprite()->getGlobalBounds().intersects(
 			m_board.getGifts()[gift]->getSprite()->getGlobalBounds(), intersection))
 		{
+			this->m_player->handleCollision(*(m_board.getGifts()[gift]));
+
 			m_board.getGifts()[gift]->action(giftStatus);
 
 			this->m_board.removeGift(gift);
@@ -141,12 +143,17 @@ void Level::resetMovingObjects()
 		m_cats[cat]->resetPosition();
 	}
 }
-void Level::updateLevelUp(bool& passed)
+void Level::updateLevelUpAndScore(bool& passed , const int & catNum)
 {
 	if (Cheese::getCount() == 0)
 	{
 		passed = true;
 	}
+	if (passed)
+	{
+		this->m_player->addScore(LEVEL_UP_SCORE + catNum * CAT_SCORE);
+	}
+
 }
 void Level::handleWallCollisions()
 {
@@ -194,6 +201,7 @@ void Level::handleDoorCollisions()
 				m_sounds->playSound(doorSound);
 				m_player->removeKey();
 				this->m_board.removeDoor(object);
+				this->m_player->addScore(DOOR_SCORE);
 
 			}
 
@@ -293,6 +301,7 @@ void Level::initMat()
 
 void Level::giftsAffect(enum Gift_t& giftStatus , int & catMovement)
 {
+	
 	switch (giftStatus)
 	{
 	case freeze:
