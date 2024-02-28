@@ -1,5 +1,6 @@
 #include "States.h"
 
+// ctor
 States::States(Mouse* mouse, TextureManager* textures)
 	: m_levelTime(DEFAULT_TIME), m_position(sf::Vector2f(0, 0)), m_clock() ,
 	m_levelNum(0) 
@@ -9,11 +10,13 @@ States::States(Mouse* mouse, TextureManager* textures)
 
 	m_font.loadFromFile("StatesFont.ttf");
 
+	// setting the wanted texts
 	this->setText(m_scoreText);
 	this->setText(m_timeText);
 	this->setText(m_keyText);
 	this->setText(m_levelText);
 	this->setText(m_timerText);
+
 	this->m_clockSprite.setTexture(*(textures->getTexture(clockTexture)));
 	
 	for (int heart = 0; heart < STARTING_SOULS; heart++)
@@ -22,7 +25,8 @@ States::States(Mouse* mouse, TextureManager* textures)
 			textures->getTexture(heartTexture)));
 	}
 }
-
+//======================================================
+// function updates the states according to the current level
 void States::setLevelState(const float& boardHeight, const int &levelTime , const int &leveNum)
 {
 	this->m_levelTime = levelTime;
@@ -39,14 +43,14 @@ void States::setLevelState(const float& boardHeight, const int &levelTime , cons
 		PosStates.x += HEART_OFFSET;
 		
 	}
-
+	//  level time text , clock and keys
 	this->m_scoreText.setPosition(PosStates);
 	PosStates.x += SCORE_OFFSET;
 	this->m_timeText.setPosition(PosStates);
 	PosStates.x += TIME_OFFSET;
 	this->m_keyText.setPosition(PosStates);
 
-
+	// clock , level timer
 	m_clockSprite.setPosition(PosLevelAndTime);
 	PosLevelAndTime.x += TIMER_OFFSET;
 	this->m_timerText.setPosition(PosLevelAndTime);
@@ -54,7 +58,8 @@ void States::setLevelState(const float& boardHeight, const int &levelTime , cons
 	this->m_levelText.setPosition(PosLevelAndTime);
 }
 
-
+//======================================================
+// function draws the state section
 void States::draw(sf::RenderWindow* window)
 {
 	for (int heart = 0; heart < m_mouse->getSouls(); heart++)
@@ -87,17 +92,17 @@ void States::draw(sf::RenderWindow* window)
 	window->draw(m_timerText);
 	window->draw(m_clockSprite);
 }
-
+//======================================================
 void States::setLevelTime(int time)
 {
 	m_levelTime = time;
 }
-
+//======================================================
 int States::getTimeAsSeconds() const
 {
 	return m_clock.getElapsedTime().asSeconds();
 }
-
+//======================================================
 void States::setText(sf::Text& text)
 {
 	text.setFont(m_font);

@@ -1,5 +1,6 @@
 #include "Mouse.h"
 
+// ctor
 Mouse::Mouse(sf::Vector2f position, sf::Texture* texture,
 	float velocity,
 	SoundManager * sounds,
@@ -11,52 +12,52 @@ Mouse::Mouse(sf::Vector2f position, sf::Texture* texture,
 	m_sounds = sounds;
 	m_textures = textures;
 }
-
+//======================================================
 void Mouse::setKeys(int keys)
 {
 	this->m_keys = keys;
 }
-
+//======================================================
 void Mouse::addKey()
 {
 	m_keys++;
 }
-
+//======================================================
 void Mouse::removeKey()
 {
 	m_keys--;
 }
-
+//======================================================
 void Mouse::setCheese(int cheese)
 {
 	this->m_numOfCheese = cheese;
 }
-
+//======================================================
 int Mouse::getCheese() const
 {
 	return this->m_numOfCheese;
 }
-
+//======================================================
 int Mouse::getKeys() const
 {
 	return this->m_keys;
 }
-
+//======================================================
 int Mouse::getSouls() const
 {
 	return m_life;
 }
-
+//======================================================
 int Mouse::getScore() const
 {
 	return m_score;
 }
-
+//======================================================
 void Mouse::suckSoul()
 {
 	this->m_life--;
 }
-
+//======================================================
 void Mouse::addSouls(int soulNum)
 {
 	m_life += soulNum;
@@ -103,8 +104,6 @@ void Mouse::setSpriteDirection(sf::Vector2i direction)
 
 
 	this->getSprite()->setTexture(*m_textures->getTexture(wantedTexture));
-
-
 }
 
 //=============================================================================
@@ -159,35 +158,35 @@ void Mouse::handleCollision(Door& gameObject, sf::FloatRect intersection)
 	this->getSprite()->move((-1) * intersection.width * this->getDirection().x,
 		(-1) * intersection.height * this->getDirection().y);
 }
-
+//======================================================
 void Mouse::handleCollision(Cat& gameObject, sf::FloatRect intersection)
 {
 }
-
+//======================================================
 void Mouse::handleCollision(Key& gameObject, sf::FloatRect intersection)
 {
 	this->m_sounds->playSound(keySound);
 	this->addKey();
 }
-
+//======================================================
 void Mouse::handleCollision(Wall& gameObject, sf::FloatRect intersection)
 {
 	this->getSprite()->move((-1) * intersection.width * this->getDirection().x,
 		(-1) * intersection.height * this->getDirection().y);
 }
-
+//======================================================
 void Mouse::handleCollision(Gift& gift)
 {
 	m_score += GIFT_SCORE;
 }
-
+//======================================================
 void Mouse::addScore(const int& score)
 {
 	m_score += score;
 }
-
-void Mouse::handleKeys(float deltaTime,
-	float boardHeight, float boardWidth)
+//======================================================
+// handling the player movement
+void Mouse::handleKeys(float deltaTime)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{

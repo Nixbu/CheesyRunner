@@ -1,5 +1,6 @@
 #include "Menu.h"
 
+// ctor
 Menu::Menu(const TextureManager& textures)
 {
 	
@@ -13,7 +14,8 @@ Menu::Menu(const TextureManager& textures)
 	m_backgroung_img.setTexture(*(textures.getTexture(backgroundTexture)));
 	m_backgroung_img.scale(0.5f, 0.5f);
 }
-
+//======================================================
+//dtor
 Menu::~Menu()
 {
 	for (int idx = 0; idx < m_buttons.size(); idx++)
@@ -21,12 +23,12 @@ Menu::~Menu()
 		delete m_buttons[idx];
 	}
 }
-
+//======================================================
 Button * Menu::getButton(Button_t btn) const
 {
 	return m_buttons[btn];
 }
-
+//======================================================
 void Menu::draw(sf::RenderWindow* window) const
 {
 	window->draw(m_backgroung_img);
@@ -36,7 +38,8 @@ void Menu::draw(sf::RenderWindow* window) const
 	}
 
 }
-
+//======================================================
+//  function handles menu button clicks using
 // Polymorphism
 void Menu::handleClicks(sf::Vector2f mousePos, sf::RenderWindow * window,
 	const TextureManager & textures, const SoundManager & sounds)
@@ -49,7 +52,8 @@ void Menu::handleClicks(sf::Vector2f mousePos, sf::RenderWindow * window,
 		}
 	}
 }
-
+//======================================================
+// function makes the button bif=gger when the mouse floats on it
 void Menu::handleFloating(sf::Vector2f mousePos)
 {
 	for (int btn = 0; btn < this->m_buttons.size(); btn++)
