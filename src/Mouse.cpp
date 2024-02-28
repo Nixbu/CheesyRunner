@@ -186,11 +186,12 @@ void Mouse::addScore(const int& score)
 }
 //======================================================
 // handling the player movement
-void Mouse::handleKeys(float deltaTime)
+void Mouse::handleKeys(float deltaTime,
+	float boardHeight, float boardWidth)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		this->move(LEFT, deltaTime, 
+		this->move(LEFT, deltaTime,
 			boardHeight, boardWidth);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -209,5 +210,6 @@ void Mouse::handleKeys(float deltaTime)
 			boardHeight, boardWidth);
 	}
 }
+
 
 
