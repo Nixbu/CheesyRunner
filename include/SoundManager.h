@@ -6,6 +6,11 @@
 #include <string>
 #include <Settings.h>
 
+
+/*
+	Class SoundManager:
+		The class holds all the sound in the game.
+*/
 class SoundManager {
 public:
 	SoundManager();

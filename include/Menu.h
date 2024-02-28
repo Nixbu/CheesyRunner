@@ -10,6 +10,11 @@
 #include "HelpButton.h"
 #include "ExitButton.h"
 
+/*
+	Class Menu:
+		The class holds the button of the prime menu.
+*/
+
 class Menu {
 public:
 	Menu(const TextureManager & textures);

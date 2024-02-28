@@ -6,6 +6,11 @@
 #include <string>
 #include <Settings.h>
 
+/*
+	Class TextureManager :
+		The class holds all the game textures.
+*/
+
 class TextureManager {
 public:
 	TextureManager();

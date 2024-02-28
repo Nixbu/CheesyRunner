@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "SFML/Audio.hpp"
 
+
 class StaticObject : public GameObject
 {
 public:

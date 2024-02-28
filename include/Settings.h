@@ -1,6 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+
+//here we hold all the consts of the program.
+
+
 enum Gift_t { freeze ,addLife , addTime, killCat , noGift
 };
 

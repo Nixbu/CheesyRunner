@@ -2,6 +2,12 @@
 
 #include "Gift.h"
 
+
+/*
+	Class KillCatGiftl:
+		The class represents a present that makes a cat disapear in the game.
+*/
+
 class KillCatGift : public Gift {
 public:
 	using Gift::Gift;

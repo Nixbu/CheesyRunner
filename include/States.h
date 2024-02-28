@@ -7,6 +7,11 @@
 #include "Heart.h"
 #include "Settings.h"
 
+/*
+	Class States:
+		The class represents the data line in the game ( life ,keys , time).
+*/
+
 class States {
 public:
 	States(Mouse* mouse, TextureManager* textures);

@@ -2,6 +2,12 @@
 
 #include "GameObject.h"
 
+/*
+	Class GameObject:
+		The class represents a game object.
+		the class is abstract.
+*/
+
 class MovingObject: public GameObject {
 public:
 	MovingObject(sf::Vector2f position, sf::Texture* texture,

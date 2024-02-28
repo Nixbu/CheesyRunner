@@ -4,6 +4,11 @@
 #include "Mouse.h"
 #include "Cat.h"
 
+/*
+	Class Wall:
+		The class represents a wall in the game.
+*/
+
 class Wall : public StaticObject {
 public:
 	using StaticObject::StaticObject;

@@ -2,6 +2,11 @@
 
 #include "Gift.h"
 
+
+/*
+	Class Giftl:
+		The class represents a gift in the game.
+*/
 class TimeGift : public Gift {
 public:
 	using Gift::Gift;

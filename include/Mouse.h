@@ -5,6 +5,11 @@
 #include "SoundManager.h"
 #include "TextureManager.h"
 
+/*
+	Class Mouse:
+		The class represents the player in the game.
+*/
+
 class Mouse :public MovingObject {
 public:
 	Mouse(sf::Vector2f position, sf::Texture* texture,

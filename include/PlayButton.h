@@ -3,6 +3,11 @@
 #include "Button.h"
 #include "Game.h"
 
+/*
+	Class PlayButton:
+		The class represents a button in the prime menu.
+*/
+
 
 class PlayButton : public Button{
 public:

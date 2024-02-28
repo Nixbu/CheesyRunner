@@ -4,6 +4,10 @@
 #include "Mouse.h"
 
 
+/*
+	Class Key:
+		The class represents a key in the game.
+*/
 
 class Key : public StaticObject {
 public:

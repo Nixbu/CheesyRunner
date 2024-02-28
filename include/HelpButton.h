@@ -1,7 +1,10 @@
 #pragma once
 
 #include "Button.h"
-
+/*
+	Class HelpButton:
+		The class represents the help button in the prime menu.
+*/
 class HelpButton : public Button {
 public:
 	using Button::Button;

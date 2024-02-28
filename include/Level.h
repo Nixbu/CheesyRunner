@@ -11,6 +11,10 @@
 #include "States.h"
 #include <queue>
 
+/*
+	Class Level:
+		The class represents a level of the game .
+*/
 
 class Level {
 public:
