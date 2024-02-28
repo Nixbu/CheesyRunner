@@ -2,6 +2,10 @@
 
 #include "StaticObject.h"
 
+/*
+	Class BackgroundTile:
+		The class represent a background tile in the level
+*/
 class BackgroundTile : public StaticObject {
 public:
 	using StaticObject::StaticObject;

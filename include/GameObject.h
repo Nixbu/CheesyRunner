@@ -12,6 +12,13 @@ class Key;
 class Gift;
 class Wall;
 
+/*
+	Class GameObject:
+		The class represents an object in the game,
+		with a sprite and the ability to draw it and collide with it etc.
+		The class is abstract.
+*/
+
 class GameObject {
 public:
 	GameObject(sf::Vector2f position, sf::Texture * texture);

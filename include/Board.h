@@ -21,6 +21,11 @@
 #include "LifeGift.h"
 
 
+/*
+	Class Board:
+		The class represents the board of the level, and contains most
+		of the gameObjects 
+*/
 class Board {
 public:
 	Board();

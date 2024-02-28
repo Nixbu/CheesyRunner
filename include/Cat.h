@@ -5,6 +5,11 @@
 #include "Mouse.h";
 #include <iostream>
 
+/*
+	Class Cat:
+		The class represents the cat enemy in the game.
+*/
+
 class Cat : public MovingObject {
 public:
 	Cat(sf::Vector2f position, sf::Texture* texture,

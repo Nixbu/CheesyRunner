@@ -2,6 +2,11 @@
 
 #include "Gift.h"
 
+/*
+	Class FreezeGift:
+		The class represents the gift that freezes the cats in the game.
+*/
+
 class FreezeGift : public Gift {
 public:
 	using Gift::Gift;

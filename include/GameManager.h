@@ -7,6 +7,13 @@
 #include <SFML/Audio.hpp>
 #include "SoundManager.h"
 
+/*
+	Class GameManager:
+		The class manages everything in the program:
+			The main window with the menu,
+			the textures, the sounds and the game
+*/
+
 class GameManager {
 public:
 	GameManager();

@@ -5,6 +5,11 @@
 #include "Mouse.h"
 #include "Cat.h"
 
+/*
+	Class Door:
+		The class represents the door in the game.
+*/
+
 class Door : public StaticObject {
 public:
 	using StaticObject::StaticObject;
