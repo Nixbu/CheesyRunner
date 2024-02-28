@@ -1,13 +1,17 @@
 #include "GameManager.h"
 
+//======================================================
+// ctor
 GameManager::GameManager()
 	: m_textures(), m_sounds() , m_menu(m_textures)
 {
 	this->loadMusic();
 }
-
+//======================================================
+// this function handles the main screan and each button actions
 void GameManager::run()
 {
+	// for the game events
 	srand(time(NULL));
 	sf::Vector2f mousePos;
 
@@ -51,7 +55,8 @@ void GameManager::run()
 
 	}
 }
-
+//======================================================
+// function loads and plays the music and checks if it failes
 void GameManager::loadMusic()
 {
 	if (!m_music.openFromFile("BackgroundMusic.ogg")) {

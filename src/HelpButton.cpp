@@ -1,5 +1,6 @@
 #include "HelpButton.h"
-
+//======================================================
+// function handles 
 void HelpButton::action(sf::RenderWindow* window, 
 	const TextureManager& textures,
 	const SoundManager& sounds)

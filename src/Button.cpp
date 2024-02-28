@@ -1,6 +1,7 @@
 #include "Button.h"
 
 //===================================================================
+// ctor for button 
 Button::Button(sf::Vector2f position, sf::Texture* texture)
 	: m_sprite()
 {
@@ -20,6 +21,7 @@ const sf::Sprite* Button::getSprite() const
 }
 
 //===================================================================
+// function returns true if the button was pressed
 bool Button::isClicked(sf::Vector2f mousePosition) const
 {
 	return this->getSprite()->getGlobalBounds().contains(mousePosition);
@@ -32,18 +34,10 @@ void Button::draw(sf::RenderWindow* window) const
 }
 
 //===================================================================
-////void Button::resize(sf::Vector2f wantedSize)
-//{
-//	this->scale(sf::Vector2f(wantedSize.x / this->getSprite()->getGlobalBounds().width,
-//		wantedSize.y / this->getSprite()->getGlobalBounds().height));
-//}
-
-//===================================================================
 void Button::scale(const sf::Vector2f& values)
 {
 	this->m_sprite.setScale(values);
 }
-
 //===================================================================
 void Button::setPos(const sf::Vector2f& newPos)
 {
