@@ -185,7 +185,6 @@ void Mouse::addScore(const int& score)
 	m_score += score;
 }
 
-void Mouse::handleKeys(float deltaTime)
 void Mouse::handleKeys(float deltaTime,
 	float boardHeight, float boardWidth)
 {
