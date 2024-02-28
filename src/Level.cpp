@@ -194,6 +194,7 @@ void Level::handleDoorCollisions()
 			{
 				m_sounds->playSound(doorSound);
 				m_player->removeKey();
+				this->updateLevelMatrix(m_board.getDoors()[object]);
 				this->m_board.removeDoor(object);
 
 			}
@@ -201,6 +202,14 @@ void Level::handleDoorCollisions()
 		}
 	}
 
+}
+
+void Level::updateLevelMatrix(const std::unique_ptr<Door> & door)
+{ 
+	sf::Vector2i doorMatPos = { static_cast<int>((door->getSprite()->getPosition().x) / TILE_WIDTH),
+		static_cast<int>((door->getSprite()->getPosition().y) / TILE_LENGTH) };
+
+	this->m_levelMatrix[doorMatPos.y][doorMatPos.x] = VALID;
 }
 
 void Level::removeCat()

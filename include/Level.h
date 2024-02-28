@@ -57,4 +57,5 @@ private:
 	void handleCatColisions();
 	void resetMovingObjects();
 	void updateLevelUp(bool& passed);
+	void updateLevelMatrix(const std::unique_ptr<Door> & door);
 };

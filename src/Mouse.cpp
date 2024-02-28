@@ -78,6 +78,8 @@ void Mouse::move(sf::Vector2i direction, float deltaTime,
 	
 }
 
+//=============================================================================
+// The function sets the updated sprite direction
 void Mouse::setSpriteDirection(sf::Vector2i direction)
 {
 	Texture_t wantedTexture;
@@ -105,7 +107,10 @@ void Mouse::setSpriteDirection(sf::Vector2i direction)
 
 }
 
-bool Mouse::checkValidPos(float boardHeight, float boardWidth, float deltaTime, sf::Vector2i direction)
+//=============================================================================
+// The function checkes if the new mouse position is within the board
+bool Mouse::checkValidPos(float boardHeight, float boardWidth, 
+	float deltaTime, sf::Vector2i direction)
 {
 	sf::FloatRect myRec = this->getSprite()->getGlobalBounds();
 
@@ -127,22 +132,26 @@ bool Mouse::checkValidPos(float boardHeight, float boardWidth, float deltaTime, 
 	return false;
 }
 
+//=============================================================================
 void Mouse::draw(sf::RenderWindow* window) const
 {
 	window->draw(*this->getSprite());
 }
 
+//=============================================================================
 void Mouse::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 {
 	// double dispatch
 	gameObject.handleCollision(*this, intersection);
 }
 
+//=============================================================================
 void Mouse::handleCollision(Cheese& gameObject, sf::FloatRect intersection)
 {
 	m_score += CHEESE_SCORE;
 }
 
+//=============================================================================
 void Mouse::handleCollision(Door& gameObject, sf::FloatRect intersection)
 {
 	this->getSprite()->move((-1) * intersection.width * this->getDirection().x,
