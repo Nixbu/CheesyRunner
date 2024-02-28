@@ -16,6 +16,8 @@ To create a new level:
 	1. Add the name of the level to the file LevelPlaylist.txt.
 	2. Create the level file with the same name in "resources".
 	3. Create the level in the file:
+		If you want time limit, put it in the first line, else put -2
+		Then in the next line:
 		The size can be whatever you'd like, but each row and col should be
 		the same size, meaning:
 		if we have a wall, we need to add spaces to the end of this line
@@ -104,11 +106,6 @@ distacneMatrix - The matrix of positions in the board
 ***********************************************************************
 							Algorithms
 ***********************************************************************
-- Cat Movement: Cats choose their movement direction based on the relative
-  position of the mouse, favoring the direction with the maximum difference
-  in row or column.
-- Game Logic: The game checks for collisions, updates scores, and manages
-  player lives based on mouse-cat interactions and the collection of items.
 
 
 ***********************************************************************
