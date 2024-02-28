@@ -1,5 +1,6 @@
 #include "SoundManager.h"
 
+// ctor
 SoundManager::SoundManager()
 {
 	load("keySound.ogg", keySound);
@@ -8,7 +9,7 @@ SoundManager::SoundManager()
 
    
 }
-
+//======================================================
 SoundManager::~SoundManager()
 {
     for (int idx = 0; idx < m_soundBuffers.size(); idx++)
@@ -16,17 +17,17 @@ SoundManager::~SoundManager()
         delete m_soundBuffers[idx];
     }
 }
-
+//======================================================
 sf::SoundBuffer* SoundManager::getSoundBuffer(Sound_t sound) const
 {
     return (sf::SoundBuffer*)&m_sounds[sound];
 }
-
+//======================================================
 void SoundManager::playSound(Sound_t soundNum)
 {
     m_sounds[soundNum].play();
 }
-
+//======================================================
 void SoundManager::load(std::string soundName, Sound_t soundNum)
 {
     sf::SoundBuffer * current = new sf::SoundBuffer;
