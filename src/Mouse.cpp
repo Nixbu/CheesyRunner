@@ -154,6 +154,7 @@ void Mouse::handleCollision(Cheese& gameObject, sf::FloatRect intersection)
 //=============================================================================
 void Mouse::handleCollision(Door& gameObject, sf::FloatRect intersection)
 {
+
 	this->getSprite()->move((-1) * intersection.width * this->getDirection().x,
 		(-1) * intersection.height * this->getDirection().y);
 }
@@ -174,6 +175,17 @@ void Mouse::handleCollision(Wall& gameObject, sf::FloatRect intersection)
 		(-1) * intersection.height * this->getDirection().y);
 }
 
+void Mouse::handleCollision(Gift& gift)
+{
+	m_score += GIFT_SCORE;
+}
+
+void Mouse::addScore(const int& score)
+{
+	m_score += score;
+}
+
+void Mouse::handleKeys(float deltaTime)
 void Mouse::handleKeys(float deltaTime,
 	float boardHeight, float boardWidth)
 {

@@ -1,9 +1,11 @@
 #include "Board.h"
-
+// ctor creates empty board
 Board::Board() :
 	m_width(0), m_length(0)
 {
 }
+//======================================================
+// function reads the board from a text file
 
 void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 	std::vector<std::unique_ptr<Cat>>& cats ,
@@ -11,6 +13,8 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 				int &leveltime,
 	std::vector<std::vector<int>> & boardMatrix)
 {
+
+	// getting level time
 	*levelFile >> leveltime;
 	levelFile->get();
 
@@ -19,6 +23,7 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 	sf::Vector2i pos = { 0 , 0 };
 	sf::Vector2f  currLocation;
 	
+	//for bfs algorithm
 	int tileState;
 
 	//reading line
@@ -43,42 +48,51 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 				mouse->getSprite()->setTexture(*textures->getTexture(mouseFrontTexture));
 				mouse->setInitPos(currLocation);
 				break;
+				//cat
 			case '^':
 				cats.push_back(std::make_unique<Cat>(currLocation + CAT_OFFSET,
 					textures->getTexture(catFrontTexture), CAT_VELOCITY, mouse,
 					textures));
 				break;
-
+			//cheese
 			case '*': 
-				m_gameObjects.push_back(std::make_unique<Cheese>(currLocation ,
-							textures->getTexture(cheeseTexture)));
+				m_gameObjects.push_back(std::make_unique<Cheese>(currLocation,
+					textures->getTexture(cheeseTexture)));
 				break;
+			//door
 			case 'D':
 				m_doors.push_back(std::make_unique<Door>(currLocation,
 					textures->getTexture(doorTexture)));
+				//for bfs algrithm later
 				tileState = INFINIT;
 				break;
+			//key
 			case 'F':
 				m_gameObjects.push_back(std::make_unique<Key>(currLocation,
 					textures->getTexture(keyTexture)));
 				break;
+			//gift
 			case '$':
 				numOfGifts++;
 				genarateGift(numOfGifts , currLocation , textures , leveltime);
 				break;
+			//wall
 			case '#':
 				m_walls.push_back(std::make_unique<Wall>(currLocation,
 					textures->getTexture(wallTexture)));
+				//for bfs algrithm later
 				tileState = INFINIT;
 				break;
 			default:
 				break;
 			}
-			
+			// each time creating background tile
 			m_bgTiles.push_back(std::make_unique<BackgroundTile>(currLocation,
 				textures->getTexture(chooseRandTexture()))); // Get a unique bg tile each time
 			currentLine.push_back(tileState);
 		}
+
+		// creating board matrix for bfs algorithm
 		boardMatrix.push_back(currentLine);
 		pos.y++;
 
@@ -88,7 +102,8 @@ void Board::readBoard(std::ifstream * levelFile , Mouse * mouse ,
 	levelFile->clear();
 	levelFile ->seekg(0, std::ios::beg);
 }
-
+//======================================================
+// function genarates random texture for bg tile
 Texture_t Board::chooseRandTexture()
 {
 	int rndVal = rand() % BG_TILES,
@@ -118,13 +133,15 @@ Texture_t Board::chooseRandTexture()
 
 }
 
-
+//======================================================
+// function genarates random gift
+// if the level dont include time it wont genarate the add time gift
 void Board::genarateGift(int numOfGifts , sf::Vector2f location ,
 	const TextureManager * textures , const int& levelTime)
 {
 
 	int giftType;
-
+	// kill cat gift appears only once
 	if (numOfGifts == KILL_CAT_GIFT)
 	{
 		m_gifts.push_back(std::make_unique<KillCatGift>(location,
@@ -162,22 +179,24 @@ void Board::genarateGift(int numOfGifts , sf::Vector2f location ,
 		}
 	}
 }
-
+//======================================================
+// function remove game object from the board by given index
 void Board::removeObject(int index)
 {
 	m_gameObjects.erase(m_gameObjects.begin() + index);
 }
-
+//======================================================
 void Board::removeGift(int index)
 {
 	m_gifts.erase(m_gifts.begin() + index);
 }
-
+//======================================================
 void Board::removeDoor(int index)
 {
 	m_doors.erase(m_doors.begin() + index);
 }
-
+//======================================================
+// function draws the board
 void Board::draw(sf::RenderWindow * window)
 {
 	for (int idx = 0; idx < m_bgTiles.size(); idx++)
@@ -209,33 +228,32 @@ void Board::draw(sf::RenderWindow * window)
 
 	
 }
-
+//======================================================
 const std::vector<std::unique_ptr<Wall>>& Board::getWalls() const
 {
 	return m_walls;
 }
-
+//======================================================
 const std::vector<std::unique_ptr<GameObject>>& Board::getGameObjects() const
 {
 	return m_gameObjects;
 }
-
+//======================================================
 const std::vector<std::unique_ptr<Door>>& Board::getDoors() const
 {
 	return m_doors;
 }
-
-
+//======================================================
 const std::vector<std::unique_ptr<Gift>>& Board::getGifts() const
 {
 	return m_gifts;
 }
-
+//======================================================
 float Board::getWidth() const
 {
 	return m_width;
 }
-
+//======================================================
 float Board::getHeight() const
 {
 	return m_length;

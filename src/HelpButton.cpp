@@ -1,5 +1,7 @@
 #include "HelpButton.h"
-
+//======================================================
+// function displayes the help screan ,
+// returns to the menu if backspace is presses
 void HelpButton::action(sf::RenderWindow* window, 
 	const TextureManager& textures,
 	const SoundManager& sounds)
@@ -24,7 +26,7 @@ void HelpButton::action(sf::RenderWindow* window,
 		}
 	}
 }
-
+//======================================================
 void HelpButton::handleEvents(sf::RenderWindow* window)
 {
 	for (auto event = sf::Event{}; window->pollEvent(event); )

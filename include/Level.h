@@ -21,9 +21,9 @@ public:
 	virtual ~Level() = default;
 
 	void levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile 
-		, bool &passed , const int& levelnum);
+		, bool &passed , const int& levelnum , bool &exit);
 	void draw(sf::RenderWindow* window);
-	void handleEvents(sf::RenderWindow* window);
+	void handleEvents(sf::RenderWindow* window , bool &exit);
 	void handleAllCollisions(enum Gift_t& giftStatus);
 	void giftsAffect(enum Gift_t& giftStatus , int& catMovement);
 	void moveCats(float deltaTime);
@@ -58,4 +58,5 @@ private:
 	void resetMovingObjects();
 	void updateLevelUp(bool& passed);
 	void updateLevelMatrix(const std::unique_ptr<Door> & door);
+	void updateLevelUpAndScore(bool& passed , const int& catNum);
 };

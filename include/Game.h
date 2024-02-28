@@ -24,4 +24,6 @@ private:
 	TextureManager * m_textures;
 	SoundManager* m_sounds;
 
+	void displayResultScreen(const bool &passed);
+
 };
