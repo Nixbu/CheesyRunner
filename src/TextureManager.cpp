@@ -89,6 +89,12 @@ TextureManager::TextureManager()
 
     load(currentTexture, "clocktexTure.png");
     m_textures.push_back(currentTexture);
+
+    load(currentTexture, "youWon.png");
+    m_textures.push_back(currentTexture);
+
+    load(currentTexture, "youLost.png");
+    m_textures.push_back(currentTexture);
    
 
    

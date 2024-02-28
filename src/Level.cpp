@@ -11,7 +11,7 @@ Level::Level( TextureManager* textures,
 }
 
 void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile ,
-		bool &passed ,const int & levelNum)
+		bool &passed ,const int & levelNum , bool & exit)
 {
 	enum Gift_t giftStatus = noGift;
 	int catMovement = 0 , catNum;
@@ -41,7 +41,7 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile ,
 		}
 
 
-		this->handleEvents(window);
+		this->handleEvents(window , exit);
 
 		this->m_player->handleKeys(deltaTime);
 
@@ -74,14 +74,14 @@ void Level::moveCats(float deltaTime)
 	}
 }
 
-void Level::handleEvents(sf::RenderWindow * window)
+void Level::handleEvents(sf::RenderWindow * window , bool &exit)
 {
 	for (auto event = sf::Event{}; window->pollEvent(event); )
 	{
 		switch (event.type)
 		{
 		case sf::Event::Closed:
-
+			exit = true;
 			window->close();
 			break;
 		}

@@ -33,7 +33,9 @@ enum Texture_t {
 	catLeftTexture,
 	catRightTexture,
 	instructionsTexture,
-	clockTexture
+	clockTexture,
+	youWonTexture,
+	youLostTexture
 };
 
 enum Sound_t {
@@ -102,6 +104,7 @@ NO_TIME = -2,
 GIFT_SCORE = 5,
 DOOR_SCORE = 2,
 LEVEL_UP_SCORE = 25 ,
-CAT_SCORE = 5;
+CAT_SCORE = 5 ,
+DISPLAY_TIME = 3;
 			
 enum AddTime{lowAmount  , midAmount , largeAmount};

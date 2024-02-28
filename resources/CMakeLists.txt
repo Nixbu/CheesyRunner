@@ -23,6 +23,8 @@ configure_file ("catLeft.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("catRight.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("instructions.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("clockTexture.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("youWon.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("youLost.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 
