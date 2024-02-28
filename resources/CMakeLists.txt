@@ -57,6 +57,13 @@ configure_file ("BackgroundMusic.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("keySound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("doorSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("gotHitSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("cheeseSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("lifeGiftSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("timeGiftSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("killCatGiftSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("freezeGiftSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("loseFromTimeSound.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+
 
 
 

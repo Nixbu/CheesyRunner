@@ -34,8 +34,10 @@ void Level::levelLoop(sf::RenderWindow * window , std::ifstream  *levelFile ,
 		
 		window->display();
 
+
 		if (this->m_states.getTimeAsSeconds() > m_level_time && m_level_time != NO_TIME)
 		{
+			this->m_sounds->playSound(loseFromTimeSound);
 			this->m_player->suckSoul();
 			break;
 		}
@@ -226,6 +228,7 @@ void Level::updateLevelMatrix(const std::unique_ptr<Door> & door)
 
 void Level::removeCat()
 {
+	m_sounds->playSound(killCatGiftSound);
 	int cat = (rand() % m_cats.size()) ;
 	m_cats.erase(m_cats.begin() + cat);
 }
@@ -234,6 +237,7 @@ void Level::addPlayerTime()
 {
 	int amount = rand() % AMOUNTS;
 
+	m_sounds->playSound(timeGiftSound);
 	switch (amount)
 	{
 	case lowAmount:
@@ -252,11 +256,13 @@ void Level::addPlayerTime()
 
 void Level::handleFreeze(int &catMovement)
 {
+	m_sounds->playSound(freezeGiftSound);
 	catMovement = m_states.getTimeAsSeconds() + FREEZE_TIME;
 }
 
 void Level::addPlayerLife()
 {
+	m_sounds->playSound(lifeGiftSound);
 	if (this->m_player->getSouls() < SOULS_NUM)
 	{
 		m_player->addSouls(1);

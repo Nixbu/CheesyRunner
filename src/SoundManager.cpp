@@ -5,8 +5,12 @@ SoundManager::SoundManager()
 	load("keySound.ogg", keySound);
     load("doorSound.ogg", doorSound);
     load("gotHitSound.ogg", gotHitSound);
-
-   
+    load("cheeseSound.ogg", cheeseSound);
+    load("lifeGiftSound.ogg", lifeGiftSound);
+    load("timeGiftSound.ogg", timeGiftSound);
+    load("killCatGiftSound.ogg", killCatGiftSound);
+    load("freezeGiftSound.ogg", freezeGiftSound);
+    load("loseFromTimeSound.ogg", loseFromTimeSound);
 }
 
 SoundManager::~SoundManager()

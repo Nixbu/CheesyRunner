@@ -148,6 +148,7 @@ void Mouse::handleCollision(GameObject& gameObject, sf::FloatRect intersection)
 //=============================================================================
 void Mouse::handleCollision(Cheese& gameObject, sf::FloatRect intersection)
 {
+	this->m_sounds->playSound(cheeseSound);
 	m_score += CHEESE_SCORE;
 }
 

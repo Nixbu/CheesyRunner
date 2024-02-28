@@ -41,7 +41,15 @@ enum Texture_t {
 enum Sound_t {
 	keySound = 0,
 	doorSound,
-	gotHitSound
+	gotHitSound,
+	cheeseSound,
+	lifeGiftSound,
+	timeGiftSound,
+	killCatGiftSound,
+	freezeGiftSound,
+	loseFromTimeSound,
+	loseSound,
+	winSound
 };
 
 enum Button_t {
