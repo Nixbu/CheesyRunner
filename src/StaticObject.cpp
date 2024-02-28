@@ -1,5 +1,8 @@
 #include "StaticObject.h"
 
+
+//======================================================
+// ctor
 StaticObject::StaticObject(sf::Vector2f position, sf::Texture* texture) :
 	GameObject(position, texture)
 {

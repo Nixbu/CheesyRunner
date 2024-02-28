@@ -95,10 +95,7 @@ TextureManager::TextureManager()
 
     load(currentTexture, "youLost.png");
     m_textures.push_back(currentTexture);
-   
-
-   
-
+  
 }
 
 //===================================================
