@@ -180,4 +180,7 @@ the wall, we don't know why.
 ***********************************************************************
 							Other Comments
 ***********************************************************************
+All the levels we created are able to run in fullscreen,
+but can also be run not as full screen. If you want to create a new
+level we can not gurantee that it will look good in full screen.
 Enjoy playing!
