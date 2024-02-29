@@ -101,28 +101,83 @@ main.cpp - Main function of the program
 ***********************************************************************
 							Data Structures
 ***********************************************************************
-distacneMatrix - The matrix of positions in the board 
+distacneMatrix - The matrix of positions in the board, used in the
+				 cat movement algorithm
 
 ***********************************************************************
 							Algorithms
 ***********************************************************************
-
+Cat Movement - The cat's movement is determined from this algortihm:
+				We implemented a dynamic programming solution,
+				calaulating the distance matrix from the mouse using
+				the BFS graph algorithm to move breadth-wise on the board
+				from the source - the player.
+				Then, each cat chooses his wanted direction based on
+				choosing the minimal distance to the player from his
+				surrounding up, down, left and right tiles in the matrix.
+				This allows for a quick and efficient movment,
+				while also calculating the distance matrix once every
+				loop.
+Background Tiles - The background of the level is chosen randomly
+					from a given set of tiles, to create a more
+					diverse background.
+Gifts - The gifts in the game are chosen randomly while also maintaining
+		the condition that an "Eliminate cat gift" is only one in a level,
+		and also if there is no time limit in the level, there won't be 
+		"Time gifts".
 
 ***********************************************************************
 							Design
 ***********************************************************************
-- Board: Represents the game board, including the mouse, cats, and cheese.
-- Cat: Represents a cat enemy with movement and drawing capabilities.
-- Game: Controls the overall game flow, including level loading and player input.
-- Location: Simple struct representing a position on the game board.
-- Mouse: Represents the player's mouse with movement, scoring, and life management.
+- Board: Represents the game board, containing the static game objects.
+- Button: Represents a button in the main UI, abstract class.
+- Cat: Represents a cat enemy, inherits from MovingObject.
+- Cheese: A static object representing a cheese in the game,
+			the mouse eats it.
+- Door: A static object representing a door in the game - the mouse can open it
+		if he has keys.
+- ExitButton: A button for exiting the game, inherits from Button.
+- FreezeGift: A gift that freezes the cats for a period of time, inherits from Gift.
+			The mouse can take it.
+- Game: Controls the overall game flow, including level loading and player.
+- GameManager: The class that represents the whole program, including the UI menu,
+				and the ability to start the game, provide textures and sounds,
+				and interact with the buttons.
+- Gift: An abstract class that represents a gift in the game. All gifts inherit
+		from it.
+- Heart: A class for the heart sprite shown in the status bar.
+- HelpButton: A button to get the instructions of the game, inherits from Button.
+- Key: A static object representing a key in the game - the mouse can take it
+		to open doors.
+- KillCatGift: A gift that eliminates one of the cats in the game, the
+				mouse can take it, inherits from Gift.
+- Level: A class that represents level in the game, loading the board, the states,
+		and the cats.
+- LifeGift: A gift that gives the mouse 1 more life. Only up to 3 lives.
+			Inherits from Gift. The player can take it.
+- Menu: The menu containing all the buttons. The user can interact with it.
+- Mouse: Represents the player's mouse with movement, scoring, 
+		and life management.
+- MovingObject: The abstract class represents a moving object, the
+				mouse and the can inherit from it. Inherits from GameObject.
+- PlayButton: A button that by clicking on it initiates the game,
+			 inherits from Button.
+- SoundManager: A class containing the sound assets of the game.
+- States: A class that represents the status bar of the level.
+- StaticObject: An abstract class representing a static object in the game,
+				inherits from GameObject.
+- TextureManager: A class containing the texture assets for the game.
+- TimeGift: A gift that gives the player more time in time limited levels.
+- Wall: A static object in the game representing a wall, the cat and mouse 
+		interact with it.
 
 ***********************************************************************
 							Known Bugs
 ***********************************************************************
-None
+In rare occasions the cat crosses a wall in a digaonal, we don't 
+know why.
 
 ***********************************************************************
 							Other Comments
 ***********************************************************************
-The game has been tested and is working correctly. Enjoy playing!
+Enjoy playing!
