@@ -143,6 +143,8 @@ void Level::handleGiftCollisions(enum Gift_t& giftStatus)
 // function handles colisions with cats
 void Level::handleCatColisions()
 {
+	sf::FloatRect intersection;
+
 	for (int cat = 0; cat < m_cats.size(); cat++)
 	{
 		if (m_player->getSprite()->getGlobalBounds().intersects(m_cats[cat] ->getSprite()

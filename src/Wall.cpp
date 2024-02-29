@@ -22,6 +22,7 @@ void Wall::handleCollision(Door& gameObject, sf::FloatRect intersection)
 //======================================================
 void Wall::handleCollision(Cat& gameObject, sf::FloatRect intersection)
 {
+	gameObject.handleCollision(*this , intersection);
 }
 //======================================================
 void Wall::handleCollision(Key& gameObject, sf::FloatRect intersection)

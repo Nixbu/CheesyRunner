@@ -115,6 +115,8 @@ void Cat::handleCollision(Key& gameObject, sf::FloatRect intersection)
 //======================================================
 void Cat::handleCollision(Wall& gameObject, sf::FloatRect intersection)
 {
+    this->getSprite()->move((-1) * intersection.width * this->getDirection().x,
+        (-1) * intersection.height * this->getDirection().y);
 }
 //======================================================
 // function returns the minimal direction vector - 

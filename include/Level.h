@@ -60,7 +60,6 @@ private:
 	void handleGiftCollisions(enum Gift_t& giftStatus);
 	void handleCatColisions();
 	void resetMovingObjects();
-	void updateLevelUp(bool& passed);
 	void updateLevelMatrix(const std::unique_ptr<Door> & door);
 	void updateLevelUpAndScore(bool& passed , const int& catNum);
 };
