@@ -174,8 +174,8 @@ Gifts - The gifts in the game are chosen randomly while also maintaining
 ***********************************************************************
 							Known Bugs
 ***********************************************************************
-In rare occasions the cat crosses a wall in a digaonal, we don't 
-know why.
+In some occasions the cat is drawn on a wall or moves in a digaonal on
+the wall, we don't know why.
 
 ***********************************************************************
 							Other Comments

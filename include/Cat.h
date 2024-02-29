@@ -2,7 +2,7 @@
 
 #include "MovingObject.h"
 #include "TextureManager.h"
-#include "Mouse.h";
+#include "Mouse.h"
 #include <iostream>
 
 /*

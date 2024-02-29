@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.26)
 
-project (project)
+project (oop1-project)
 set (MY_AUTHORS "nir_busheri-itay_mijan")
 
 include (cmake/CompilerSettings.cmake)
